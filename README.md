@@ -6,7 +6,7 @@ Triply is a streamlined, interactive app designed to simplify trip planning. It 
 
 ### Problem Space
 
-Planning a trip is a juggling act, especially when it involves multiple people. You want to make the most of your budget, but that means managing details like expenses, itineraries, packing lists, and everyone’s preferences. Existing tools either focus on just one part of the process or require heavy customization to meet specific needs, forcing travelers to switch between multiple apps and deal with complicated inputs and cluttered results.
+Planning a trip, especially for groups, involves juggling expenses, itineraries, packing lists, and preferences. Current tools are either too specialized or require heavy customization, forcing travelers to switch between apps.
 
 ### User Profile
 
@@ -20,7 +20,7 @@ Planning a trip is a juggling act, especially when it involves multiple people. 
     -   Plan activities, meals, and lodging within budget limits
     -   Get reminders for payments and avoid surprises through organized expense tracking
     -   Compare prices for activities and services to make informed choices
--   Frequent travelers
+-   Frequent + business travelers
     -   Save reusable itineraries, packing lists, and preferred destinations for future trips
     -   Quickly adapt old trip plans to new destinations or dates
     -   Access a history of past trips for reference and optimization
@@ -30,6 +30,7 @@ Planning a trip is a juggling act, especially when it involves multiple people. 
     -   Coordinate meeting locations and transport logistics for group outdoor activities
     -   Track weather forecasts, outdoor activity options, and safety details
     -   Share event details and coordinate with other participants in real-time
+    -   Integrating safety alerts or location-based details
 
 ### Features
 
@@ -39,9 +40,9 @@ Planning a trip is a juggling act, especially when it involves multiple people. 
 -   Trip Planning
     -   The logged in user can see a summary of their trips on their dahsboard
     -   The logged in user can create a new trip, outlining the parameters of the trip
-    -   The logged in user can create, remove or modify itinerary items
-    -   The logged in user can create, remove or modify lists
-    -   The logged in user can create, remove or modify list items
+    -   The logged in user can manage trips with itineraries
+    -   The logged in user can manage trips with lists
+    -   The logged in user can manage trips with collaborative editing
 
 ## Implementation
 
@@ -51,20 +52,25 @@ Planning a trip is a juggling act, especially when it involves multiple people. 
 -   MySQL
 -   Express
 -   Thunder Client
--   Client libraries:
-    -   react
-    -   react-router
-    -   sass
-    -   axios
-    -   react-big-calendar
--   Server libraries:
-    -   knex
-    -   express
-    -   dotenv
-    -   cors
-    -   uuid
-    -   bcrypt
-    -   jsonwebtoken
+-   Essential:
+    -   Client libraries:
+        -   react
+        -   react-router
+        -   sass
+        -   axios
+        -   react-big-calendar
+    -   Server libraries:
+        -   knex
+        -   express
+        -   dotenv
+        -   cors
+        -   uuid
+-   Future:
+    -   Client libraries:
+        -   dotenv
+    -   Server libraries:
+        -   bcrypt
+        -   jsonwebtoken
 
 ### APIs
 
@@ -76,7 +82,7 @@ Planning a trip is a juggling act, especially when it involves multiple people. 
 -   Register
 -   Login
 -   User dashboard
--   Trip initialization
+-   New Trip Setup
 -   Trip itinerary
 -   Trip lists
 
@@ -117,6 +123,18 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 ![](/assets/mockups/sql-diagram.png)
 
 ### Endpoints
+
+#### API Errors
+
+-   This API may return a 400 or 404 Errors
+
+Response:
+
+```
+{
+    "error": "User not found"
+}
+```
 
 #### User Endpoints
 
@@ -231,7 +249,7 @@ Response:
 ]
 ```
 
-**PUT `/api/trips/:tripId`**
+**PATCH `/api/trips/:tripId`**
 
 -   Update a trips details
 -   Only the specified fields will be updated
@@ -336,7 +354,7 @@ Response:
 ]
 ```
 
-**PUT `/api/itineraries/:itineraryId`**
+**PATCH `/api/itineraries/:itineraryId`**
 
 -   Update an itinerary item details
 -   No POST body expected
@@ -419,7 +437,7 @@ Response:
 ]
 ```
 
-**PUT `/api/lists/:listId`**
+**PATCH `/api/lists/:listId`**
 
 -   Update a lists details
 -   No POST body expected
@@ -472,14 +490,14 @@ Response:
 {
     "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4"
     "listId": "b79a3c07-8682-4ab6-aff2-92ebb4bbfc14",
-    "items": "Toothbrush",
+    "item": "Toothbrush",
     "description": "Don't forget to charge your toothbrush!",
     "status": 1,
     "category": "Toiletries"
 }
 ```
 
-**GET `/api/lists/:tripId/items`**
+**GET `/api/lists/:listId/items`**
 
 -   Retrieve all list items for a list
 
@@ -506,7 +524,7 @@ Response:
 ]
 ```
 
-**PUT `/api/lists/:listId/items/:itemId`**
+**PATCH `/api/lists/:listId/items/:itemId`**
 
 -   Update a list items details
 -   No POST body expected
@@ -517,7 +535,7 @@ Response:
 {
     "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4"
     "listId": "b79a3c07-8682-4ab6-aff2-92ebb4bbfc14",
-    "items": "Toothbrush",
+    "item": "Toothbrush",
     "description": "Don't forget to charge your toothbrush!",
     "status": 2,
     "category": "Toiletries"
@@ -534,7 +552,7 @@ Response:
 {
     "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4"
     "listId": "b79a3c07-8682-4ab6-aff2-92ebb4bbfc14",
-    "items": "Toothbrush",
+    "item": "Toothbrush",
     "description": "Don't forget to charge your toothbrush!",
     "status": 2,
     "category": "Toiletries"
@@ -550,7 +568,7 @@ Response:
         -   Users
         -   Trips
         -   Itineraries
-        -   Packing/Shared Lists
+        -   Lists
     -   [ ] Test database connection using dummy data
 -   **Nov 20: Backend Routes**
     -   [ ] Implement CRUD routes for Trips:
@@ -559,6 +577,8 @@ Response:
         -   Update trip details
         -   Delete a trip
     -   [ ] Test API routes using Postman or similar tools
+-   **Nov 21: No Work**
+    Hackathon
 -   **Nov 22: Backend Routes Continued**
     -   [ ] Add CRUD routes for Itinerary Items:
         -   Create, read, update, delete itinerary events
@@ -592,7 +612,7 @@ Response:
     -   [ ] Develop the Packing/Shared List:
         -   Add form for managing items
         -   Implement backend CRUD functionality for lists
--   **Nov 28: Buffer Day**
+-   **Nov 27: Buffer Day**
     Add any incomplete work below and use this day to complete loose ends:
     -   [ ] ...
 -   **Nov 28: Testing and Polishing**
@@ -611,17 +631,20 @@ Response:
 
 ## Future Implementations
 
--   Preset lists to use as a basepoint depending on the type of trip
--   Reminders
--   Sharing trips with other users
--   Shared expense tracking
--   Forward confirmation emails to automatically add to itinerary
--   Dashboard
-    -   Upcoming tasks
-    -   Progress indicators for lists
--   Map integration
-    -   Ensure the destination provided by a user is a valid city, country, or place with geocoding API
-    -   View all locations in itinerary on a map
-    -   Filter by day, or by location
--   Brainstorming page
-    -   Add text and links to collaboratively brainstorm itinerary details
+-   Utility Features: Preset lists, reminders, sharing trips
+-   Expense Tracking: Expense splitting and payment reminders
+-   Collaboration: Shared brainstorming and itinerary adjustments
+-   Dashboard Insights: Task progress, upcoming reminders
+-   Integration with email parsing to auto-add itinerary items from booking confirmations
+-   Geocoding API inntegration:
+    -   Validate user-provided destinations (city, country, or specific location)
+    -   Offer auto-complete suggestions while typing to reduce errors.
+-   Interactive map views:
+    -   Display all itinerary locations on an interactive map for better visualization
+    -   Highlight key points (e.g., lodging, activity spots) with color-coded markers
+-   Filtering options:
+
+    -   Filter map locations by specific days or activity categories (e.g., restaurants, landmarks)
+    -   Group nearby locations for convenience during daily planning
+
+-   Security Features: Include secure handling of user data with hashing (bcrypt) and authentication (JWT)
