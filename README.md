@@ -258,7 +258,7 @@ Parameters:
 
 ```
 {
-    "destination": "Candy Kingdom",
+    "destination": "Candy Kingdom"
 }
 ```
 
@@ -488,7 +488,7 @@ Response:
 
 ```
 {
-    "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4"
+    "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4",
     "listId": "b79a3c07-8682-4ab6-aff2-92ebb4bbfc14",
     "item": "Toothbrush",
     "description": "Don't forget to charge your toothbrush!",
@@ -533,7 +533,7 @@ Response:
 
 ```
 {
-    "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4"
+    "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4",
     "listId": "b79a3c07-8682-4ab6-aff2-92ebb4bbfc14",
     "item": "Toothbrush",
     "description": "Don't forget to charge your toothbrush!",
@@ -550,7 +550,7 @@ Response:
 
 ```
 {
-    "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4"
+    "id": "e0eea5f0-0f8c-4b54-9fc4-ff50843766d4",
     "listId": "b79a3c07-8682-4ab6-aff2-92ebb4bbfc14",
     "item": "Toothbrush",
     "description": "Don't forget to charge your toothbrush!",
@@ -636,15 +636,13 @@ Response:
 -   Collaboration: Shared brainstorming and itinerary adjustments
 -   Dashboard Insights: Task progress, upcoming reminders
 -   Integration with email parsing to auto-add itinerary items from booking confirmations
--   Geocoding API inntegration:
+-   Geocoding API integration:
     -   Validate user-provided destinations (city, country, or specific location)
     -   Offer auto-complete suggestions while typing to reduce errors.
--   Interactive map views:
-    -   Display all itinerary locations on an interactive map for better visualization
-    -   Highlight key points (e.g., lodging, activity spots) with color-coded markers
--   Filtering options:
-
-    -   Filter map locations by specific days or activity categories (e.g., restaurants, landmarks)
-    -   Group nearby locations for convenience during daily planning
-
+    -   Interactive map views:
+        -   Display all itinerary locations on an interactive map for better visualization
+        -   Highlight key points (e.g., lodging, activity spots) with color-coded markers
+    -   Filtering options:
+        -   Filter map locations by specific days or activity categories (e.g., restaurants, landmarks)
+        -   Group nearby locations for convenience during daily planning
 -   Security Features: Include secure handling of user data with hashing (bcrypt) and authentication (JWT)
