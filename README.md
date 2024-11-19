@@ -84,13 +84,39 @@ Planning a trip is a juggling act, especially when it involves multiple people. 
 
 Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
 
+#### Home Page
+
+![](/assets/mockups/1.0-HOME.png)
+
+#### Register Page
+
+![](/assets/mockups/2.0-REGISTER.png)
+
+#### Login Page
+
+![](/assets/mockups/3.0-LOGIN.png)
+
+#### Dashboard Page
+
+![](/assets/mockups/4.0-DASHBOARD.png)
+
+#### New Trip Page
+
+![](/assets/mockups/5.0-NEW-TRIP.png)
+
+#### Itinerary Page
+
+![](/assets/mockups/6.0-ITINERARY.png)
+
+#### Checklist Page
+
+![](/assets/mockups/7.0-CHECKLIST.png)
+
 ### Data
 
-Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out.
+![](/assets/mockups/sql-diagram.png)
 
 ### Endpoints
-
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
 #### User Endpoints
 
