@@ -92,31 +92,31 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 #### Home Page
 
-![](/assets/mockups/1.0-HOME.png)
+![](/src/assets/mockups/1.0-HOME.png)
 
 #### Register Page
 
-![](/assets/mockups/2.0-REGISTER.png)
+![](/src/assets/mockups/2.0-REGISTER.png)
 
 #### Login Page
 
-![](/assets/mockups/3.0-LOGIN.png)
+![](/src/assets/mockups/3.0-LOGIN.png)
 
 #### Dashboard Page
 
-![](/assets/mockups/4.0-DASHBOARD.png)
+![](/src/assets/mockups/4.0-DASHBOARD.png)
 
 #### New Trip Page
 
-![](/assets/mockups/5.0-NEW-TRIP.png)
+![](/src/assets/mockups/5.0-NEW-TRIP.png)
 
 #### Itinerary Page
 
-![](/assets/mockups/6.0-ITINERARY.png)
+![](/src/assets/mockups/6.0-ITINERARY.png)
 
 #### Checklist Page
 
-![](/assets/mockups/7.0-CHECKLIST.png)
+![](/src/assets/mockups/7.0-CHECKLIST.png)
 
 ### Data
 
