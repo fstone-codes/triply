@@ -562,38 +562,40 @@ Response:
 ## Roadmap
 
 -   **Nov 19: Backend Setup**
-    -   [ ] Initialize the `Express` server
-    -   [ ] Set up `MySQL` database connection
-    -   [ ] Create database schema for key entities:
+    -   [x] Initialize React app using `Vite`
+    -   [x] Initialize the `Express` server
+    -   [x] Set up `MySQL` database connection
+    -   [x] Create database schema for key entities:
         -   Users
         -   Trips
         -   Itineraries
         -   Lists
-    -   [ ] Test database connection using dummy data
+    -   [x] Test database connection using dummy data
 -   **Nov 20: Backend Routes**
     -   [ ] Implement CRUD routes for Trips:
         -   Create a trip
         -   Retrieve trips by user
         -   Update trip details
         -   Delete a trip
+    -   [ ] Add CRUD routes for Itinerary Items:
+        -   Create, read, update, delete itinerary events
     -   [ ] Test API routes using Postman or similar tools
 -   **Nov 21: No Work**
     Hackathon
 -   **Nov 22: Backend Routes Continued**
-    -   [ ] Add CRUD routes for Itinerary Items:
-        -   Create, read, update, delete itinerary events
-    -   [ ] Add CRUD routes for Packing/Shared Lists:
+    -   [ ] Add CRUD routes for Lists:
+        -   Create, read, update, delete lists
+    -   [ ] Add CRUD routes for List Items:
         -   Create, read, update, delete list items
     -   [ ] Perform comprehensive endpoint testing
 -   **Nov 23: Frontend Setup**
-    -   [ ] Initialize React app using `Vite` or `Create React App`.
     -   [ ] Set up routing with react-router-dom:
         -   Home
         -   Dashboard
         -   Trip Initialization
         -   Itinerary
         -   Lists
-    -   Login/Registration (_basic structure only_)
+    -   [ ] Login/Registration (_basic structure only_)
 -   **Nov 24: Frontend Components**
     -   [ ] Create reusable components:
         -   Header, Footer, and Navigation Bar
@@ -607,9 +609,9 @@ Response:
     -   [ ] Add trip creation form, connecting it to the backend for saving new trips
 -   **Nov 26: Frontend Integration (Itinerary & Lists)**
     -   [ ] Build and integrate the Itinerary View:
-        -   Use `react-big-calendar` or `FullCalendar`
+        -   Use `react-big-calendar`
         -   Populate calendar with sample data fetched from the backend.
-    -   [ ] Develop the Packing/Shared List:
+    -   [ ] Develop the List + List Items:
         -   Add form for managing items
         -   Implement backend CRUD functionality for lists
 -   **Nov 27: Buffer Day**
@@ -621,6 +623,7 @@ Response:
     -   [ ] Enhance UI consistency with basic Sass styling
 -   **Nov 29: Final Touches**
     -   [ ] Prepare a working demo with sample data for presentation
+    -   [ ] Update frontend `README` file with actual data diagram and endpoints
     -   [ ] Write a `README` file with setup instructions and functionality overview
 -   **Nov 30: Presentation Preparation**
     -   [ ] Verify data flow and ensure features are functional
