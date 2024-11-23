@@ -1,0 +1,44 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./typography" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,600;1,800&display=swap");
+
+// RESETS
+* {
+    box-sizing: border-box;
+}
+
+a,
+body,
+button,
+div,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+header,
+html,
+img,
+input,
+li,
+p,
+section,
+span,
+textarea,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+// GLOBAL GENERAL
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    @include font-body;
+}
+
+::placeholder {
+    color: $primary-color-black;
+}
