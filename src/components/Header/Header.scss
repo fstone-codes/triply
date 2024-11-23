@@ -1,0 +1,44 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+    @include flexbox(unset, space-between, flex-start);
+    padding: $spacing-sm;
+
+    &--purple {
+        background-color: $primary-color-main;
+    }
+
+    &--grey {
+        background-color: $primary-color-grey;
+    }
+
+    @include tablet {
+        @include flexbox(unset, space-between, center);
+        padding: $spacing-sm $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-sm $spacing-xxlg;
+    }
+
+    &__logo-container {
+        @include flexbox(unset, center, center);
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: $transparent-color-black-10;
+    }
+
+    &__logo-full {
+        width: 7.625rem;
+    }
+
+    &__logo-icon {
+        width: 1.75rem;
+    }
+
+    &__avatar {
+        height: 2.5rem;
+    }
+}
