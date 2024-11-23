@@ -120,7 +120,7 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 ### Data
 
-![](/assets/mockups/sql-diagram.png)
+![](/src/assets/mockups/sql-diagram.png)
 
 ### Endpoints
 
@@ -572,34 +572,37 @@ Response:
         -   Lists
     -   [x] Test database connection using dummy data
 -   **Nov 20: Backend Routes**
-    -   [ ] Implement CRUD routes for Trips:
+    -   [x] Implement CRUD routes for Trips:
         -   Create a trip
         -   Retrieve trips by user
         -   Update trip details
         -   Delete a trip
-    -   [ ] Add CRUD routes for Itinerary Items:
+    -   [x] Add CRUD routes for Itinerary Items:
         -   Create, read, update, delete itinerary events
-    -   [ ] Test API routes using Postman or similar tools
+    -   [x] Test API routes using Postman or similar tools
 -   **Nov 21: No Work**
     Hackathon
+    -   [x] Ask for help validating patch for trips route
 -   **Nov 22: Backend Routes Continued**
-    -   [ ] Add CRUD routes for Lists:
+    -   [x] Add CRUD routes for Lists:
         -   Create, read, update, delete lists
-    -   [ ] Add CRUD routes for List Items:
+    -   [x] Add CRUD routes for List Items:
         -   Create, read, update, delete list items
-    -   [ ] Perform comprehensive endpoint testing
+    -   [x] Refactor update endpoints to PUT
 -   **Nov 23: Frontend Setup**
-    -   [ ] Set up routing with react-router-dom:
+    -   [ ] Perform comprehensive endpoint testing
+    -   [ ] Clean up backend files (check in chatGPT)
+    -   [x] Set up routing with react-router-dom:
         -   Home
         -   Dashboard
         -   Trip Initialization
         -   Itinerary
         -   Lists
-    -   [ ] Login/Registration (_basic structure only_)
--   **Nov 24: Frontend Components**
     -   [ ] Create reusable components:
         -   Header, Footer, and Navigation Bar
         -   Cards for displaying trip summaries
+-   **Nov 24: Frontend Components**
+    -   [ ] Login/Registration (_basic structure only_)
     -   [ ] Build UI for Home Page and Dashboard:
         -   Include static content placeholders
 -   **Nov 25: Frontend Integration (Dashboard & Trips)**
@@ -616,7 +619,8 @@ Response:
         -   Implement backend CRUD functionality for lists
 -   **Nov 27: Buffer Day**
     Add any incomplete work below and use this day to complete loose ends:
-    -   [ ] ...
+    -   [ ] Create PATCH requests on backend for all routes
+    -   [ ] Use join on the backend for GET all to consolidate
 -   **Nov 28: Testing and Polishing**
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic
