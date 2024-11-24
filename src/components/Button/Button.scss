@@ -4,7 +4,7 @@
 .button {
     @include flexbox(unset, center, center);
     border: none;
-    border-radius: 4px;
+    border-radius: 1rem;
     padding: 0.25rem 1rem;
     width: 100%;
     cursor: pointer;

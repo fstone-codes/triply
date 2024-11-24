@@ -12,17 +12,17 @@ function Home() {
                 <img className="home__logo-text" src={logoText} alt="triply logo text" />
                 <div className="home__button-container">
                     <Button
-                        onClick={() => {
-                            navigate("/register");
-                        }}
+                        // onClick={() => {
+                        //     navigate("/register");
+                        // }}
                         classType="secondary"
                         type="button"
                         text="Sign Up"
                     />
                     <Button
-                        onClick={() => {
-                            navigate("/login");
-                        }}
+                        // onClick={() => {
+                        //     navigate("/login");
+                        // }}
                         classType="primary"
                         type="button"
                         text="Login"

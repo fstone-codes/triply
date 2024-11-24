@@ -590,37 +590,37 @@ Response:
         -   Create, read, update, delete list items
     -   [x] Refactor update endpoints to PUT
 -   **Nov 23: Frontend Setup**
-    -   [ ] Perform comprehensive endpoint testing
-    -   [ ] Clean up backend files (check in chatGPT)
     -   [x] Set up routing with react-router-dom:
         -   Home
         -   Dashboard
         -   Trip Initialization
         -   Itinerary
         -   Lists
-    -   [ ] Create reusable components:
+    -   [x] Create reusable components:
         -   Header, Footer, and Navigation Bar
         -   Cards for displaying trip summaries
--   **Nov 24: Frontend Components**
-    -   [ ] Login/Registration (_basic structure only_)
-    -   [ ] Build UI for Home Page and Dashboard:
-        -   Include static content placeholders
--   **Nov 25: Frontend Integration (Dashboard & Trips)**
-    -   [ ] Connect the Dashboard to the backend:
-        -   Fetch and display user trips
-        -   Implement countdown to the first upcoming trip
-    -   [ ] Add trip creation form, connecting it to the backend for saving new trips
--   **Nov 26: Frontend Integration (Itinerary & Lists)**
+    -   [x] Build UI for Home Page
+-   **Nov 24: Frontend Integration (Itinerary & Lists)**
     -   [ ] Build and integrate the Itinerary View:
         -   Use `react-big-calendar`
         -   Populate calendar with sample data fetched from the backend.
     -   [ ] Develop the List + List Items:
         -   Add form for managing items
         -   Implement backend CRUD functionality for lists
+-   **Nov 25: Frontend Integration (Dashboard & Trips)**
+    -   [ ] Connect the Dashboard to the backend:
+        -   Fetch and display user trips
+        -   Implement countdown to the first upcoming trip
+    -   [ ] Add trip creation form, connecting it to the backend for saving new trips
+-   **Nov 26: Frontend Components**
+    -   [ ] Login/Registration (_basic structure only_)
+    -   [ ] Build UI for Dashboard:
+        -   Include static content placeholders
 -   **Nov 27: Buffer Day**
     Add any incomplete work below and use this day to complete loose ends:
-    -   [ ] Create PATCH requests on backend for all routes
-    -   [ ] Use join on the backend for GET all to consolidate
+    -   [ ] Perform comprehensive endpoint testing
+    -   [ ] Clean up backend files (check in chatGPT)
+        -   Use day.js to validate dates/times (implemented for itineraries controller already)
 -   **Nov 28: Testing and Polishing**
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic

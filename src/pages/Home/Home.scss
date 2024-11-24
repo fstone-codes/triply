@@ -47,7 +47,7 @@ $amount: 20;
 .home {
     position: relative;
     @include flexbox(column, center, flex-end);
-    padding: $spacing-sm $spacing-sm;
+    padding: $spacing-sm;
     width: 100vw;
     height: 100vh;
     background: $primary-color-main;
