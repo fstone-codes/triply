@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.category {
+    @include font-subheader;
+
+    &__list {
+        list-style-type: none;
+    }
+
+    &__text {
+        @include font-body;
+    }
+}

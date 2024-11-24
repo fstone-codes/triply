@@ -34,6 +34,18 @@
     }
 }
 
+@mixin font-subheader($color: $primary-color-black, $font-weight: $font-weight-bold) {
+    color: $color;
+    font-size: $font-size-large;
+    font-weight: $font-weight;
+    line-height: 2rem;
+
+    @include tablet {
+        font-size: $font-size-dt-large;
+        line-height: 2.75rem;
+    }
+}
+
 @mixin font-body($color: $primary-color-black, $font-weight: $font-weight-regular) {
     color: $color;
     font-size: $font-size-body;

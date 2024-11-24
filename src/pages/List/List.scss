@@ -1,0 +1,26 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.trip-list {
+    padding: $spacing-sm;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-grey;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__container {
+        background-color: $primary-color-main;
+    }
+
+    &__list {
+        @include flexbox(unset, unset, unset);
+        list-style-type: none;
+    }
+}

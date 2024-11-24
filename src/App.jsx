@@ -22,7 +22,7 @@ function App() {
                 <Route path="/trip/setup" element={<TripSetup />} />
                 <Route path="/trip/:tripId" element={<TripDetails />} />
                 <Route path="/itinerary/:tripId" element={<Itinerary />} />
-                <Route path="/list/:tripId" element={<List />} />
+                <Route path="/trip/:tripId/list/:listId" element={<List />} />
             </Routes>
         </BrowserRouter>
     );

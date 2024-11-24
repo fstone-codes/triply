@@ -44,8 +44,6 @@ function Itinerary() {
         }
     };
 
-    console.log(currentTrip);
-
     useEffect(() => {
         getSingleTrip();
     }, [tripId]);
@@ -54,7 +52,7 @@ function Itinerary() {
         getItineraries();
     }, []);
 
-    if (!itineraries) {
+    if (!currentTrip || !itineraries) {
         return <div>Loading trip itinerary...</div>;
     }
 

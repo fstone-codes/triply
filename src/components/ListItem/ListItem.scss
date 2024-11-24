@@ -1,0 +1,12 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-item {
+    @include font-body;
+
+    // &__checkbox {
+    // }
+
+    // &__item {
+    // }
+}
