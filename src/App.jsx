@@ -15,14 +15,14 @@ function App() {
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route path="/" element={Home} />
-                <Route path="/register" element={Register} />
-                <Route path="/login" element={Login} />
-                <Route path="/dashboard" element={Dashboard} />
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/trip/setup" element={<TripSetup />} />
-                <Route path="/trip/:tripId" element={TripDetails} />
-                <Route path="/itinerary/:tripId" element={Itinerary} />
-                <Route path="/list/:tripId" element={List} />
+                <Route path="/trip/:tripId" element={<TripDetails />} />
+                <Route path="/itinerary/:tripId" element={<Itinerary />} />
+                <Route path="/list/:tripId" element={<List />} />
             </Routes>
         </BrowserRouter>
     );

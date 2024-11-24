@@ -46,10 +46,10 @@
     }
 }
 
-@mixin font-label($color: $primary-color-black) {
+@mixin font-label($color: $primary-color-black, $font-weight: $font-weight-demi) {
     color: $color;
     font-size: $font-size-body;
-    font-weight: $font-weight-demi;
+    font-weight: $font-weight;
     line-height: 1.25rem;
 
     @include tablet {

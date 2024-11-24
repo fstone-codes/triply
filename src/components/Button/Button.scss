@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.button {
+    @include flexbox(unset, center, center);
+    border: none;
+    border-radius: 4px;
+    padding: 0.25rem 1rem;
+    width: 100%;
+    cursor: pointer;
+
+    &--primary {
+        background-color: $primary-color-black;
+        @include font-label($primary-color-grey, $font-weight-regular);
+    }
+
+    &--secondary {
+        background: none;
+        @include font-label($primary-color-black, $font-weight-regular);
+    }
+}

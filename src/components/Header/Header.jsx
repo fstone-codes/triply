@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logoFull from "../../assets/logos/triply-logo-full-light.svg";
 import logoIcon from "../../assets/logos/triply-logo-icon-light.svg";
-import logoText from "../../assets/logos/triply-logo-text-light.svg";
 import avatar from "../../assets/images/avatar.png";
 
 function Header() {
