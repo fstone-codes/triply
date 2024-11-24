@@ -1,6 +1,5 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
-@use "react-big-calendar/lib/sass/styles";
 
 .itinerary {
     padding: $spacing-sm;
@@ -15,8 +14,4 @@
     @include desktop {
         padding: $spacing-lg $spacing-xxlg;
     }
-}
-
-.calendar {
-    height: 80vh;
 }

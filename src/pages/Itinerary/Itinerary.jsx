@@ -1,11 +1,10 @@
 import "./Itinerary.scss";
 import { useParams } from "react-router-dom";
-import { Calendar } from "react-big-calendar";
-import djLocalizer from "../../utils/dayjsLocalizer.js";
 import { baseUrl } from "../../utils/utils.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
+import ItineraryCalendar from "../../components/ItineraryCalendar/ItineraryCalendar.jsx";
 
 function Itinerary() {
     const [currentTrip, setCurrentTrip] = useState(null);
@@ -16,7 +15,13 @@ function Itinerary() {
         try {
             const { data } = await axios.get(`${baseUrl}/api/trips/${tripId}`);
 
-            setCurrentTrip(data);
+            const parsedTrip = {
+                ...data,
+                start_date: dayjs(data.start_date).toDate(),
+                end_date: dayjs(data.end_date).toDate(),
+            };
+
+            setCurrentTrip(parsedTrip);
         } catch (error) {
             console.error("Error fetching trip:", error);
         }
@@ -30,6 +35,7 @@ function Itinerary() {
                 ...event,
                 start: dayjs(event.start).toDate(),
                 end: dayjs(event.end).toDate(),
+                allDay: event.all_day,
             }));
 
             setItineraries(parsedEvents);
@@ -37,6 +43,8 @@ function Itinerary() {
             console.error("Error fetching itineraries:", error);
         }
     };
+
+    console.log(currentTrip);
 
     useEffect(() => {
         getSingleTrip();
@@ -46,22 +54,13 @@ function Itinerary() {
         getItineraries();
     }, []);
 
-    if (!currentTrip || !itineraries) {
+    if (!itineraries) {
         return <div>Loading trip itinerary...</div>;
     }
 
     return (
         <main className="itinerary">
-            <div className="calendar">
-                <Calendar
-                    localizer={djLocalizer}
-                    events={itineraries}
-                    startAccessor="start"
-                    endAccessor="end"
-                    showMultiDayTimes
-                    step={60}
-                />
-            </div>
+            <ItineraryCalendar itineraries={itineraries} defaultDate={currentTrip.start_date} />
         </main>
     );
 }

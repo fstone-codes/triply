@@ -1,0 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "react-big-calendar/lib/sass/styles";
+
+.calendar {
+    height: 80vh;
+}
