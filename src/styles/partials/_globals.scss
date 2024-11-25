@@ -42,3 +42,8 @@ body {
 ::-webkit-datetime-edit {
     color: $transparent-color-black-50;
 }
+
+#root {
+    @include flexbox(column, unset, unset);
+    height: 100vh;
+}

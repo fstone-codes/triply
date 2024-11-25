@@ -1,7 +1,7 @@
 import "./TripDetails.scss";
 
-function Trip() {
-    return <div>Trip</div>;
+function TripDetails() {
+    return <div>Trip Details</div>;
 }
 
-export default Trip;
+export default TripDetails;
