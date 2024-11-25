@@ -601,17 +601,24 @@ Response:
         -   Cards for displaying trip summaries
     -   [x] Build UI for Home Page
 -   **Nov 24: Frontend Integration (Itinerary & Lists)**
-    -   [ ] Build and integrate the Itinerary View:
+    -   [x] Build and integrate the Itinerary View:
         -   Use `react-big-calendar`
         -   Populate calendar with sample data fetched from the backend.
-    -   [ ] Develop the List + List Items:
-        -   Add form for managing items
+    -   [x] Develop the List + List Items:
         -   Implement backend CRUD functionality for lists
--   **Nov 25: Frontend Integration (Dashboard & Trips)**
-    -   [ ] Connect the Dashboard to the backend:
-        -   Fetch and display user trips
-        -   Implement countdown to the first upcoming trip
-    -   [ ] Add trip creation form, connecting it to the backend for saving new trips
+-   **Nov 25: Frontend Integration**
+    -   [ ] Trips
+        -   Add form for creating/editing trips
+            -   Route completed form to itinerary
+    -   [ ] Itineraries
+        -   Add form for creating/editing itineraries
+            -   Route completed form to itinerary
+    -   [ ] Lists
+        -   Add form for creating/editing lists
+            -   Route completed form to list
+        -   Add form for creating/editing items
+            -   Route completed form to list
+    -   [ ] Create navigation component
 -   **Nov 26: Frontend Components**
     -   [ ] Login/Registration (_basic structure only_)
     -   [ ] Build UI for Dashboard:
@@ -621,6 +628,9 @@ Response:
     -   [ ] Perform comprehensive endpoint testing
     -   [ ] Clean up backend files (check in chatGPT)
         -   Use day.js to validate dates/times (implemented for itineraries controller already)
+    -   [ ] Connect the Dashboard to the backend:
+        -   Fetch and display user trips
+        -   Implement countdown to the first upcoming trip
 -   **Nov 28: Testing and Polishing**
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic

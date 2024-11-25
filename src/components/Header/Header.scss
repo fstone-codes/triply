@@ -4,6 +4,7 @@
 .header {
     @include flexbox(unset, space-between, flex-start);
     padding: $spacing-sm;
+    width: 100vw;
 
     &--purple {
         background-color: $primary-color-main;

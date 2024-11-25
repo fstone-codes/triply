@@ -21,7 +21,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/trip/setup" element={<TripSetup />} />
                 <Route path="/trip/:tripId" element={<TripDetails />} />
-                <Route path="/itinerary/:tripId" element={<Itinerary />} />
+                <Route path="/trip/:tripId/itinerary" element={<Itinerary />} />
                 <Route path="/trip/:tripId/list/:listId" element={<List />} />
             </Routes>
         </BrowserRouter>

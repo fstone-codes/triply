@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.trip-setup {
+    padding: $spacing-sm;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-grey;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__form {
+        border-radius: 3rem;
+        padding: $spacing-lg $spacing-med;
+        height: 100%;
+        background-color: $primary-color-main;
+    }
+
+    &__title {
+        margin-bottom: $spacing-sm;
+        @include font-header;
+    }
+}

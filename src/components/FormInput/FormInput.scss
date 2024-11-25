@@ -1,0 +1,28 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-input {
+    @include flexbox(column, unset, unset);
+    gap: $spacing-xsm;
+    margin-bottom: $spacing-sm;
+
+    &__label {
+        @include font-label;
+    }
+
+    &__input {
+        border: none;
+        border-radius: 3.125rem;
+        padding: $spacing-xsm $spacing-sm;
+        background-color: $transparent-color-white-50;
+        font-family: "Poppins", Arial, sans-serif;
+        @include font-body;
+        outline: none;
+
+        // &--text {
+        // }
+
+        // &--date {
+        // }
+    }
+}
