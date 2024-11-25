@@ -38,6 +38,7 @@ body {
     @include font-body;
 }
 
-::placeholder {
+::placeholder,
+::-webkit-datetime-edit {
     color: $transparent-color-black-50;
 }

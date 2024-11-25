@@ -625,6 +625,7 @@ Response:
         -   Include static content placeholders
 -   **Nov 27: Buffer Day**
     Add any incomplete work below and use this day to complete loose ends:
+    -   [ ] Add error message to forms
     -   [ ] Perform comprehensive endpoint testing
     -   [ ] Clean up backend files (check in chatGPT)
         -   Use day.js to validate dates/times (implemented for itineraries controller already)

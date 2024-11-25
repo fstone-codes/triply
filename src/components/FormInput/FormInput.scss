@@ -22,7 +22,10 @@
         // &--text {
         // }
 
-        // &--date {
-        // }
+        &--date {
+            &::-webkit-datetime-edit {
+                color: $primary-color-black;
+            }
+        }
     }
 }
