@@ -1,12 +1,11 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-html,
-body {
+html.home,
+body.home {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    // height: 100%;
 }
 
 $particleSize: 5vmin;

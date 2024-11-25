@@ -2,15 +2,11 @@ import "./CategoryList.scss";
 import ListItem from "../ListItem/ListItem";
 
 function CategoryList({ id, category, listItems }) {
-    console.log(listItems, category);
-
     const filteredItems = listItems.filter((item) => item.category === category);
-
-    console.log(filteredItems);
 
     return (
         <li className="category">
-            {category}
+            <h2 className="category__title">{category}</h2>
             <ul className="category__list">
                 {filteredItems.length > 0 ? (
                     filteredItems.map((item) => (

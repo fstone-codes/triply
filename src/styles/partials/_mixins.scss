@@ -24,12 +24,12 @@
 // FONT STYLES
 @mixin font-header($color: $primary-color-black, $font-weight: $font-weight-bold) {
     color: $color;
-    font-size: $font-size-large;
+    font-size: $font-size-xlarge;
     font-weight: $font-weight;
     line-height: 2rem;
 
     @include tablet {
-        font-size: $font-size-dt-large;
+        font-size: $font-size-dt-xlarge;
         line-height: 2.75rem;
     }
 }
@@ -38,11 +38,11 @@
     color: $color;
     font-size: $font-size-large;
     font-weight: $font-weight;
-    line-height: 2rem;
+    line-height: 1.375rem;
 
     @include tablet {
         font-size: $font-size-dt-large;
-        line-height: 2.75rem;
+        line-height: 1.5rem;
     }
 }
 

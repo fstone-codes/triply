@@ -2,9 +2,17 @@
 @use "../../styles/partials/variables" as *;
 
 .category {
-    @include font-subheader;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+
+    &__title {
+        @include font-subheader;
+        margin-bottom: $spacing-sm;
+    }
 
     &__list {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
         list-style-type: none;
     }
 

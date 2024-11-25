@@ -2,10 +2,16 @@
 @use "../../styles/partials/variables" as *;
 
 .list-item {
+    @include flexbox(unset, unset, center);
+    gap: $spacing-sm;
+    border-radius: 3.125rem;
+    padding: $spacing-xsm $spacing-sm;
+    background-color: $transparent-color-white-50;
     @include font-body;
 
-    // &__checkbox {
-    // }
+    &__checkbox {
+        border: $transparent-color-white-50;
+    }
 
     // &__item {
     // }

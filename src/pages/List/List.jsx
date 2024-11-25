@@ -58,7 +58,7 @@ function List() {
         }
     };
 
-    console.log(categoryList);
+    console.log(lists);
 
     useEffect(() => {
         getLists();
@@ -69,9 +69,12 @@ function List() {
         return <div>Loading list...</div>;
     }
 
+    const foundList = lists.find((list) => list.id == listId);
+
     return (
         <main className="trip-list">
             <section className="trip-list__container">
+                <h1 className="trip-list__title">{foundList.list_name}</h1>
                 <ul className="trip-list__list">
                     {categoryList.map((category) => (
                         <CategoryList
