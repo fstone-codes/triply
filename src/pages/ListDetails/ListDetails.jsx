@@ -58,8 +58,6 @@ function ListDetails() {
         }
     };
 
-    console.log(lists);
-
     useEffect(() => {
         getLists();
         getListItems();

@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .itinerary {
-    padding: $spacing-sm;
+    padding: 0 $spacing-sm;
     width: 100vw;
     height: 100vh;
     background: $primary-color-grey;

@@ -21,9 +21,13 @@ function NavBar() {
         return null;
     }
 
-    // if (location.pathname.includes(itinerary)) {
-    //     return `/trip/${tripId}/itinerary/`;
-    //                     } else if (location)
+    let plusLink = `/trip/${tripId}/edit`; // Default to editing trip details
+
+    if (location.pathname.includes("/itinerary")) {
+        plusLink = `/trip/${tripId}/itinerary/add`;
+    } else if (location.pathname.includes("/list")) {
+        plusLink = `/trip/${tripId}/list/add`;
+    }
 
     return (
         <nav className="nav">
@@ -40,7 +44,7 @@ function NavBar() {
             <NavLink className="nav__link" to={`/trip/${tripId}/list`}>
                 <img className="nav__icon" src={checkboxIcon} alt="checkbox icon" />
             </NavLink>
-            <NavLink className="nav__link nav__link--highlight" to="">
+            <NavLink className="nav__link nav__link--highlight" to={plusLink}>
                 <img
                     className="nav__icon nav__icon--small nav__icon--highlight"
                     src={plusIcon}

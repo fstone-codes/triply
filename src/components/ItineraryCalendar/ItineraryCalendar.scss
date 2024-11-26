@@ -3,5 +3,9 @@
 @use "react-big-calendar/lib/sass/styles";
 
 .calendar {
-    height: 80vh;
+    padding: 0 0 $spacing-xxlg;
+    width: 100%;
+    height: 100%;
+    background: $primary-color-grey;
+    overflow: scroll;
 }
