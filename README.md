@@ -607,9 +607,11 @@ Response:
     -   [x] Develop the List + List Items:
         -   Implement backend CRUD functionality for lists
 -   **Nov 25: Frontend Integration**
-    -   [ ] Trips
+    -   [x] Trips
         -   Add form for creating/editing trips
             -   Route completed form to itinerary
+    -   [x] Create navigation component
+-   **Nov 26: Frontend Components**
     -   [ ] Itineraries
         -   Add form for creating/editing itineraries
             -   Route completed form to itinerary
@@ -618,8 +620,6 @@ Response:
             -   Route completed form to list
         -   Add form for creating/editing items
             -   Route completed form to list
-    -   [ ] Create navigation component
--   **Nov 26: Frontend Components**
     -   [ ] Login/Registration (_basic structure only_)
     -   [ ] Build UI for Dashboard:
         -   Include static content placeholders

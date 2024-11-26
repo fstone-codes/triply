@@ -2,7 +2,7 @@ import "./ItineraryAdd.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { baseUrl } from "../../utils/utils";
-import axios, { all } from "axios";
+import axios from "axios";
 import dayjs from "dayjs";
 import ItineraryForm from "../../components/ItineraryForm/ItineraryForm";
 
@@ -29,16 +29,6 @@ function ItineraryAdd() {
             console.error("Error creating itinerary item:", error);
         }
     };
-
-    // handle events
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-
-    //     setFormData({
-    //         ...formData,
-    //         [name]: value,
-    //     });
-    // };
 
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;

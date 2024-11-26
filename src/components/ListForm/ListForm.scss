@@ -1,0 +1,40 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-add-edit {
+    padding: 0 $spacing-sm $spacing-xxlg;
+    width: 100%;
+    height: 100%;
+    background: $primary-color-grey;
+    overflow: scroll;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+}
+
+.list-form {
+    @include flexbox(column, unset, unset);
+    border-radius: 3rem;
+    padding: $spacing-lg $spacing-med;
+    height: 100%;
+    background-color: $primary-color-main;
+    overflow: scroll;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__title {
+        margin-bottom: $spacing-sm;
+        @include font-header;
+    }
+}

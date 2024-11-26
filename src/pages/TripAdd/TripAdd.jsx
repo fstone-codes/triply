@@ -8,7 +8,6 @@ import TripForm from "../../components/TripForm/TripForm";
 
 function TripSetup() {
     const navigate = useNavigate();
-    const [tripId, setTripId] = useState(null);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         user_id: 1, // hardcoded user id to be refactored in sprint-2
@@ -23,7 +22,7 @@ function TripSetup() {
         try {
             const { data } = await axios.post(`${baseUrl}/api/trips`, formData);
 
-            setTripId(data.id);
+            navigate(`/trip/${data.id}/itinerary`);
         } catch (error) {
             console.error("Error creating trip:", error);
         }
@@ -48,10 +47,6 @@ function TripSetup() {
         }
 
         addTrip();
-
-        if (tripId) {
-            navigate(`/trip/${tripId}/itinerary`);
-        }
     };
 
     // validation
