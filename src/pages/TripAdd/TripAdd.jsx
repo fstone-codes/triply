@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { baseUrl } from "../../utils/utils";
 import axios from "axios";
+import dayjs from "dayjs";
 import TripForm from "../../components/TripForm/TripForm";
 
 function TripSetup() {
@@ -69,7 +70,7 @@ function TripSetup() {
         return true;
     };
 
-    const today = new Date().toISOString().split("T")[0];
+    const today = dayjs().format("YYYY-MM-DD");
 
     return (
         <>

@@ -8,8 +8,6 @@ import { NavLink, matchPath, useLocation } from "react-router-dom";
 function NavBar() {
     const location = useLocation();
 
-    console.log(location);
-
     // List of routes where NavBar should not appear
     const excludedRoutes = ["/", "/register", "/login", "/dashboard"];
 

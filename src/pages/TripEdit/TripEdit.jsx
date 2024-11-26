@@ -23,8 +23,6 @@ function TripEdit() {
         try {
             const { data } = await axios.get(`${baseUrl}/api/trips/${tripId}`);
 
-            console.log(data);
-
             const formatDate = (date) => dayjs(date).format("YYYY-MM-DD");
 
             setFormData({
@@ -99,7 +97,7 @@ function TripEdit() {
         return true;
     };
 
-    const today = new Date().toISOString().split("T")[0];
+    const today = dayjs().format("YYYY-MM-DD");
 
     return (
         <>

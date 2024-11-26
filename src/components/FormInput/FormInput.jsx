@@ -14,7 +14,7 @@ function FormInput({ id, label, type, name, value, placeholder, handleInputChang
                 value={value}
                 placeholder={placeholder}
                 onChange={handleInputChange}
-                min={minDate}
+                min={type === "date" || type === "datetime-local" ? minDate : undefined}
             />
         </div>
     );
