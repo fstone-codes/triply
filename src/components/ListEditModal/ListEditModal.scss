@@ -1,0 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-edit {
+    &__container {
+        @include flexbox(column, unset, unset);
+        border-radius: 3rem;
+        padding: $spacing-lg $spacing-med $spacing-sm;
+        height: 100%;
+        background-color: $primary-color-black;
+
+        @include tablet {
+            padding: 0 $spacing-lg;
+        }
+
+        @include desktop {
+            padding: $spacing-lg $spacing-xxlg;
+        }
+    }
+
+    // &__form {
+    // }
+
+    &__title {
+        margin-bottom: $spacing-sm;
+        @include font-header($primary-color-grey);
+    }
+
+    &__button-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+    }
+}

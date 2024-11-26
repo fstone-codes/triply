@@ -1,9 +1,22 @@
 import "./FormInput.scss";
 
-function FormInput({ id, label, type, name, value, placeholder, handleInputChange, minDate }) {
+function FormInput({
+    id,
+    label,
+    type,
+    name,
+    value,
+    placeholder,
+    handleInputChange,
+    minDate,
+    reverse,
+}) {
     return (
         <div className="form-input">
-            <label className="form-input__label" htmlFor={id}>
+            <label
+                className={`form-input__label ${reverse ? "form-input__label--reverse" : ""}`}
+                htmlFor={id}
+            >
                 {label}
             </label>
             <input

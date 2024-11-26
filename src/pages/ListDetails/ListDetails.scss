@@ -16,9 +16,18 @@
         padding: $spacing-lg $spacing-xxlg;
     }
 
+    &__title-container {
+        @include flexbox(unset, space-between, flex-start);
+    }
+
     &__title {
         margin-bottom: $spacing-sm;
         @include font-header;
+    }
+
+    &__icon {
+        height: 1.5rem;
+        cursor: pointer;
     }
 
     &__container {

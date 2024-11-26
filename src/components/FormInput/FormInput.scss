@@ -8,6 +8,10 @@
 
     &__label {
         @include font-label;
+
+        &--reverse {
+            @include font-label($primary-color-grey);
+        }
     }
 
     &__input {
