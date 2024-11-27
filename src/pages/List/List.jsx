@@ -12,6 +12,10 @@ function List() {
         try {
             const { data } = await axios.get(`${baseUrl}/api/lists`);
 
+            const sortedData = data.sort((a, b) => a.list_name.localeCompare(b.list_name));
+
+            console.log(sortedData);
+
             setLists(data);
         } catch (error) {
             console.error("Error fetching lists:", error);
@@ -27,13 +31,22 @@ function List() {
     }
 
     return (
-        <ul>
-            {lists.map((list) => (
-                <Link key={list.id} to={`/trip/${tripId}/list/${list.id}`}>
-                    <li>{list.list_name}</li>
-                </Link>
-            ))}
-        </ul>
+        <main className="list-lists-main">
+            <section className="list-lists-main__container">
+                <h1 className="list-lists-main__title">Lists</h1>
+                <ul className="list-lists">
+                    {lists.map((list) => (
+                        <Link
+                            className="list-lists__link"
+                            key={list.id}
+                            to={`/trip/${tripId}/list/${list.id}`}
+                        >
+                            <li className="list-lists__item">{list.list_name}</li>
+                        </Link>
+                    ))}
+                </ul>
+            </section>
+        </main>
     );
 }
 

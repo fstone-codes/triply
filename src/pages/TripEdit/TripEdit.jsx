@@ -11,7 +11,7 @@ function TripEdit() {
     const navigate = useNavigate();
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formData, setFormData] = useState({
-        user_id: "", // hardcoded user id to be refactored in sprint-2
+        user_id: "",
         trip_name: "",
         destination: "",
         start_date: "",

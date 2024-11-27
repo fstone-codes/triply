@@ -1,6 +1,6 @@
 import "./ListItemFormInput.scss";
 
-function ListItemFormInput({ listItem, handleListItemInputChange }) {
+function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputChange, onClick }) {
     return (
         <div className="item-form-input">
             <div className="item-form-input__container">
@@ -14,7 +14,8 @@ function ListItemFormInput({ listItem, handleListItemInputChange }) {
                     name="item"
                     value={listItem.item || ""}
                     placeholder="Type your list item"
-                    onChange={handleListItemInputChange}
+                    onChange={handleInputChange}
+                    onClick={onClick}
                 />
             </div>
             <div className="item-form-input__container">
@@ -27,7 +28,8 @@ function ListItemFormInput({ listItem, handleListItemInputChange }) {
                     name="description"
                     value={listItem.description || ""}
                     placeholder="Type your description"
-                    onChange={handleListItemInputChange}
+                    onChange={handleInputChange}
+                    onClick={onClick}
                 />
             </div>
             <div className="item-form-input__container">
@@ -38,62 +40,54 @@ function ListItemFormInput({ listItem, handleListItemInputChange }) {
                     className="item-form-input__input item-form-input__input--select"
                     id="status"
                     name="status"
-                    onChange={handleListItemInputChange}
+                    onChange={handleInputChange}
+                    onClick={onClick}
                 >
                     <option value="">Select Status</option>
-                    <option value="1">Not Started</option>
-                    <option value="2">In Progress</option>
-                    <option value="3">Complete</option>
+                    <option value={1}>Not Started</option>
+                    <option value={2}>In Progress</option>
+                    <option value={3}>Complete</option>
                 </select>
             </div>
-            <div className="item-form-input__container">
-                <label className="item-form-input__label" htmlFor="category">
-                    Category
-                </label>
-                <input
-                    className="item-form-input__input item-form-input__input--text"
-                    type="text"
-                    id="category"
-                    name="category"
-                    value={listItem.category || ""}
-                    placeholder="Type your category"
-                    onChange={handleListItemInputChange}
-                />
-            </div>
-            {/* <div className="item-form-input__container">
-                <label className={`item-form-input__label `} htmlFor={id}>
-                    {label}
-                </label>
-                <select
-                    className={`item-form-input__input `}
-                    id={id}
-                    name={name}
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={handleListItemInputChange}
-                >
-                    <option value="">Select Status</option>
-                    <option value="">Not Started</option>
-                    <option value="">In Progress</option>
-                    <option value="">Complete</option>
-                </select>
-            </div>
-            <div className="item-form-input__container">
-                <label className={`item-form-input__label `} htmlFor={id}>
-                    {label}
-                </label>
-                <select
-                    className={`item-form-input__input `}
-                    id={id}
-                    name={name}
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={handleListItemInputChange}
-                >
-                    <option value="">Select Status</option>
-                    <option value=""></option>
-                </select>
-            </div> */}
+            {!useEditModal && (
+                <div className="item-form-input__container">
+                    <label className="item-form-input__label" htmlFor="category">
+                        Category
+                    </label>
+                    <input
+                        className="item-form-input__input item-form-input__input--text"
+                        type="text"
+                        id="category"
+                        name="category"
+                        value={listItem.category || ""}
+                        placeholder="Type your category"
+                        onChange={handleInputChange}
+                        onClick={onClick}
+                    />
+                </div>
+            )}
+            {useEditModal && (
+                <div className="item-form-input__container">
+                    <label className="item-form-input__label" htmlFor="category">
+                        Category
+                    </label>
+                    <select
+                        className="item-form-input__input item-form-input__input--select"
+                        id="category"
+                        name="category"
+                        value={listItem.category || ""}
+                        onChange={handleInputChange}
+                        onClick={onClick}
+                    >
+                        <option value="">Select Status</option>
+                        {categoryList.map((category) => (
+                            <option key={category.id} value={category.category}>
+                                {category.category}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            )}
         </div>
     );
 }

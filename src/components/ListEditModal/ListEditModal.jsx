@@ -7,8 +7,11 @@ import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
 function ListEditModal({
     isOpen,
     setIsOpen,
+    useEditModal,
     formData,
+    handleClick,
     listItems,
+    categoryList,
     handleSubmit,
     handleInputChange,
 }) {
@@ -47,7 +50,11 @@ function ListEditModal({
                         <ListItemFormInput
                             key={listItem.id}
                             listItem={listItem}
-                            handleListItemInputChange={handleInputChange}
+                            categoryList={categoryList}
+                            handleInputChange={handleInputChange}
+                            isOpen={isOpen}
+                            useEditModal={useEditModal}
+                            onClick={() => handleClick(listItem.id)}
                         />
                     ))}
                     <div className="list-edit__button-container">

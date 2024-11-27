@@ -13,7 +13,18 @@ function ListDetails() {
     const [list, setList] = useState(null);
     const [listItems, setListItems] = useState(null);
     const [categoryList, setCategoryList] = useState([]);
+    const [selectedItemId, setSelectedItemId] = useState(null);
     const { tripId, listId } = useParams();
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [useEditModal, setUseEditModal] = useState(false);
+    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [isAddOpen, setIsAddOpen] = useState(false);
+
+    const [formData, setFormData] = useState({
+        trip_id: tripId,
+        list_name: "",
+    });
 
     const getList = async () => {
         try {
@@ -27,6 +38,16 @@ function ListDetails() {
             });
         } catch (error) {
             console.error("Error fetching list:", error);
+        }
+    };
+
+    const editList = async () => {
+        try {
+            await axios.put(`${baseUrl}/api/lists/${listId}`, formData);
+
+            getList();
+        } catch (error) {
+            console.error("Error modifying list:", error);
         }
     };
 
@@ -67,45 +88,79 @@ function ListDetails() {
         }
     };
 
+    const editListItem = async () => {
+        try {
+            const selectedItem = listItems.find((item) => item.id === selectedItemId);
+
+            const { created_at, updated_at, ...itemToUpdate } = selectedItem;
+
+            console.log("Sending item data:", itemToUpdate);
+
+            await axios.put(`${baseUrl}/api/lists/${listId}/items/${selectedItemId}`, itemToUpdate);
+
+            getListItems();
+        } catch (error) {
+            console.error("Error details:", error.response?.data);
+            console.error("Error modifying list item:", error);
+        }
+    };
+
     useEffect(() => {
         getList();
         getListItems();
     }, []);
 
-    // ============================
-    // edit list modal below
-    // ============================
-
-    const [isOpen, setIsOpen] = useState(false);
-
     const handleModalClick = () => {
         setIsOpen(true);
+        setUseEditModal(true);
     };
 
-    const [formSubmitted, setFormSubmitted] = useState(false);
-    const [formData, setFormData] = useState({
-        trip_id: tripId,
-        list_name: "",
-    });
+    const handleEditModalClick = (id) => {
+        setSelectedItemId(id);
+    };
 
-    // axios requests
-    const editList = async () => {
-        try {
-            await axios.put(`${baseUrl}/api/lists/${listId}`, formData);
-
-            getList();
-        } catch (error) {
-            console.error("Error modifying list:", error);
-        }
+    const handleAddModalClick = () => {
+        setIsAddOpen(true);
     };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        setFormData(() => ({
-            ...formData,
-            [name]: value,
-        }));
+        if (name === "list_name") {
+            setFormData(() => ({
+                ...formData,
+                [name]: value,
+            }));
+        } else {
+            // Update the specific list item in the listItems array
+            setListItems((prevItems) =>
+                prevItems.map((item) =>
+                    item.id === selectedItemId
+                        ? {
+                              ...item,
+                              [name]:
+                                  name === "status"
+                                      ? convertStatusToNumber(value) // Convert status to number
+                                      : value,
+                          }
+                        : item
+                )
+            );
+        }
+    };
+
+    // Add this helper function
+    const convertStatusToNumber = (status) => {
+        switch (status) {
+            case "Not Started":
+                return 1;
+            case "In Progress":
+                return 2;
+            case "Complete":
+                return 3;
+            default:
+                return parseInt(status) || 1; // fallback to number if already a number string
+        }
     };
 
     const handleSubmit = (e) => {
@@ -117,6 +172,7 @@ function ListDetails() {
         }
 
         editList();
+        editListItem();
 
         setIsOpen(false);
     };
@@ -125,95 +181,22 @@ function ListDetails() {
     const validateForm = () => {
         if (!formData.trip_id || !formData.list_name) {
             console.error("Missing required fields");
+
             return false;
         }
 
-        return true;
-    };
-
-    // ============================
-    // add list item below
-    // ============================
-
-    const [listItem, setListItem] = useState({
-        list_id: { listId },
-        item: "",
-        description: "",
-        status: 1,
-        category: "",
-    });
-
-    const addListItem = async () => {
-        try {
-            await axios.post(`${baseUrl}/api/lists/${listId}`, listItem);
-
-            return true;
-        } catch (error) {
-            console.error("Error creating list item:", error);
-        }
-    };
-
-    const handleListItemInputChange = (e) => {
-        const { name, value } = e.target;
-
-        setFormData(() => ({
-            ...listItem,
-            [name]: value,
-        }));
-    };
-
-    const handleListItemSubmit = (e) => {
-        e.preventDefault();
-        setFormSubmitted(true);
-
-        if (!validateListItemForm()) {
-            return;
-        }
-
-        addListItem();
-
-        setIsOpen(false);
-    };
-
-    // validation
-    const validateListItemForm = () => {
+        const selectedItem = listItems.find((item) => item.id === selectedItemId);
         if (
-            !listItem.list_id ||
-            !listItem.item ||
-            !listItem.category ||
-            listItem.status === undefined
+            !selectedItem.list_id ||
+            !selectedItem.item ||
+            !selectedItem.category ||
+            selectedItem.status === undefined
         ) {
             console.error("Missing required fields");
             return false;
         }
 
         return true;
-    };
-
-    // dropdown icon on right of list item
-    // dropdown flex on full list item
-    // need item text to have overflow: scroll
-    // when dropdown item is clicked - shows more content
-    // edit icon should do more than just the name - open modal to edit the list item. Bottom wi
-    // make edit modal full page and
-    // use put request with edit modal that also lists categories
-    // SHOW ALL ITEMS IN LIST AND SELECT CATEGORY IN DROPDOWN
-    // DROPDOWN OF CATEGORIES instead of them writing catgeory
-    // each list item, description, category drop down list
-    // map each name, filter out the unique categories
-
-    // edit form
-    // list name edit
-    // map through all items and display options for editing (w/ name, item, category inputs). edit form will start with defaults
-    // show everything at once
-
-    // add list item its own modal with the basic inputs
-    // if they can add categories, need to update category state and make get request again
-
-    const [isAddOpen, setIsAddOpen] = useState(false);
-
-    const handleAddModalClick = () => {
-        setIsAddOpen(true);
     };
 
     // guarding
@@ -245,18 +228,23 @@ function ListDetails() {
                         ))}
                     </ul>
                 </section>
-                <ListItemAddModal
+                {/* <ListItemAddModal
                     isOpen={isAddOpen}
                     setIsOpen={setIsAddOpen}
                     listItem={listItem}
                     handleListItemSubmit={handleListItemSubmit}
                     handleListItemInputChange={handleListItemInputChange}
-                />
+                /> */}
                 <ListEditModal
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
+                    useEditModal={useEditModal}
                     formData={formData}
+                    tripId={tripId}
+                    listId={listId}
+                    handleClick={handleEditModalClick}
                     listItems={listItems}
+                    categoryList={categoryList}
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
                 />

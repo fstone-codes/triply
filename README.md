@@ -612,30 +612,47 @@ Response:
             -   Route completed form to itinerary
     -   [x] Create navigation component
 -   **Nov 26: Frontend Components**
-    -   [ ] Itineraries
-        -   Add form for creating/editing itineraries
+    -   [x] Itineraries
+        -   Add form for creating itineraries
             -   Route completed form to itinerary
-    -   [ ] Lists
+    -   [x] Lists
         -   Add form for creating/editing lists
             -   Route completed form to list
         -   Add form for creating/editing items
             -   Route completed form to list
+-   **Nov 27: Buffer Day**
+    Add any incomplete work below and use this day to complete loose ends:
+    -   [x] Change avatar
+    -   [x] Create and style trip details page
+    -   [x] Style list of lists page
+    -   [ ] Edit `ListItemFormInput` to change the form inputs on the edit page (_e.g. drop down menu for categories_)
+    -   [ ] \*\*\*Ask for help
+        -   Edit `ListEditModal` style + organization for easier readability
     -   [ ] Login/Registration (_basic structure only_)
     -   [ ] Build UI for Dashboard:
         -   Include static content placeholders
--   **Nov 27: Buffer Day**
-    Add any incomplete work below and use this day to complete loose ends:
+    -   [ ] Connect the Dashboard to the backend:
+        -   Fetch and display user trips
+    -   [ ] Style calendar simply
+    -   [ ] Create responsive design on all pages
+    -   [ ] Add animations / transitions wher necessary
     -   [ ] Add error message to forms
     -   [ ] Perform comprehensive endpoint testing
     -   [ ] Clean up backend files (check in chatGPT)
         -   Use day.js to validate dates/times (implemented for itineraries controller already)
-    -   [ ] Connect the Dashboard to the backend:
-        -   Fetch and display user trips
-        -   Implement countdown to the first upcoming trip
+    -   [ ] Add form for editing itineraries
 -   **Nov 28: Testing and Polishing**
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic
     -   [ ] Enhance UI consistency with basic Sass styling
+    -   [ ] Clean up
+        -   Remove unnecessary comments
+        -   Remove unused imports
+        -   Remove unused pages / components / files
+        -   \*\*\*Look for `data down` opportunities and refactor
+        -   Rename classes/components/etc. for consistency
+        -   Organize backend
+        -   Add useful comments to front + backend
 -   **Nov 29: Final Touches**
     -   [ ] Prepare a working demo with sample data for presentation
     -   [ ] Update frontend `README` file with actual data diagram and endpoints
@@ -649,6 +666,7 @@ Response:
 
 ## Future Implementations
 
+-   User authentication / authorization
 -   Utility Features: Preset lists, reminders, sharing trips
 -   Expense Tracking: Expense splitting and payment reminders
 -   Collaboration: Shared brainstorming and itinerary adjustments

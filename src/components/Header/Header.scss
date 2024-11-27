@@ -39,7 +39,17 @@
         width: 1.75rem;
     }
 
-    &__avatar {
+    &__avatar-container {
+        @include flexbox(unset, center, flex-end);
+        border-radius: 50%;
+        width: 2.5rem;
         height: 2.5rem;
+        background-color: $transparent-color-black-10;
+    }
+
+    &__avatar {
+        height: 2rem;
+        filter: invert(80%) sepia(39%) saturate(228%) hue-rotate(206deg) brightness(97%)
+            contrast(91%);
     }
 }
