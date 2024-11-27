@@ -7,9 +7,12 @@ import { NavLink, matchPath, useLocation } from "react-router-dom";
 
 function NavBar({ onAddClick }) {
     const location = useLocation();
-    const tripMatch = matchPath({ path: "/trip/:tripId/*" }, location.pathname);
+    const tripGeneralMatch = matchPath({ path: "/trip/:tripId/*" }, location.pathname);
+    const tripMatch = matchPath({ path: "/trip/:tripId" }, location.pathname);
+    const itineraryMatch = matchPath({ path: "/trip/:tripId/itinerary" }, location.pathname);
+    const itineraryAddMatch = matchPath({ path: "/trip/:tripId/itinerary/add" }, location.pathname);
     const listMatch = matchPath({ path: "/trip/:tripId/list/:listId" }, location.pathname);
-    const tripId = tripMatch?.params?.tripId;
+    const tripId = tripGeneralMatch?.params?.tripId;
 
     if (!tripId) {
         return null;
@@ -30,6 +33,21 @@ function NavBar({ onAddClick }) {
                         alt="plus icon"
                     />
                 </button>
+            );
+        }
+
+        if (tripMatch || itineraryMatch || itineraryAddMatch) {
+            return (
+                <NavLink
+                    className="nav__link nav__link--highlight"
+                    to={`/trip/${tripId}/itinerary/add`}
+                >
+                    <img
+                        className="nav__icon nav__icon--small nav__icon--highlight"
+                        src={plusIcon}
+                        alt="plus icon"
+                    />
+                </NavLink>
             );
         }
 

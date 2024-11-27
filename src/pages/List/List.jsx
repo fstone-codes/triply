@@ -14,8 +14,6 @@ function List() {
 
             const sortedData = data.sort((a, b) => a.list_name.localeCompare(b.list_name));
 
-            console.log(sortedData);
-
             setLists(data);
         } catch (error) {
             console.error("Error fetching lists:", error);
