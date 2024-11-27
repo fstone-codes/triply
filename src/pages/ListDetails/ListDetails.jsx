@@ -26,6 +26,14 @@ function ListDetails() {
         list_name: "",
     });
 
+    const [newListItem, setNewListItem] = useState({
+        list_id: listId,
+        item: "",
+        description: "",
+        status: 1,
+        category: "",
+    });
+
     const getList = async () => {
         try {
             const { data } = await axios.get(`${baseUrl}/api/lists/${listId}`);
@@ -88,19 +96,34 @@ function ListDetails() {
         }
     };
 
+    const addListItem = async () => {
+        try {
+            await axios.post(`${baseUrl}/api/lists/${listId}/items`, newListItem);
+            getListItems();
+
+            // Reset the newListItem state after successful addition
+            setNewListItem({
+                list_id: listId,
+                item: "",
+                description: "",
+                status: 1,
+                category: "",
+            });
+        } catch (error) {
+            console.error("Error adding list item:", error);
+        }
+    };
+
     const editListItem = async () => {
         try {
             const selectedItem = listItems.find((item) => item.id === selectedItemId);
 
             const { created_at, updated_at, ...itemToUpdate } = selectedItem;
 
-            console.log("Sending item data:", itemToUpdate);
-
             await axios.put(`${baseUrl}/api/lists/${listId}/items/${selectedItemId}`, itemToUpdate);
 
             getListItems();
         } catch (error) {
-            console.error("Error details:", error.response?.data);
             console.error("Error modifying list item:", error);
         }
     };
@@ -127,25 +150,28 @@ function ListDetails() {
         const { name, value } = e.target;
 
         if (name === "list_name") {
-            setFormData(() => ({
+            setFormData({
                 ...formData,
                 [name]: value,
-            }));
-        } else {
-            // Update the specific list item in the listItems array
+            });
+        } else if (useEditModal) {
+            // Handle edit modal input changes
             setListItems((prevItems) =>
                 prevItems.map((item) =>
                     item.id === selectedItemId
                         ? {
                               ...item,
-                              [name]:
-                                  name === "status"
-                                      ? convertStatusToNumber(value) // Convert status to number
-                                      : value,
+                              [name]: name === "status" ? convertStatusToNumber(value) : value,
                           }
                         : item
                 )
             );
+        } else {
+            // Handle add modal input changes
+            setNewListItem({
+                ...newListItem,
+                [name]: name === "status" ? convertStatusToNumber(value) : value,
+            });
         }
     };
 
@@ -171,29 +197,45 @@ function ListDetails() {
             return;
         }
 
-        editList();
-        editListItem();
-
-        setIsOpen(false);
+        if (useEditModal) {
+            editList();
+            editListItem();
+            setIsOpen(false);
+        } else {
+            addListItem();
+            setIsAddOpen(false);
+        }
     };
 
     // validation
     const validateForm = () => {
-        if (!formData.trip_id || !formData.list_name) {
-            console.error("Missing required fields");
+        if (useEditModal) {
+            if (!formData.trip_id || !formData.list_name) {
+                console.error("Missing required fields");
+                return false;
+            }
 
-            return false;
-        }
-
-        const selectedItem = listItems.find((item) => item.id === selectedItemId);
-        if (
-            !selectedItem.list_id ||
-            !selectedItem.item ||
-            !selectedItem.category ||
-            selectedItem.status === undefined
-        ) {
-            console.error("Missing required fields");
-            return false;
+            const selectedItem = listItems.find((item) => item.id === selectedItemId);
+            if (
+                !selectedItem.list_id ||
+                !selectedItem.item ||
+                !selectedItem.category ||
+                selectedItem.status === undefined
+            ) {
+                console.error("Missing required fields");
+                return false;
+            }
+        } else {
+            // Validate add modal form
+            if (
+                !newListItem.list_id ||
+                !newListItem.item ||
+                !newListItem.category ||
+                newListItem.status === undefined
+            ) {
+                console.error("Missing required fields");
+                return false;
+            }
         }
 
         return true;
@@ -228,20 +270,18 @@ function ListDetails() {
                         ))}
                     </ul>
                 </section>
-                {/* <ListItemAddModal
+                <ListItemAddModal
                     isOpen={isAddOpen}
                     setIsOpen={setIsAddOpen}
-                    listItem={listItem}
-                    handleListItemSubmit={handleListItemSubmit}
-                    handleListItemInputChange={handleListItemInputChange}
-                /> */}
+                    newListItem={newListItem}
+                    handleSubmit={handleSubmit}
+                    handleInputChange={handleInputChange}
+                />
                 <ListEditModal
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     useEditModal={useEditModal}
                     formData={formData}
-                    tripId={tripId}
-                    listId={listId}
                     handleClick={handleEditModalClick}
                     listItems={listItems}
                     categoryList={categoryList}

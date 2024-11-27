@@ -12,7 +12,7 @@ function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputCh
                     type="text"
                     id="item"
                     name="item"
-                    value={listItem.item || ""}
+                    value={listItem.item}
                     placeholder="Type your list item"
                     onChange={handleInputChange}
                     onClick={onClick}
@@ -26,7 +26,7 @@ function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputCh
                     className="item-form-input__input item-form-input__input--textarea"
                     id="description"
                     name="description"
-                    value={listItem.description || ""}
+                    value={listItem.description}
                     placeholder="Type your description"
                     onChange={handleInputChange}
                     onClick={onClick}
@@ -59,7 +59,7 @@ function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputCh
                         type="text"
                         id="category"
                         name="category"
-                        value={listItem.category || ""}
+                        value={listItem.category}
                         placeholder="Type your category"
                         onChange={handleInputChange}
                         onClick={onClick}
@@ -75,7 +75,7 @@ function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputCh
                         className="item-form-input__input item-form-input__input--select"
                         id="category"
                         name="category"
-                        value={listItem.category || ""}
+                        value={listItem.category}
                         onChange={handleInputChange}
                         onClick={onClick}
                     >

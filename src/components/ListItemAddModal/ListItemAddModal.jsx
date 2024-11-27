@@ -3,13 +3,7 @@ import ReactModal from "react-modal";
 import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
 import Button from "../Button/Button";
 
-function ListItemAddModal({
-    isOpen,
-    setIsOpen,
-    listItem,
-    handleListItemSubmit,
-    handleListItemInputChange,
-}) {
+function ListItemAddModal({ isOpen, setIsOpen, newListItem, handleSubmit, handleInputChange }) {
     return (
         <ReactModal
             className="list-add"
@@ -29,11 +23,11 @@ function ListItemAddModal({
             }}
         >
             <div className="list-add__container">
-                <form className="list-add__form" onSubmit={handleListItemSubmit}>
+                <form className="list-add__form" onSubmit={handleSubmit}>
                     <h1 className="list-add__title">Add List Item</h1>
                     <ListItemFormInput
-                        handleListItemInputChange={handleListItemInputChange}
-                        listItem={listItem}
+                        handleInputChange={handleInputChange}
+                        listItem={newListItem}
                     />
                     <div className="list-add__button-container">
                         <Button

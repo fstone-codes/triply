@@ -625,7 +625,7 @@ Response:
     -   [x] Change avatar
     -   [x] Create and style trip details page
     -   [x] Style list of lists page
-    -   [ ] Edit `ListItemFormInput` to change the form inputs on the edit page (_e.g. drop down menu for categories_)
+    -   [x] Edit `ListItemFormInput` to change the form inputs on the edit page (_e.g. drop down menu for categories_)
     -   [ ] \*\*\*Ask for help
         -   Edit `ListEditModal` style + organization for easier readability
     -   [ ] Login/Registration (_basic structure only_)
