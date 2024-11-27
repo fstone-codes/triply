@@ -67,7 +67,7 @@ function ItineraryAdd() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
 
@@ -77,7 +77,7 @@ function ItineraryAdd() {
             return;
         }
 
-        if (addItinerary()) {
+        if (await addItinerary()) {
             navigate(`/trip/${tripId}/itinerary`);
         }
     };

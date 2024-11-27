@@ -9,7 +9,6 @@ import ItineraryEdit from "./pages/ItineraryEdit/ItineraryEdit";
 import List from "./pages/List/List";
 import ListAdd from "./pages/ListAdd/ListAdd";
 import ListDetails from "./pages/ListDetails/ListDetails";
-import ListEdit from "./pages/ListEdit/ListEdit";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Trip from "./pages/Trip/Trip";
@@ -22,7 +21,7 @@ function App() {
     return (
         <BrowserRouter>
             <Header />
-            <NavBar />
+            {window.location.pathname !== "/trip/:tripId/list/:listId" && <NavBar />}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
@@ -41,7 +40,6 @@ function App() {
                 <Route path="/trip/:tripId/list" element={<List />} />
                 <Route path="/trip/:tripId/list/add" element={<ListAdd />} />
                 <Route path="/trip/:tripId/list/:listId" element={<ListDetails />} />
-                <Route path="/trip/:tripId/list/:listId/edit" element={<ListEdit />} />
             </Routes>
         </BrowserRouter>
     );

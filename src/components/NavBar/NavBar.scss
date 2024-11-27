@@ -11,6 +11,25 @@
     width: calc(100vw - 2rem);
     background-color: $transparent-color-black-10;
 
+    &__button {
+        @include flexbox(unset, center, center);
+        border: none;
+        border-radius: 50%;
+        width: 2.75rem;
+        height: 2.75rem;
+        background-color: $primary-color-black;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary-color-highlight;
+        }
+
+        &:hover .nav__icon--highlight {
+            filter: invert(8%) sepia(0%) saturate(14%) hue-rotate(215deg) brightness(104%)
+                contrast(88%);
+        }
+    }
+
     &__link {
         @include flexbox(unset, center, center);
         border-radius: 50%;
