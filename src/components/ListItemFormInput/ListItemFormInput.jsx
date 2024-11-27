@@ -4,7 +4,7 @@ function ListItemForm({ listItem, handleListItemInputChange }) {
     return (
         <div className="item-form-input">
             <div className="item-form-input__container">
-                <label className={`item-form-input__label `} htmlFor="item">
+                <label className="item-form-input__label" htmlFor="item">
                     List Item
                 </label>
                 <input
@@ -22,7 +22,7 @@ function ListItemForm({ listItem, handleListItemInputChange }) {
                     Description
                 </label>
                 <textarea
-                    className={`item-form-input__input`}
+                    className="item-form-input__input item-form-input__input--textarea"
                     id="description"
                     name="description"
                     value={listItem.description || ""}
@@ -35,7 +35,7 @@ function ListItemForm({ listItem, handleListItemInputChange }) {
                     Status
                 </label>
                 <select
-                    className="item-form-input__input"
+                    className="item-form-input__input item-form-input__input--select"
                     id="status"
                     name="status"
                     onChange={handleListItemInputChange}

@@ -10,12 +10,12 @@ import List from "./pages/List/List";
 import ListAdd from "./pages/ListAdd/ListAdd";
 import ListDetails from "./pages/ListDetails/ListDetails";
 import Login from "./pages/Login/Login";
+import NavBar from "./components/NavBar/NavBar";
 import Register from "./pages/Register/Register";
 import Trip from "./pages/Trip/Trip";
 import TripAdd from "./pages/TripAdd/TripAdd";
 import TripDetails from "./pages/TripDetails/TripDetails";
 import TripEdit from "./pages/TripEdit/TripEdit";
-import NavBar from "./components/NavBar/NavBar";
 
 function App() {
     return (
