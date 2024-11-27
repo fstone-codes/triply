@@ -4,7 +4,6 @@
 .form-input {
     @include flexbox(column, unset, unset);
     gap: $spacing-xsm;
-    margin-bottom: $spacing-sm;
 
     &__label {
         @include font-label;

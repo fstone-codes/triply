@@ -256,6 +256,7 @@ function ListDetails() {
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     formData={formData}
+                    listItems={listItems}
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
                 />

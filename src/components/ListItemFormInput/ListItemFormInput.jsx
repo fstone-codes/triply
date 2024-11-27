@@ -1,6 +1,6 @@
 import "./ListItemFormInput.scss";
 
-function ListItemForm({ listItem, handleListItemInputChange }) {
+function ListItemFormInput({ listItem, handleListItemInputChange }) {
     return (
         <div className="item-form-input">
             <div className="item-form-input__container">
@@ -98,4 +98,4 @@ function ListItemForm({ listItem, handleListItemInputChange }) {
     );
 }
 
-export default ListItemForm;
+export default ListItemFormInput;

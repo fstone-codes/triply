@@ -2,8 +2,16 @@ import "./ListEditModal.scss";
 import ReactModal from "react-modal";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
+import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
 
-function ListEditModal({ isOpen, setIsOpen, formData, handleSubmit, handleInputChange }) {
+function ListEditModal({
+    isOpen,
+    setIsOpen,
+    formData,
+    listItems,
+    handleSubmit,
+    handleInputChange,
+}) {
     return (
         <ReactModal
             className="list-edit"
@@ -35,6 +43,13 @@ function ListEditModal({ isOpen, setIsOpen, formData, handleSubmit, handleInputC
                         handleInputChange={handleInputChange}
                         reverse="true"
                     />
+                    {listItems.map((listItem) => (
+                        <ListItemFormInput
+                            key={listItem.id}
+                            listItem={listItem}
+                            handleListItemInputChange={handleInputChange}
+                        />
+                    ))}
                     <div className="list-edit__button-container">
                         <Button
                             classType="primary"

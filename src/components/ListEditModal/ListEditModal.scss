@@ -2,12 +2,18 @@
 @use "../../styles/partials/variables" as *;
 
 .list-edit {
+    padding: $spacing-lg $spacing-med $spacing-sm;
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary-color-black;
+    overflow: scroll;
+
     &__container {
-        @include flexbox(column, unset, unset);
-        border-radius: 3rem;
-        padding: $spacing-lg $spacing-med $spacing-sm;
-        height: 100%;
-        background-color: $primary-color-black;
+        // @include flexbox(column, unset, unset);
+        // border-radius: 3rem;
+        // padding: $spacing-lg $spacing-med $spacing-sm;
+        // height: 100%;
+        // background-color: $primary-color-black;
 
         @include tablet {
             padding: 0 $spacing-lg;
@@ -18,16 +24,18 @@
         }
     }
 
-    // &__form {
-    // }
+    &__form {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+    }
 
     &__title {
-        margin-bottom: $spacing-sm;
         @include font-header($primary-color-grey);
     }
 
     &__button-container {
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
+        margin-top: $spacing-xsm;
     }
 }

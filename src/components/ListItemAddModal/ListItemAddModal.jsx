@@ -1,6 +1,6 @@
 import "./ListItemAddModal.scss";
 import ReactModal from "react-modal";
-import ListItemForm from "../ListItemFormInput/ListItemFormInput";
+import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
 import Button from "../Button/Button";
 
 function ListItemAddModal({
@@ -31,7 +31,7 @@ function ListItemAddModal({
             <div className="list-add__container">
                 <form className="list-add__form" onSubmit={handleListItemSubmit}>
                     <h1 className="list-add__title">Add List Item</h1>
-                    <ListItemForm
+                    <ListItemFormInput
                         handleListItemInputChange={handleListItemInputChange}
                         listItem={listItem}
                     />
