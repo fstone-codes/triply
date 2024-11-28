@@ -626,9 +626,10 @@ Response:
     -   [x] Create and style trip details page
     -   [x] Style list of lists page
     -   [x] Edit `ListItemFormInput` to change the form inputs on the edit page (_e.g. drop down menu for categories_)
+    -   [x] Login/Registration (_basic structure only_)
     -   [ ] \*\*\*Ask for help
         -   Edit `ListEditModal` style + organization for easier readability
-    -   [ ] Login/Registration (_basic structure only_)
+    -   [ ] Add checkbox functionality to list items
     -   [ ] Build UI for Dashboard:
         -   Include static content placeholders
     -   [ ] Connect the Dashboard to the backend:

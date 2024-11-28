@@ -41,7 +41,6 @@ function Login() {
         <main className="login">
             <form className="login__form" onSubmit={handleSubmit}>
                 <h1 className="login__title">Login</h1>
-
                 <FormInput
                     id="email"
                     label="Email"
@@ -60,7 +59,6 @@ function Login() {
                     placeholder="Type your password"
                     handleInputChange={handleInputChange}
                 />
-
                 <div className="login__button-container">
                     <Button classType="primary" type="submit" text="Submit" />
                     <Link className="login__link" to="/">

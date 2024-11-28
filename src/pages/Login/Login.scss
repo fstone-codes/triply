@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.login {
+    @include flexbox(column, center, unset);
+    padding: 0 $spacing-sm 4.25rem;
+    width: 100%;
+    height: 100%;
+    background: $primary-color-main;
+    overflow: auto;
+
+    &__form {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        padding: $spacing-lg $spacing-med $spacing-sm;
+        border-radius: 3rem;
+        background-color: $transparent-color-white-50;
+
+        @include tablet {
+            padding: 0 $spacing-lg;
+        }
+
+        @include desktop {
+            padding: $spacing-lg $spacing-xxlg;
+        }
+    }
+
+    &__title {
+        @include font-header;
+    }
+
+    &__button-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        margin-top: $spacing-xsm;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+}
