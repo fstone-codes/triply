@@ -114,15 +114,25 @@ function ListDetails() {
         }
     };
 
-    const editListItem = async () => {
+    const editListItem = async (id, itemBody) => {
         try {
-            const selectedItem = listItems.find((item) => item.id === selectedItemId);
+            if (itemBody) {
+                const { created_at, updated_at, ...itemToUpdate } = itemBody;
+                await axios.put(`${baseUrl}/api/lists/${listId}/items/${id}`, itemToUpdate);
 
-            const { created_at, updated_at, ...itemToUpdate } = selectedItem;
+                getListItems();
+            } else {
+                const selectedItem = listItems.find((item) => item.id === selectedItemId);
 
-            await axios.put(`${baseUrl}/api/lists/${listId}/items/${selectedItemId}`, itemToUpdate);
+                const { created_at, updated_at, ...itemToUpdate } = selectedItem;
 
-            getListItems();
+                await axios.put(
+                    `${baseUrl}/api/lists/${listId}/items/${selectedItemId}`,
+                    itemToUpdate
+                );
+
+                getListItems();
+            }
         } catch (error) {
             console.error("Error modifying list item:", error);
         }
@@ -266,6 +276,8 @@ function ListDetails() {
                                 id={category.id}
                                 category={category.category}
                                 listItems={listItems}
+                                convertStatusToNumber={convertStatusToNumber}
+                                editListItem={editListItem}
                             />
                         ))}
                     </ul>

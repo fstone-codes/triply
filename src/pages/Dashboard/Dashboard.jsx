@@ -7,7 +7,6 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import { Link } from "react-router-dom";
 
-// Add plugins to Day.js
 dayjs.extend(utc);
 dayjs.extend(timezone);
 

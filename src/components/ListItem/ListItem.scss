@@ -7,12 +7,42 @@
     border-radius: 3.125rem;
     padding: $spacing-xsm $spacing-sm;
     background-color: $transparent-color-white-50;
-    @include font-body;
 
     &__checkbox {
-        border: $transparent-color-white-50;
+        appearance: none;
+        border-radius: 50%;
+        width: 0.875rem;
+        height: 0.875rem;
+        background-color: $transparent-color-white-50;
+        cursor: pointer;
+
+        &:indeterminate {
+            background-image: url("../../assets/icons/hyphen.svg");
+            background-size: 70%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: $transparent-color-black-25;
+        }
+
+        &:checked {
+            background-image: url("../../assets/icons/checkmark.svg");
+            background-size: 65%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: $transparent-color-black-10;
+
+            & .list-item {
+                background-color: $transparent-color-white-25;
+            }
+
+            & + .list-item__item {
+                color: $transparent-color-black-25;
+                text-decoration: line-through;
+            }
+        }
     }
 
-    // &__item {
-    // }
+    &__item {
+        @include font-body;
+    }
 }

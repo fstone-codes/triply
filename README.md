@@ -634,10 +634,10 @@ Response:
 -   **Nov 28: Overflow Tasks, Testing and Polishing**
     -   [ ] \*\*\*Ask for help
         -   Edit `ListEditModal` style + organization for easier readability
-    -   [ ] Add checkbox functionality to list items
+    -   [x] Add checkbox functionality to list items
     -   [ ] Style calendar simply
     -   [ ] Create responsive design on all pages
-    -   [ ] Add animations / transitions wher necessary
+    -   [ ] Add animations / transitions where necessary
     -   [ ] Add error message to forms
     -   [ ] Perform comprehensive endpoint testing
     -   [ ] Clean up backend files (check in chatGPT)
