@@ -1,0 +1,57 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.dashboard {
+    @include flexbox(column, unset, unset);
+    padding: $spacing-sm;
+    width: 100%;
+    height: 100%;
+    background: $primary-color-main;
+    overflow: scroll;
+
+    &__title {
+    }
+
+    &__circle {
+    }
+
+    &__countdown {
+    }
+
+    &__trips-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        padding: $spacing-lg $spacing-med;
+        border-radius: 3rem;
+        height: 50%;
+        background-color: $transparent-color-white-50;
+    }
+
+    &__trips-title {
+    }
+
+    &__trips-list {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        overflow: scroll;
+        list-style-type: none;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__trips-item {
+        border-radius: 3rem;
+        padding: $spacing-sm $spacing-sm;
+        background-color: $transparent-color-white-50;
+        // @include font-body;
+        scroll-snap-align: start;
+    }
+
+    &__trips-name {
+    }
+
+    &__trips-text {
+    }
+}

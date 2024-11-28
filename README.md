@@ -623,8 +623,8 @@ Response:
 -   **Nov 27: Buffer Day**
     Add any incomplete work below and use this day to complete loose ends:
     -   [x] Change avatar
-    -   [x] Create and style trip details page
-    -   [x] Style list of lists page
+    -   [x] Create and style `TripDetails` page
+    -   [x] Style `List` page
     -   [x] Edit `ListItemFormInput` to change the form inputs on the edit page (_e.g. drop down menu for categories_)
     -   [x] Login/Registration (_basic structure only_)
     -   [ ] \*\*\*Ask for help
@@ -632,7 +632,7 @@ Response:
     -   [ ] Add checkbox functionality to list items
     -   [ ] Build UI for Dashboard:
         -   Include static content placeholders
-    -   [ ] Connect the Dashboard to the backend:
+    -   [ ] Connect the `Dashboard` to the backend:
         -   Fetch and display user trips
     -   [ ] Style calendar simply
     -   [ ] Create responsive design on all pages
