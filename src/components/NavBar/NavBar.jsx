@@ -21,12 +21,7 @@ function NavBar({ onAddClick }) {
     const renderPlusIcon = () => {
         if (listMatch) {
             return (
-                <button
-                    className="nav__button"
-                    onClick={onAddClick}
-                    aria-label="Add list item"
-                    type="button"
-                >
+                <button className="nav__button" onClick={onAddClick} type="button">
                     <img
                         className="nav__icon nav__icon--small nav__icon--highlight"
                         src={plusIcon}

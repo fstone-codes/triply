@@ -14,6 +14,7 @@ function ListEditModal({
     categoryList,
     handleSubmit,
     handleInputChange,
+    convertStatusToNumber,
 }) {
     return (
         <ReactModal
@@ -54,6 +55,7 @@ function ListEditModal({
                             handleInputChange={handleInputChange}
                             isOpen={isOpen}
                             useEditModal={useEditModal}
+                            convertStatusToNumber={convertStatusToNumber}
                             onClick={() => handleClick(listItem.id)}
                         />
                     ))}

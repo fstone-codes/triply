@@ -288,6 +288,7 @@ function ListDetails() {
                     newListItem={newListItem}
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
+                    convertStatusToNumber={convertStatusToNumber}
                 />
                 <ListEditModal
                     isOpen={isOpen}
@@ -299,6 +300,7 @@ function ListDetails() {
                     categoryList={categoryList}
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
+                    convertStatusToNumber={convertStatusToNumber}
                 />
             </main>
             <NavBar onAddClick={handleAddModalClick} />

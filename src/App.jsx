@@ -18,10 +18,12 @@ import TripDetails from "./pages/TripDetails/TripDetails";
 import TripEdit from "./pages/TripEdit/TripEdit";
 
 function App() {
+    const isListDetailsPage = window.location.pathname.match(/\/trip\/[^/]+\/list\/[^/]+$/);
+
     return (
         <BrowserRouter>
             <Header />
-            {window.location.pathname !== "/trip/:tripId/list/:listId" && <NavBar />}
+            {!isListDetailsPage && <NavBar />}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />

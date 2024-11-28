@@ -19,6 +19,7 @@
 
 .list-form {
     @include flexbox(column, unset, unset);
+    gap: $spacing-sm;
     border-radius: 3rem;
     padding: $spacing-lg $spacing-med;
     height: 100%;
@@ -34,7 +35,6 @@
     }
 
     &__title {
-        margin-bottom: $spacing-sm;
         @include font-header;
     }
 }

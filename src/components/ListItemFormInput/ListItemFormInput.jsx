@@ -1,6 +1,13 @@
 import "./ListItemFormInput.scss";
 
-function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputChange, onClick }) {
+function ListItemFormInput({
+    useEditModal,
+    listItem,
+    categoryList,
+    handleInputChange,
+    convertStatusToNumber,
+    onClick,
+}) {
     return (
         <div className="item-form-input">
             <div className="item-form-input__container">
@@ -42,6 +49,7 @@ function ListItemFormInput({ useEditModal, listItem, categoryList, handleInputCh
                     name="status"
                     onChange={handleInputChange}
                     onClick={onClick}
+                    value={convertStatusToNumber(listItem.status)}
                 >
                     <option value="">Select Status</option>
                     <option value={1}>Not Started</option>

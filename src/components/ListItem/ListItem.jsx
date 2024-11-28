@@ -37,8 +37,6 @@ function ListItem({
         }
     }, [currentStatus]);
 
-    console.log("incoming object", itemBody);
-
     return (
         <li className="list-item">
             <input

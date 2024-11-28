@@ -3,7 +3,14 @@ import ReactModal from "react-modal";
 import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
 import Button from "../Button/Button";
 
-function ListItemAddModal({ isOpen, setIsOpen, newListItem, handleSubmit, handleInputChange }) {
+function ListItemAddModal({
+    isOpen,
+    setIsOpen,
+    newListItem,
+    handleSubmit,
+    handleInputChange,
+    convertStatusToNumber,
+}) {
     return (
         <ReactModal
             className="list-add"
@@ -28,6 +35,7 @@ function ListItemAddModal({ isOpen, setIsOpen, newListItem, handleSubmit, handle
                     <ListItemFormInput
                         handleInputChange={handleInputChange}
                         listItem={newListItem}
+                        convertStatusToNumber={convertStatusToNumber}
                     />
                     <div className="list-add__button-container">
                         <Button
