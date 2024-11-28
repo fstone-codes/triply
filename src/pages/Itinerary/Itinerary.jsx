@@ -38,7 +38,9 @@ function Itinerary() {
                 allDay: event.all_day,
             }));
 
-            setItineraries(parsedEvents);
+            const filteredData = parsedEvents.filter((itinerary) => itinerary.trip_id == tripId);
+
+            setItineraries(filteredData);
         } catch (error) {
             console.error("Error fetching itineraries:", error);
         }

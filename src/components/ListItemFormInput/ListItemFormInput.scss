@@ -5,6 +5,12 @@
     @include flexbox(column, unset, unset);
     gap: $spacing-sm;
 
+    &--show {
+        border-radius: 3rem;
+        background-color: $primary-color-main;
+        padding: $spacing-lg $spacing-med;
+    }
+
     &__container {
         @include flexbox(column, unset, unset);
         gap: $spacing-xsm;
@@ -14,7 +20,34 @@
         @include font-label($primary-color-grey);
     }
 
+    &__label-extra {
+        display: none;
+
+        &--show {
+            display: unset;
+            @include font-label($primary-color-black);
+        }
+    }
+
+    &__fields {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+    }
+
+    &__fields-extra {
+        display: none;
+
+        &--show {
+            display: unset;
+            @include flexbox(column, unset, unset);
+            gap: $spacing-sm;
+            background-color: $primary-color-main;
+        }
+    }
+
     &__input {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
         border: none;
         border-radius: 3.125rem;
         padding: $spacing-xsm $spacing-sm;

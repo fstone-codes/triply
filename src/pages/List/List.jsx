@@ -12,9 +12,11 @@ function List() {
         try {
             const { data } = await axios.get(`${baseUrl}/api/lists`);
 
-            const sortedData = data.sort((a, b) => a.list_name.localeCompare(b.list_name));
+            const sortedData = data
+                .filter((list) => list.trip_id == tripId)
+                .sort((a, b) => a.list_name.localeCompare(b.list_name));
 
-            setLists(data);
+            setLists(sortedData);
         } catch (error) {
             console.error("Error fetching lists:", error);
         }
@@ -22,7 +24,7 @@ function List() {
 
     useEffect(() => {
         getLists();
-    }, []);
+    }, [tripId]);
 
     if (!lists) {
         return <div>Loading lists...</div>;

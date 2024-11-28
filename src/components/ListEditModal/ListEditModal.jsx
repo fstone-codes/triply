@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
 import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
+import { useState } from "react";
 
 function ListEditModal({
     isOpen,
@@ -47,18 +48,23 @@ function ListEditModal({
                         handleInputChange={handleInputChange}
                         reverse="true"
                     />
-                    {listItems.map((listItem) => (
-                        <ListItemFormInput
-                            key={listItem.id}
-                            listItem={listItem}
-                            categoryList={categoryList}
-                            handleInputChange={handleInputChange}
-                            isOpen={isOpen}
-                            useEditModal={useEditModal}
-                            convertStatusToNumber={convertStatusToNumber}
-                            onClick={() => handleClick(listItem.id)}
-                        />
-                    ))}
+                    <h2 className="list-edit__label">List Items</h2>
+                    <div className="list-edit__list-container">
+                        {listItems.map((listItem) => (
+                            <ListItemFormInput
+                                key={listItem.id}
+                                listItem={listItem}
+                                categoryList={categoryList}
+                                handleInputChange={handleInputChange}
+                                isOpen={isOpen}
+                                useEditModal={useEditModal}
+                                convertStatusToNumber={convertStatusToNumber}
+                                onClick={() => {
+                                    handleClick(listItem.id);
+                                }}
+                            />
+                        ))}
+                    </div>
                     <div className="list-edit__button-container">
                         <Button
                             classType="primary"
