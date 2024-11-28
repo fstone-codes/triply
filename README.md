@@ -627,13 +627,14 @@ Response:
     -   [x] Style `List` page
     -   [x] Edit `ListItemFormInput` to change the form inputs on the edit page (_e.g. drop down menu for categories_)
     -   [x] Login/Registration (_basic structure only_)
+    -   [x] Build UI for Dashboard:
+        -   Include static content placeholders
+    -   [x] Connect the `Dashboard` to the backend:
+        -   Fetch and display user trips
+-   **Nov 28: Overflow Tasks, Testing and Polishing**
     -   [ ] \*\*\*Ask for help
         -   Edit `ListEditModal` style + organization for easier readability
     -   [ ] Add checkbox functionality to list items
-    -   [ ] Build UI for Dashboard:
-        -   Include static content placeholders
-    -   [ ] Connect the `Dashboard` to the backend:
-        -   Fetch and display user trips
     -   [ ] Style calendar simply
     -   [ ] Create responsive design on all pages
     -   [ ] Add animations / transitions wher necessary
@@ -642,7 +643,6 @@ Response:
     -   [ ] Clean up backend files (check in chatGPT)
         -   Use day.js to validate dates/times (implemented for itineraries controller already)
     -   [ ] Add form for editing itineraries
--   **Nov 28: Testing and Polishing**
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic
     -   [ ] Enhance UI consistency with basic Sass styling

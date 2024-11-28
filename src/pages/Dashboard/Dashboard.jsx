@@ -12,31 +12,24 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 function Dashboard() {
-    const [trips, setTrips] = useState(null);
+    const [remainingTrips, setRemainingTrips] = useState(null);
     const [closestTrip, setClosestTrip] = useState("No future trips");
 
     const getTrips = async () => {
         try {
             const { data } = await axios.get(`${baseUrl}/api/trips?userId=1`);
 
-            setTrips(data);
+            const allTrips = data
+                .filter((trip) => dayjs.utc(trip.start_date).local() > dayjs())
+                .sort((a, b) => {
+                    const dateA = dayjs.utc(a.start_date).local();
+                    const dateB = dayjs.utc(b.start_date).local();
+                    return dateA.diff(dateB);
+                });
 
-            // const nearestTrip = trips.reduce((closest, trip) => {
-            //     const tripDate = dayjs(trip.startDate);
-            //     const difference = tripDate.diff(now);
+            setClosestTrip(allTrips[0]);
 
-            //     if (difference < 0) return closest;
-
-            //     if (!closest || difference < dayjs(closest.startDate).diff(now)) {
-            //         return trip;
-            //     }
-
-            //     return closest;
-            // }, null);
-
-            // if (nearestTrip) {
-            //     setClosestTrip(nearestTrip);
-            // }
+            setRemainingTrips(allTrips.filter((trip) => trip.id !== closestTrip.id));
         } catch (error) {
             console.error("Error fetching trips:", error);
         }
@@ -46,8 +39,8 @@ function Dashboard() {
         getTrips();
     }, []);
 
-    if (!trips) {
-        return <div>Loading trips...</div>;
+    if (!closestTrip || !remainingTrips) {
+        return <div>Loading dashboard...</div>;
     }
 
     function countdown(startDate) {
@@ -63,20 +56,23 @@ function Dashboard() {
         if (countdownInHours <= 1) return `${countdownInMinutes} mins`;
     }
 
-    console.log(closestTrip);
-
     return (
         <main className="dashboard">
             <h1 className="dashboard__title">Hi Tiffany!</h1>
             <div className="dashboard__circle"></div>
-            <article className="dashboard__countdown">{closestTrip}</article>
+            <Link className="dashboard__countdown" to={`/trip/${closestTrip.id}`}>
+                <h3 className="dashboard__countdown-title">{closestTrip.trip_name}</h3>
+                <h2 className="dashboard__countdown-text">
+                    {countdown(closestTrip.start_date)} left
+                </h2>
+            </Link>
             <section className="dashboard__trips-container">
                 <h2 className="dashboard__trips-title">Upcoming Trips</h2>
                 <ul className="dashboard__trips-list">
-                    {trips.map((trip) => (
-                        <Link className="dashboard__link" to={`/trip/${trip.id}`}>
-                            <li className="dashboard__trips-item" key={trip.id}>
-                                <h3 className="dashboard__trips-name">{trip.trip_name}</h3>
+                    {remainingTrips.map((trip) => (
+                        <Link className="dashboard__link" key={trip.id} to={`/trip/${trip.id}`}>
+                            <li className="dashboard__trips-item">
+                                <h4 className="dashboard__trips-name">{trip.trip_name}</h4>
                                 <p className="dashboard__trips-text">
                                     {countdown(trip.start_date)}
                                 </p>

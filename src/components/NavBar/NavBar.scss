@@ -17,16 +17,16 @@
         border-radius: 50%;
         width: 2.75rem;
         height: 2.75rem;
-        background-color: $primary-color-black;
+        background-color: $primary-color-highlight;
         cursor: pointer;
 
         &:hover {
-            background-color: $primary-color-highlight;
+            background-color: $primary-color-black;
         }
 
         &:hover .nav__icon--highlight {
-            filter: invert(8%) sepia(0%) saturate(14%) hue-rotate(215deg) brightness(104%)
-                contrast(88%);
+            filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                contrast(92%);
         }
     }
 
@@ -39,16 +39,24 @@
         cursor: pointer;
 
         &--highlight {
-            background-color: $primary-color-black;
+            background-color: $primary-color-highlight;
         }
 
         &:hover {
             background-color: $primary-color-highlight;
         }
 
+        &--highlight:hover {
+            background-color: $primary-color-black;
+        }
+
+        &:hover .nav__link--highlight {
+            background-color: $primary-color-black;
+        }
+
         &:hover .nav__icon--highlight {
-            filter: invert(8%) sepia(0%) saturate(14%) hue-rotate(215deg) brightness(104%)
-                contrast(88%);
+            filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                contrast(92%);
         }
     }
 
@@ -61,8 +69,8 @@
         }
 
         &--highlight {
-            filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
-                contrast(92%);
+            filter: invert(8%) sepia(0%) saturate(14%) hue-rotate(215deg) brightness(104%)
+                contrast(88%);
         }
     }
 }

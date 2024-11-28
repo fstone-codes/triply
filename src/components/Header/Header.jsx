@@ -25,7 +25,7 @@ function Header() {
                     <img className="header__logo-full" src={logoFull} alt="triply logo" />
                 </header>
             )}
-            {(isTripPage || isTripListPage) && (
+            {(route === "/dashboard" || isTripPage || isTripListPage) && (
                 <header className="header header--purple">
                     <Link className="header__logo-container" to="/dashboard">
                         <img className="header__logo-icon" src={logoIcon} alt="triply logo icon" />
@@ -38,6 +38,7 @@ function Header() {
             {route !== "/" &&
                 route !== "/register" &&
                 route !== "/login" &&
+                route !== "/dashboard" &&
                 !isTripPage &&
                 !isTripListPage && (
                     <header className="header header--grey">
