@@ -2,6 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .list-item {
+    position: relative;
     @include flexbox(unset, unset, center);
     gap: $spacing-sm;
     border-radius: 3.125rem;
@@ -44,5 +45,17 @@
 
     &__item {
         @include font-body;
+    }
+
+    .jon {
+        display: none;
+        position: absolute;
+        background-color: white;
+        top: 10px;
+        z-index: 1;
+    }
+
+    &:hover .jon {
+        display: block;
     }
 }

@@ -39,6 +39,9 @@ function ListItem({
 
     return (
         <li className="list-item">
+            <div className="jon" >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aliquid, minus fuga nesciunt architecto maiores adipisci temporibus, illo necessitatibus pariatur quibusdam rem, similique dicta earum quos omnis. Laboriosam, placeat velit.
+            </div>
             <input
                 className="list-item__checkbox"
                 type="checkbox"
