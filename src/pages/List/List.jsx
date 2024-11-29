@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { baseUrl } from "../../utils/utils";
 import axios from "axios";
+import NavBar from "../../components/NavBar/NavBar";
 
 function List() {
     const [lists, setLists] = useState(null);
@@ -31,22 +32,25 @@ function List() {
     }
 
     return (
-        <main className="list-lists-main">
-            <section className="list-lists-main__container">
-                <h1 className="list-lists-main__title">Lists</h1>
-                <ul className="list-lists">
-                    {lists.map((list) => (
-                        <Link
-                            className="list-lists__link"
-                            key={list.id}
-                            to={`/trip/${tripId}/list/${list.id}`}
-                        >
-                            <li className="list-lists__item">{list.list_name}</li>
-                        </Link>
-                    ))}
-                </ul>
-            </section>
-        </main>
+        <>
+            <main className="list-lists-main">
+                <section className="list-lists-main__container">
+                    <h1 className="list-lists-main__title">Lists</h1>
+                    <ul className="list-lists">
+                        {lists.map((list) => (
+                            <Link
+                                className="list-lists__link"
+                                key={list.id}
+                                to={`/trip/${tripId}/list/${list.id}`}
+                            >
+                                <li className="list-lists__item">{list.list_name}</li>
+                            </Link>
+                        ))}
+                    </ul>
+                </section>
+            </main>
+            <NavBar />
+        </>
     );
 }
 

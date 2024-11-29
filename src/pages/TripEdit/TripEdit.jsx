@@ -107,6 +107,7 @@ function TripEdit() {
                 formData={formData}
                 handleInputChange={handleInputChange}
                 today={today}
+                tripId={tripId}
             />
         </>
     );

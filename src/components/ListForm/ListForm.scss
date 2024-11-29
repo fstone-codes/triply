@@ -2,10 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .list-add-edit {
-    padding: 0 $spacing-sm $spacing-xxlg;
+    padding: 0 $spacing-sm $spacing-sm;
     width: 100%;
     height: 100%;
-    background: $primary-color-grey;
+    background: $primary-color-black;
     overflow: scroll;
 
     @include tablet {
@@ -20,10 +20,8 @@
 .list-form {
     @include flexbox(column, unset, unset);
     gap: $spacing-sm;
-    border-radius: 3rem;
     padding: $spacing-lg $spacing-med;
     height: 100%;
-    background-color: $primary-color-main;
     overflow: scroll;
 
     @include tablet {
@@ -35,6 +33,16 @@
     }
 
     &__title {
-        @include font-header;
+        @include font-header($primary-color-grey);
+    }
+
+    &__button-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-xsm;
+        margin-top: $spacing-xsm;
+    }
+
+    &__link {
+        text-decoration: none;
     }
 }

@@ -2,15 +2,15 @@
 @use "../../styles/partials/variables" as *;
 
 .list-add {
-    padding: $spacing-lg $spacing-med $spacing-sm;
+    padding: $spacing-sm;
     width: 100vw;
     height: 100vh;
     background-color: $primary-color-black;
 
     &__container {
-        // @include flexbox(column, unset, unset);
-        // gap: $spacing-xsm;
-        // border-radius: 3rem;
+        height: 100%;
+        padding: $spacing-lg $spacing-med;
+        overflow: scroll;
 
         @include tablet {
             padding: 0 $spacing-lg;
@@ -24,6 +24,8 @@
     &__form {
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
+        height: 100%;
+        overflow: scroll;
     }
 
     &__title {

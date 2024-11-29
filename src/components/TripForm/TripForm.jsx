@@ -1,8 +1,11 @@
 import "./TripForm.scss";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
+import { Link, useLocation } from "react-router-dom";
 
-function TripForm({ handleSubmit, title, formData, handleInputChange, today }) {
+function TripForm({ handleSubmit, title, formData, handleInputChange, today, tripId }) {
+    const location = useLocation();
+
     return (
         <main className="trip-add-edit">
             <form className="trip-form" onSubmit={handleSubmit}>
@@ -15,6 +18,7 @@ function TripForm({ handleSubmit, title, formData, handleInputChange, today }) {
                     value={formData.trip_name}
                     placeholder="Type your trip name"
                     handleInputChange={handleInputChange}
+                    reverse="true"
                 />
                 <FormInput
                     id="destination"
@@ -24,6 +28,7 @@ function TripForm({ handleSubmit, title, formData, handleInputChange, today }) {
                     value={formData.destination}
                     placeholder="Type your destination"
                     handleInputChange={handleInputChange}
+                    reverse="true"
                 />
                 <FormInput
                     id="start_date"
@@ -33,6 +38,7 @@ function TripForm({ handleSubmit, title, formData, handleInputChange, today }) {
                     value={formData.start_date}
                     handleInputChange={handleInputChange}
                     minDate={today}
+                    reverse="true"
                 />
                 <FormInput
                     id="end_date"
@@ -42,8 +48,31 @@ function TripForm({ handleSubmit, title, formData, handleInputChange, today }) {
                     value={formData.end_date}
                     handleInputChange={handleInputChange}
                     minDate={formData.start_date || today}
+                    reverse="true"
                 />
-                <Button classType="primary" type="submit" text="Submit" />
+                <div className="trip-form__button-container">
+                    <Button classType="primary" type="submit" text="Submit" reversePrimary="true" />
+                    {location.pathname === "/trip/add" && (
+                        <Link className="trip-form__link" to="/dashboard">
+                            <Button
+                                classType="secondary"
+                                type="button"
+                                text="Cancel"
+                                reverseSecondary="true"
+                            />
+                        </Link>
+                    )}
+                    {location.pathname !== "/trip/add" && (
+                        <Link className="trip-form__link" to={`/trip/${tripId}`}>
+                            <Button
+                                classType="secondary"
+                                type="button"
+                                text="Cancel"
+                                reverseSecondary="true"
+                            />
+                        </Link>
+                    )}
+                </div>
             </form>
         </main>
     );

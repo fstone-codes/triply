@@ -62,15 +62,15 @@ function NavBar({ onAddClick }) {
             <NavLink className="nav__link" to={`/trip/${tripId}`}>
                 <img className="nav__icon" src={tripIcon} alt="trip icon" />
             </NavLink>
+            <NavLink className="nav__link" to={`/trip/${tripId}/list`}>
+                <img className="nav__icon" src={checkboxIcon} alt="checkbox icon" />
+            </NavLink>
             <NavLink className="nav__link" to={`/trip/${tripId}/itinerary`}>
                 <img
                     className="nav__icon nav__icon--small"
                     src={calendarIcon}
                     alt="calendar icon"
                 />
-            </NavLink>
-            <NavLink className="nav__link" to={`/trip/${tripId}/list`}>
-                <img className="nav__icon" src={checkboxIcon} alt="checkbox icon" />
             </NavLink>
             {renderPlusIcon()}
         </nav>

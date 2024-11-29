@@ -1,8 +1,9 @@
 import "./ItineraryForm.scss";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
+import { Link } from "react-router-dom";
 
-function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today }) {
+function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today, tripId }) {
     return (
         <main className="itinerary-add-edit">
             <form className="itinerary-form" onSubmit={handleSubmit}>
@@ -15,6 +16,7 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                     value={formData.title}
                     placeholder="Type the event title"
                     handleInputChange={handleInputChange}
+                    reverse="true"
                 />
                 <FormInput
                     id="description"
@@ -24,6 +26,7 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                     value={formData.description}
                     placeholder="Type your description"
                     handleInputChange={handleInputChange}
+                    reverse="true"
                 />
                 <FormInput
                     id="start"
@@ -33,6 +36,7 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                     value={formData.start}
                     handleInputChange={handleInputChange}
                     minDate={today}
+                    reverse="true"
                 />
                 <FormInput
                     id="end"
@@ -42,6 +46,7 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                     value={formData.end}
                     handleInputChange={handleInputChange}
                     minDate={formData.start || today}
+                    reverse="true"
                 />
                 <div className="itinerary-form__container">
                     <label className="itinerary-form__label" htmlFor="all_day">
@@ -56,7 +61,17 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                         onChange={handleInputChange}
                     />
                 </div>
-                <Button classType="primary" type="submit" text="Submit" />
+                <div className="itinerary-form__button-container">
+                    <Button classType="primary" type="submit" text="Submit" reversePrimary="true" />
+                    <Link className="itinerary-form__link" to={`/trip/${tripId}/itinerary`}>
+                        <Button
+                            classType="secondary"
+                            type="button"
+                            text="Cancel"
+                            reverseSecondary="true"
+                        />
+                    </Link>
+                </div>
             </form>
         </main>
     );

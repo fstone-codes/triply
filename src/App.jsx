@@ -19,11 +19,13 @@ import TripEdit from "./pages/TripEdit/TripEdit";
 
 function App() {
     const isListDetailsPage = window.location.pathname.match(/\/trip\/[^/]+\/list\/[^/]+$/);
+    const isTripAddPage = window.location.pathname.match(/\/trip\/add$/);
+    const isTripEditPage = window.location.pathname.match(/\/trip\/[^/]+\/edit$/);
 
     return (
         <BrowserRouter>
             <Header />
-            {!isListDetailsPage && <NavBar />}
+            {/* {!isTripAddPage && !isTripEditPage && !isListDetailsPage && <NavBar />} */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />

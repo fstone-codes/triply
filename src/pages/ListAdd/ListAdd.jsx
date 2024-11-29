@@ -66,6 +66,7 @@ function ListAdd() {
                 title="New List"
                 formData={formData}
                 handleInputChange={handleInputChange}
+                tripId={tripId}
             />
         </>
     );

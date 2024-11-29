@@ -113,6 +113,7 @@ function ItineraryAdd() {
                 formData={formData}
                 handleInputChange={handleInputChange}
                 today={currentDateTime}
+                tripId={tripId}
             />
         </>
     );

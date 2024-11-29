@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
 import "./Dashboard.scss";
+import { useEffect, useState } from "react";
 import { baseUrl } from "../../utils/utils";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
-import { Link } from "react-router-dom";
+import plusIcon from "../../assets/icons/plus.png";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -59,13 +60,16 @@ function Dashboard() {
         <main className="dashboard">
             <h1 className="dashboard__title">Hi Tiffany!</h1>
             <div className="dashboard__circle"></div>
-            <Link className="dashboard__countdown" to={`/trip/${closestTrip.id}`}>
+            <Link className="dashboard__link dashboard__countdown" to={`/trip/${closestTrip.id}`}>
                 <h3 className="dashboard__countdown-title">{closestTrip.trip_name}</h3>
                 <h2 className="dashboard__countdown-text">
                     {countdown(closestTrip.start_date)} left
                 </h2>
             </Link>
             <section className="dashboard__trips-container">
+                <Link className="dashboard__link dashboard__add" to={`/trip/add`}>
+                    <img className="dashboard__icon" src={plusIcon} alt="plus icon" />
+                </Link>
                 <h2 className="dashboard__trips-title">Upcoming Trips</h2>
                 <ul className="dashboard__trips-list">
                     {remainingTrips.map((trip) => (

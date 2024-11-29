@@ -14,6 +14,10 @@
         background-color: $primary-color-grey;
     }
 
+    &--black {
+        background-color: $primary-color-black;
+    }
+
     @include tablet {
         @include flexbox(unset, space-between, center);
         padding: $spacing-sm $spacing-lg;

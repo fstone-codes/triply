@@ -8,6 +8,7 @@
     height: 100%;
     background: $primary-color-main;
     overflow: auto;
+    position: relative;
 
     &__title {
         @include font-header;
@@ -15,23 +16,37 @@
 
     &__circle {
         position: absolute;
-        top: 20%;
-        left: -10%;
+        top: 3.5rem;
+        right: 13rem;
         border-radius: 50%;
-        width: 30%;
+        width: 8.25rem;
         aspect-ratio: 1 / 1;
         background-color: $transparent-color-white-25;
     }
 
+    &__add {
+        @include flexbox(column, center, center);
+        border-radius: 50%;
+        width: 2.5rem;
+        aspect-ratio: 1 / 1;
+        background-color: $transparent-color-white-25;
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 1.25rem;
+        filter: invert(8%) sepia(0%) saturate(14%) hue-rotate(215deg) brightness(104%) contrast(88%);
+    }
+
     &__countdown {
         position: absolute;
-        top: 12%;
-        right: -5%;
+        top: 0.5rem;
+        right: -1rem;
         @include flexbox(column, center, center);
         gap: $spacing-xsm;
         border-radius: 50%;
         padding: $spacing-lg $spacing-lg;
-        width: 70%;
+        width: 16rem;
         aspect-ratio: 1 / 1;
         background-color: $transparent-color-highlight-50;
         text-decoration: none;

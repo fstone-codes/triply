@@ -26,8 +26,9 @@
         }
     }
 
-    // &__title {
-    // }
+    &__title {
+        @include font-header;
+    }
 }
 
 .list-lists {

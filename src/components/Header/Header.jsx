@@ -15,7 +15,10 @@ function Header() {
 
     // Check if the current route matches dynamic paths
     const isTripPage = useMatch("/trip/:tripId");
+    const isTripEditPage = useMatch("/trip/:tripId/edit");
     const isTripListPage = useMatch("/trip/:tripId/list");
+    const isItineraryAddPage = useMatch("/trip/:tripId/itinerary/add");
+    const isListAddPage = useMatch("/trip/:tripId/list/add");
 
     return (
         <>
@@ -25,8 +28,18 @@ function Header() {
                     <img className="header__logo-full" src={logoFull} alt="triply logo" />
                 </header>
             )}
-            {(route === "/dashboard" || isTripPage || isTripListPage) && (
+            {(route === "/dashboard" || isTripPage || isTripListPage) && route !== "/trip/add" && (
                 <header className="header header--purple">
+                    <Link className="header__logo-container" to="/dashboard">
+                        <img className="header__logo-icon" src={logoIcon} alt="triply logo icon" />
+                    </Link>
+                    <div className="header__avatar-container">
+                        <img className="header__avatar" src={avatar} alt="avatar" />
+                    </div>
+                </header>
+            )}
+            {(route === "/trip/add" || isTripEditPage || isItineraryAddPage || isListAddPage) && (
+                <header className="header header--black">
                     <Link className="header__logo-container" to="/dashboard">
                         <img className="header__logo-icon" src={logoIcon} alt="triply logo icon" />
                     </Link>
@@ -39,8 +52,12 @@ function Header() {
                 route !== "/register" &&
                 route !== "/login" &&
                 route !== "/dashboard" &&
+                route !== "/trip/add" &&
                 !isTripPage &&
-                !isTripListPage && (
+                !isTripEditPage &&
+                !isTripListPage &&
+                !isItineraryAddPage &&
+                !isListAddPage && (
                     <header className="header header--grey">
                         <Link className="header__logo-container" to="/dashboard">
                             <img

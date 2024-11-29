@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
 import ItineraryCalendar from "../../components/ItineraryCalendar/ItineraryCalendar.jsx";
+import NavBar from "../../components/NavBar/NavBar.jsx";
 
 function Itinerary() {
     const [currentTrip, setCurrentTrip] = useState(null);
@@ -59,9 +60,12 @@ function Itinerary() {
     }
 
     return (
-        <main className="itinerary">
-            <ItineraryCalendar itineraries={itineraries} defaultDate={currentTrip.start_date} />
-        </main>
+        <>
+            <main className="itinerary">
+                <ItineraryCalendar itineraries={itineraries} defaultDate={currentTrip.start_date} />
+            </main>
+            <NavBar />
+        </>
     );
 }
 
