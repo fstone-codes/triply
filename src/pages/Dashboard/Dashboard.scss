@@ -25,13 +25,13 @@
 
     &__countdown {
         position: absolute;
-        top: 23%;
+        top: 12%;
         right: -5%;
         @include flexbox(column, center, center);
         gap: $spacing-xsm;
         border-radius: 50%;
         padding: $spacing-lg $spacing-lg;
-        width: 60%;
+        width: 70%;
         aspect-ratio: 1 / 1;
         background-color: $transparent-color-highlight-50;
         text-decoration: none;
@@ -51,7 +51,7 @@
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
         border-radius: 3rem;
-        width: 70%;
+        width: 100%;
     }
 
     &__trips-title {

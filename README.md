@@ -632,13 +632,14 @@ Response:
     -   [x] Connect the `Dashboard` to the backend:
         -   Fetch and display user trips
 -   **Nov 28: Overflow Tasks, Testing and Polishing**
-    -   [ ] \*\*\*Ask for help
-        -   Edit `ListEditModal` style + organization for easier readability
+    -   [x] Edit `ListEditModal` style + organization for easier readability
     -   [x] Add checkbox functionality to list items
-    -   [ ] Style calendar simply
+    -   [x] Style calendar simply
     -   [ ] Create responsive design on all pages
     -   [ ] Add animations / transitions where necessary
     -   [ ] Add error message to forms
+-   **Nov 29: Final Touches**
+    -   [ ] Update form styles to black theme
     -   [ ] Perform comprehensive endpoint testing
     -   [ ] Clean up backend files (check in chatGPT)
         -   Use day.js to validate dates/times (implemented for itineraries controller already)
@@ -654,7 +655,6 @@ Response:
         -   Rename classes/components/etc. for consistency
         -   Organize backend
         -   Add useful comments to front + backend
--   **Nov 29: Final Touches**
     -   [ ] Prepare a working demo with sample data for presentation
     -   [ ] Update frontend `README` file with actual data diagram and endpoints
     -   [ ] Write a `README` file with setup instructions and functionality overview
