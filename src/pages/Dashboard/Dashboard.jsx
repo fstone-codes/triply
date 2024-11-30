@@ -6,7 +6,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
-import plusIcon from "../../assets/icons/plus.png";
+import plusIcon from "../../assets/icons/plus.svg";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

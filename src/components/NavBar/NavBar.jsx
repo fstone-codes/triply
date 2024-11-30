@@ -1,9 +1,9 @@
 import "./NavBar.scss";
 import { NavLink, matchPath, useLocation } from "react-router-dom";
-import calendarIcon from "../../assets/icons/calendar.png";
-import checkboxIcon from "../../assets/icons/checkbox.png";
-import plusIcon from "../../assets/icons/plus.png";
-import tripIcon from "../../assets/icons/trip.png";
+import calendarIcon from "../../assets/icons/calendar.svg";
+import checkboxIcon from "../../assets/icons/checkbox.svg";
+import plusIcon from "../../assets/icons/plus.svg";
+import tripIcon from "../../assets/icons/trip.svg";
 
 function NavBar({ onAddClick }) {
     const location = useLocation();
@@ -63,7 +63,11 @@ function NavBar({ onAddClick }) {
                 <img className="nav__icon" src={tripIcon} alt="trip icon" />
             </NavLink>
             <NavLink className="nav__link" to={`/trip/${tripId}/list`}>
-                <img className="nav__icon" src={checkboxIcon} alt="checkbox icon" />
+                <img
+                    className="nav__icon  nav__icon--small"
+                    src={checkboxIcon}
+                    alt="checkbox icon"
+                />
             </NavLink>
             <NavLink className="nav__link" to={`/trip/${tripId}/itinerary`}>
                 <img

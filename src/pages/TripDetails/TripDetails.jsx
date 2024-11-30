@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { baseUrl } from "../../utils/utils";
 import axios from "axios";
-import editIcon from "../../assets/icons/edit.png";
+import editIcon from "../../assets/icons/edit.svg";
 import dayjs from "dayjs";
 import NavBar from "../../components/NavBar/NavBar";
 

@@ -7,7 +7,7 @@ import ListEditModal from "../../components/ListEditModal/ListEditModal";
 import ListItemAddModal from "../../components/ListItemAddModal/ListItemAddModal";
 import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
-import editIcon from "../../assets/icons/edit.png";
+import editIcon from "../../assets/icons/edit.svg";
 
 function ListDetails() {
     const [list, setList] = useState(null);
