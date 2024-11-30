@@ -1,7 +1,7 @@
 import "./CategoryList.scss";
 import ListItem from "../ListItem/ListItem";
 
-function CategoryList({ id, category, listItems, convertStatusToNumber, editListItem }) {
+function CategoryList({ category, listItems, convertStatusToNumber, editListItem }) {
     const filteredItems = listItems.filter((item) => item.category === category);
 
     return (
@@ -16,9 +16,9 @@ function CategoryList({ id, category, listItems, convertStatusToNumber, editList
                             item={item.item}
                             status={item.status}
                             description={item.description}
+                            itemBody={item}
                             convertStatusToNumber={convertStatusToNumber}
                             editListItem={editListItem}
-                            itemBody={item}
                         />
                     ))
                 ) : (

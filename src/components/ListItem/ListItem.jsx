@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
 import "./ListItem.scss";
+import { useState, useRef, useEffect } from "react";
 import downIcon from "../../assets/icons/down-chevron.svg";
 
 function ListItem({
@@ -17,25 +17,23 @@ function ListItem({
 
     const handleCheckboxClick = () => {
         setCurrentStatus((prevStatus) => {
-            const nextStatus = prevStatus === 1 ? 2 : prevStatus === 2 ? 3 : 1; // Cycle between 1, 2, and 3
+            const nextStatus = prevStatus === 1 ? 2 : prevStatus === 2 ? 3 : 1;
 
             const updatedRequestBody = {
                 ...itemBody,
-                status: nextStatus, // Use the next status directly here
+                status: nextStatus,
             };
 
-            // Call editListItem with the updated status
             editListItem(id, updatedRequestBody);
 
-            return nextStatus; // This ensures the state is updated correctly
+            return nextStatus;
         });
     };
 
     useEffect(() => {
         if (checkboxRef.current) {
-            // Only run if the checkbox is available
-            checkboxRef.current.checked = currentStatus === 3; // Checked for status 3
-            checkboxRef.current.indeterminate = currentStatus === 2; // Indeterminate for status 2
+            checkboxRef.current.checked = currentStatus === 3;
+            checkboxRef.current.indeterminate = currentStatus === 2;
         }
     }, [currentStatus]);
 

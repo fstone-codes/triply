@@ -1,7 +1,7 @@
 import "./ListItemAddModal.scss";
-import ReactModal from "react-modal";
-import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
 import Button from "../Button/Button";
+import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
+import ReactModal from "react-modal";
 
 function ListItemAddModal({
     isOpen,

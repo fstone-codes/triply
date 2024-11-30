@@ -50,8 +50,6 @@ function Dashboard() {
         const tripStartLocal = dayjs.utc(startDate).local();
 
         const countdownInMonths = tripStartLocal.diff(today, "month");
-        console.log(countdownInMonths);
-
         const countdownInDays = tripStartLocal.diff(today, "day");
         const countdownInHours = tripStartLocal.diff(today, "hour") % 24;
         const countdownInMinutes = tripStartLocal.diff(today, "minute") % 60;

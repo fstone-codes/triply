@@ -1,7 +1,7 @@
 import "./ListForm.scss";
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
-import { Link } from "react-router-dom";
 
 function ListForm({ handleSubmit, title, formData, handleInputChange, tripId }) {
     return (

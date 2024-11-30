@@ -1,7 +1,7 @@
 import "./ItineraryForm.scss";
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
-import { Link } from "react-router-dom";
 
 function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today, tripId }) {
     return (
@@ -34,8 +34,8 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                     type="datetime-local"
                     name="start"
                     value={formData.start}
-                    handleInputChange={handleInputChange}
                     minDate={today}
+                    handleInputChange={handleInputChange}
                     reverse="true"
                 />
                 <FormInput
@@ -44,8 +44,8 @@ function ItineraryForm({ handleSubmit, title, formData, handleInputChange, today
                     type="datetime-local"
                     name="end"
                     value={formData.end}
-                    handleInputChange={handleInputChange}
                     minDate={formData.start || today}
+                    handleInputChange={handleInputChange}
                     reverse="true"
                 />
                 <div className="itinerary-form__container">

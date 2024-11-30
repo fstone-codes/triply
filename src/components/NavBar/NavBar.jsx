@@ -1,9 +1,9 @@
 import "./NavBar.scss";
+import { NavLink, matchPath, useLocation } from "react-router-dom";
 import calendarIcon from "../../assets/icons/calendar.png";
 import checkboxIcon from "../../assets/icons/checkbox.png";
 import plusIcon from "../../assets/icons/plus.png";
 import tripIcon from "../../assets/icons/trip.png";
-import { NavLink, matchPath, useLocation } from "react-router-dom";
 
 function NavBar({ onAddClick }) {
     const location = useLocation();

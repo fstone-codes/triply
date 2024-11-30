@@ -273,7 +273,6 @@ function ListDetails() {
                         {categoryList.map((category) => (
                             <CategoryList
                                 key={category.id}
-                                id={category.id}
                                 category={category.category}
                                 listItems={listItems}
                                 convertStatusToNumber={convertStatusToNumber}

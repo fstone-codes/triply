@@ -46,10 +46,25 @@
         @include font-label($primary-color-grey);
     }
 
-    // &__input {
-    //     &--checkbox {
-    //     }
-    // }
+    &__input {
+        &--checkbox {
+            appearance: none;
+            border: 1px solid $primary-color-main;
+            border-radius: 50%;
+            width: 0.875rem;
+            height: 0.875rem;
+            background-color: $primary-color-grey;
+            cursor: pointer;
+
+            &:checked {
+                background-image: url("../../assets/icons/checkmark.svg");
+                background-size: 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: $primary-color-black;
+            }
+        }
+    }
 
     &__button-container {
         @include flexbox(column, unset, unset);

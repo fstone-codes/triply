@@ -1,12 +1,12 @@
 import "./ItineraryCalendar.scss";
 import { Calendar } from "react-big-calendar";
-import djLocalizer from "../../utils/dayjsLocalizer.js";
+import dayjsLocalizer from "../../utils/dayjsLocalizer.js";
 
 function ItineraryCalendar({ itineraries, defaultDate }) {
     return (
         <div className="calendar">
             <Calendar
-                localizer={djLocalizer}
+                localizer={dayjsLocalizer}
                 events={itineraries}
                 startAccessor="start"
                 endAccessor="end"

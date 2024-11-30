@@ -1,9 +1,9 @@
 import "./Header.scss";
 import { Link, useLocation, useMatch } from "react-router-dom";
 import { useState, useEffect } from "react";
+import avatar from "../../assets/images/avatar.png";
 import logoFull from "../../assets/logos/triply-logo-full-light.svg";
 import logoIcon from "../../assets/logos/triply-logo-icon-light.svg";
-import avatar from "../../assets/images/avatar.png";
 
 function Header() {
     const location = useLocation();
@@ -13,7 +13,6 @@ function Header() {
         setRoute(location.pathname);
     }, [location]);
 
-    // Check if the current route matches dynamic paths
     const isTripPage = useMatch("/trip/:tripId");
     const isTripEditPage = useMatch("/trip/:tripId/edit");
     const isTripListPage = useMatch("/trip/:tripId/list");

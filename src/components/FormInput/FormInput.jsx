@@ -7,9 +7,9 @@ function FormInput({
     name,
     value,
     placeholder,
-    handleInputChange,
     minDate,
     reverse,
+    handleInputChange,
 }) {
     return (
         <div className="form-input">
@@ -26,8 +26,8 @@ function FormInput({
                 name={name}
                 value={value}
                 placeholder={placeholder}
-                onChange={handleInputChange}
                 min={type === "date" || type === "datetime-local" ? minDate : undefined}
+                onChange={handleInputChange}
             />
         </div>
     );

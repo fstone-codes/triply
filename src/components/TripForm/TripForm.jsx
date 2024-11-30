@@ -1,7 +1,7 @@
 import "./TripForm.scss";
+import { Link, useLocation } from "react-router-dom";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
-import { Link, useLocation } from "react-router-dom";
 
 function TripForm({ handleSubmit, title, formData, handleInputChange, today, tripId }) {
     const location = useLocation();

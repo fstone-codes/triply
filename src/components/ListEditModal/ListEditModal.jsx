@@ -1,9 +1,8 @@
 import "./ListEditModal.scss";
-import ReactModal from "react-modal";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
 import ListItemFormInput from "../ListItemFormInput/ListItemFormInput";
-import { useState } from "react";
+import ReactModal from "react-modal";
 
 function ListEditModal({
     isOpen,
