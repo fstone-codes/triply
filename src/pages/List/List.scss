@@ -52,8 +52,45 @@
         @include font-body;
         scroll-snap-align: start;
 
-        // &:hover {
-        //     background-color: $primary-color-main;
-        // }
+        // hover effect below
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: color 1s ease;
+
+        span {
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background-color: $primary-color-black;
+            transform: translateY(150%);
+            border-radius: 50%;
+            left: calc((var(--n) - 1) * 25%);
+            transition: transform 0.5s, background-color 0.5s;
+            transition-delay: calc((var(--n) - 1) * 0.1s);
+            z-index: -1;
+        }
+
+        &:hover {
+            color: $primary-color-grey;
+            transition: color 1s ease;
+        }
+
+        &:hover span {
+            transform: translateY(0) scale(2);
+        }
+
+        span:nth-child(1) {
+            --n: 1;
+        }
+        span:nth-child(2) {
+            --n: 2;
+        }
+        span:nth-child(3) {
+            --n: 3;
+        }
+        span:nth-child(4) {
+            --n: 4;
+        }
     }
 }

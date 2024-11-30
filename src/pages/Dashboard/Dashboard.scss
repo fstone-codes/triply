@@ -31,6 +31,17 @@
         aspect-ratio: 1 / 1;
         background-color: $transparent-color-white-25;
         cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(103%);
+            background-color: $primary-color-black;
+
+            & .dashboard__icon {
+                filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                    contrast(92%);
+            }
+        }
     }
 
     &__icon {
@@ -49,6 +60,11 @@
         aspect-ratio: 1 / 1;
         background-color: $transparent-color-highlight-50;
         text-decoration: none;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(103%);
+        }
     }
 
     &__countdown-text {
@@ -92,6 +108,57 @@
         padding: $spacing-sm $spacing-med;
         background-color: $transparent-color-white-50;
         scroll-snap-align: start;
+
+        // &:hover {
+        //     // transform: scale(103%);
+        //     box-shadow: 0 0 5px $transparent-color-white-50, 0 0 10px $transparent-color-white-50;
+        // }
+
+        // hover effect below
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        .dashboard__trips-name,
+        .dashboard__trips-text {
+            transition: color 1s ease;
+        }
+
+        span {
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background-color: $primary-color-black;
+            transform: translateY(150%);
+            border-radius: 50%;
+            left: calc((var(--n) - 1) * 25%);
+            transition: transform 0.5s, background-color 0.5s;
+            transition-delay: calc((var(--n) - 1) * 0.1s);
+            z-index: -1;
+        }
+
+        &:hover .dashboard__trips-name,
+        &:hover .dashboard__trips-text {
+            color: $primary-color-grey;
+            transition: color 1s ease;
+        }
+
+        &:hover span {
+            transform: translateY(0) scale(2);
+        }
+
+        span:nth-child(1) {
+            --n: 1;
+        }
+        span:nth-child(2) {
+            --n: 2;
+        }
+        span:nth-child(3) {
+            --n: 3;
+        }
+        span:nth-child(4) {
+            --n: 4;
+        }
     }
 
     &__trips-name {

@@ -28,7 +28,24 @@ function List() {
     }, [tripId]);
 
     if (!lists) {
-        return <div>Loading lists...</div>;
+        return (
+            <div className="loader loader--purple">
+                <div className="loader__default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -43,7 +60,13 @@ function List() {
                                 key={list.id}
                                 to={`/trip/${tripId}/list/${list.id}`}
                             >
-                                <li className="list-lists__item">{list.list_name}</li>
+                                <li className="list-lists__item">
+                                    {list.list_name}
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </li>
                             </Link>
                         ))}
                     </ul>

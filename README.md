@@ -635,22 +635,23 @@ Response:
     -   [x] Edit `ListEditModal` style + organization for easier readability
     -   [x] Add checkbox functionality to list items
     -   [x] Style calendar simply
-    -   [ ] Add animations / transitions where necessary
 -   **Nov 29: Final Touches**
-
     -   [ ] Add form for editing itineraries
     -   [ ] Perform comprehensive endpoint testing
-    -   [ ] Add error message to forms
     -   [ ] Add delete functionality
     -   [x] Update form styles to black theme
     -   [x] Add description popup on list items
     -   [x] Clean up backend files
         -   Use day.js to validate dates/times (implemented for itineraries controller already)
+-   **Nov 30: Final Touches + Presentation Preparation**
+
+    -   [ ] Add error message to forms
+    -   [x] Update image icons to svg files, update styling accodingly (remove filters)
+    -   [x] Add animations / transitions where necessary
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic
     -   [ ] Enhance UI consistency with basic Sass styling
         -   Create responsive design on all pages
-    -   [ ] Update image icons to svg files, update styling accodingly (remove filters)
     -   [ ] Clean up
         -   Remove unnecessary comments
         -   Remove unused imports
@@ -669,7 +670,6 @@ Response:
 
     // put max size - display: none for everything else and display block that says WIP
 
--   **Nov 30: Presentation Preparation**
     -   [ ] Verify data flow and ensure features are functional
     -   [ ] Create mock accounts and trips for a polished demo
     -   [ ] Practice showcasing the app with key features like trip creation, itinerary setup, and packing list management

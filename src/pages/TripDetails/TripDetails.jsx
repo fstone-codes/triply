@@ -26,7 +26,24 @@ function TripDetails() {
     }, [tripId]);
 
     if (!trip) {
-        return <div>Loading trip details...</div>;
+        return (
+            <div className="loader loader--purple">
+                <div className="loader__default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        );
     }
 
     return (

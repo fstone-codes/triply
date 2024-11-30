@@ -42,7 +42,24 @@ function Dashboard() {
     }, []);
 
     if (!closestTrip || !remainingTrips) {
-        return <div>Loading dashboard...</div>;
+        return (
+            <div className="loader loader--purple">
+                <div className="loader__default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        );
     }
 
     function countdown(startDate) {
@@ -79,6 +96,10 @@ function Dashboard() {
                     {remainingTrips.map((trip) => (
                         <Link className="dashboard__link" key={trip.id} to={`/trip/${trip.id}`}>
                             <li className="dashboard__trips-item">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                                 <h4 className="dashboard__trips-name">{trip.trip_name}</h4>
                                 <p className="dashboard__trips-text">
                                     {countdown(trip.start_date)}

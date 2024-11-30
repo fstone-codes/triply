@@ -9,6 +9,11 @@
     width: 100%;
     cursor: pointer;
     text-decoration: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(103%);
+    }
 
     &--primary {
         background-color: $primary-color-black;

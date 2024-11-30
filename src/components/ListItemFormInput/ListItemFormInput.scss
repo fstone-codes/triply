@@ -66,5 +66,9 @@
 
         // &--select {
         // }
+
+        &:focus {
+            box-shadow: 0 0 5px $transparent-color-white-50, 0 0 10px $transparent-color-white-50;
+        }
     }
 }

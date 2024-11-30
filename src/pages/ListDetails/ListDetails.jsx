@@ -253,7 +253,24 @@ function ListDetails() {
 
     // guarding
     if (!listItems) {
-        return <div>Loading list...</div>;
+        return (
+            <div className="loader loader--grey">
+                <div className="loader__default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        );
     }
 
     return (

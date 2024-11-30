@@ -9,7 +9,7 @@
 
     &__container {
         height: 100%;
-        padding: $spacing-lg $spacing-med;
+        padding: $spacing-lg 0;
         overflow: scroll;
 
         @include tablet {
@@ -24,6 +24,7 @@
     &__form {
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
+        padding: 0 $spacing-med;
         height: 100%;
         overflow: scroll;
     }

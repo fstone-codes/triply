@@ -22,11 +22,11 @@
 
         &:hover {
             background-color: $primary-color-black;
-        }
 
-        &:hover .nav__icon--highlight {
-            filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
-                contrast(92%);
+            & .nav__icon--highlight {
+                filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                    contrast(92%);
+            }
         }
     }
 
@@ -37,6 +37,7 @@
         height: 2.75rem;
         background-color: $transparent-color-white-50;
         cursor: pointer;
+        transition: 0.3s ease;
 
         &--highlight {
             background-color: $primary-color-highlight;
@@ -44,19 +45,20 @@
 
         &:hover {
             background-color: $primary-color-highlight;
+            transform: scale(105%);
+
+            & .nav__link--highlight {
+                background-color: $primary-color-black;
+            }
+
+            & .nav__icon--highlight {
+                filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                    contrast(92%);
+            }
         }
 
         &--highlight:hover {
             background-color: $primary-color-black;
-        }
-
-        &:hover .nav__link--highlight {
-            background-color: $primary-color-black;
-        }
-
-        &:hover .nav__icon--highlight {
-            filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
-                contrast(92%);
         }
     }
 
