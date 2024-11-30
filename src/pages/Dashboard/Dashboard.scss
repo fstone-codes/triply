@@ -2,13 +2,13 @@
 @use "../../styles/partials/variables" as *;
 
 .dashboard {
+    position: relative;
     @include flexbox(column, space-between, unset);
     padding: $spacing-sm;
     width: 100%;
     height: 100%;
     background: $primary-color-main;
     overflow: auto;
-    position: relative;
 
     &__title {
         @include font-header;
@@ -40,7 +40,7 @@
 
     &__countdown {
         position: absolute;
-        top: 0.5rem;
+        top: 2rem;
         right: -1rem;
         @include flexbox(column, center, center);
         gap: $spacing-xsm;

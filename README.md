@@ -639,14 +639,17 @@ Response:
     -   [ ] Add animations / transitions where necessary
     -   [ ] Add error message to forms
 -   **Nov 29: Final Touches**
-    -   [ ] Update form styles to black theme
-    -   [ ] Perform comprehensive endpoint testing
-    -   [ ] Clean up backend files (check in chatGPT)
-        -   Use day.js to validate dates/times (implemented for itineraries controller already)
+
     -   [ ] Add form for editing itineraries
+    -   [ ] Perform comprehensive endpoint testing
+    -   [x] Update form styles to black theme
+    -   [x] Add description popup on list items
+    -   [x] Clean up backend files
+        -   Use day.js to validate dates/times (implemented for itineraries controller already)
     -   [ ] Test all implemented functionality end-to-end
     -   [ ] Fix bugs or issues with routing, state, or backend logic
     -   [ ] Enhance UI consistency with basic Sass styling
+    -   [ ] Update image icons to svg files, update styling accodingly (remove filters)
     -   [ ] Clean up
         -   Remove unnecessary comments
         -   Remove unused imports
@@ -658,6 +661,13 @@ Response:
     -   [ ] Prepare a working demo with sample data for presentation
     -   [ ] Update frontend `README` file with actual data diagram and endpoints
     -   [ ] Write a `README` file with setup instructions and functionality overview
+    -   [ ] Jon's comments
+            // rename README to proposal
+            // create README that shows instructions "npm install", "npm run dev"
+            // put env. variables in comments of submissions
+
+    // put max size - display: none for everything else and display block that says WIP
+
 -   **Nov 30: Presentation Preparation**
     -   [ ] Verify data flow and ensure features are functional
     -   [ ] Create mock accounts and trips for a polished demo

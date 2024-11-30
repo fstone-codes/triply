@@ -13,7 +13,7 @@ dayjs.extend(timezone);
 
 function Dashboard() {
     const [remainingTrips, setRemainingTrips] = useState(null);
-    const [closestTrip, setClosestTrip] = useState("No future trips");
+    const [closestTrip, setClosestTrip] = useState(null);
 
     const getTrips = async () => {
         try {
@@ -26,6 +26,8 @@ function Dashboard() {
                     const dateB = dayjs.utc(b.start_date).local();
                     return dateA.diff(dateB);
                 });
+
+            const closestTrip = allTrips[0];
 
             setClosestTrip(allTrips[0]);
 
@@ -47,10 +49,14 @@ function Dashboard() {
         const today = dayjs();
         const tripStartLocal = dayjs.utc(startDate).local();
 
+        const countdownInMonths = tripStartLocal.diff(today, "month");
+        console.log(countdownInMonths);
+
         const countdownInDays = tripStartLocal.diff(today, "day");
         const countdownInHours = tripStartLocal.diff(today, "hour") % 24;
         const countdownInMinutes = tripStartLocal.diff(today, "minute") % 60;
 
+        if (countdownInMonths >= 1) return `${countdownInMonths} months`;
         if (countdownInDays > 1) return `${countdownInDays} days`;
         if (countdownInDays <= 1) return `${countdownInHours} hours`;
         if (countdownInHours <= 1) return `${countdownInMinutes} mins`;
@@ -58,7 +64,7 @@ function Dashboard() {
 
     return (
         <main className="dashboard">
-            <h1 className="dashboard__title">Hi Tiffany!</h1>
+            <h1 className="dashboard__title">Hi Sabrina!</h1>
             <div className="dashboard__circle"></div>
             <Link className="dashboard__link dashboard__countdown" to={`/trip/${closestTrip.id}`}>
                 <h3 className="dashboard__countdown-title">{closestTrip.trip_name}</h3>

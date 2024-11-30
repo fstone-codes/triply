@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import "./ListItem.scss";
+import downIcon from "../../assets/icons/down-chevron.svg";
 
 function ListItem({
     id,
@@ -12,6 +13,7 @@ function ListItem({
 }) {
     const checkboxRef = useRef(null);
     const [currentStatus, setCurrentStatus] = useState(convertStatusToNumber(status));
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const handleCheckboxClick = () => {
         setCurrentStatus((prevStatus) => {
@@ -37,23 +39,47 @@ function ListItem({
         }
     }, [currentStatus]);
 
+    const handleExpandClick = () => {
+        if (isExpanded) {
+            setIsExpanded(false);
+        } else {
+            setIsExpanded(true);
+        }
+    };
+
     return (
-        <li className="list-item">
-            <div className="jon" >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aliquid, minus fuga nesciunt architecto maiores adipisci temporibus, illo necessitatibus pariatur quibusdam rem, similique dicta earum quos omnis. Laboriosam, placeat velit.
+        <li className={`list-item ${isExpanded ? "list-item--expanded" : ""}`}>
+            <div className="list-item__container">
+                <input
+                    className="list-item__checkbox"
+                    type="checkbox"
+                    id={id}
+                    name="status"
+                    value={convertStatusToNumber(status)}
+                    ref={checkboxRef}
+                    onClick={handleCheckboxClick}
+                />
+                <div className="list-item__item-container">
+                    <label className="list-item__item" htmlFor={id}>
+                        {item}
+                    </label>
+                    <img
+                        className={`list-item__icon ${
+                            isExpanded ? "list-item__icon--expanded" : ""
+                        }`}
+                        src={downIcon}
+                        alt="down chevron icon"
+                        onClick={handleExpandClick}
+                    />
+                </div>
             </div>
-            <input
-                className="list-item__checkbox"
-                type="checkbox"
-                id={id}
-                name="status"
-                value={convertStatusToNumber(status)}
-                ref={checkboxRef}
-                onClick={handleCheckboxClick}
-            />
-            <label className="list-item__item" htmlFor={id}>
-                {item}
-            </label>
+            <div
+                className={`list-item__description ${
+                    isExpanded ? "list-item__description--expanded" : ""
+                }`}
+            >
+                {description}
+            </div>
         </li>
     );
 }

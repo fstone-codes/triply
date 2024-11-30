@@ -35,7 +35,7 @@
     @include flexbox(column, unset, unset);
     gap: $spacing-sm;
     list-style-type: none;
-    height: 23.75rem; // specific height to avoid cutting off list item
+    height: 20.125rem; // specific height to avoid cutting off list item
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
