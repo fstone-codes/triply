@@ -12,3 +12,5 @@
         - This corresponds to the backend's `PORT` environmental variable
         - Ensure no spaces
 7. Start the server: `npm run dev`
+
+**NOTE: Mobile design only, responsive designs to be implemented in following sprints**
