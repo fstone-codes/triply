@@ -1,0 +1,50 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.trip-list {
+    padding: 0 $spacing-sm $spacing-xxlg;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-grey;
+    overflow: scroll;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__title-container {
+        @include flexbox(unset, space-between, flex-start);
+    }
+
+    &__title {
+        margin-bottom: $spacing-sm;
+        @include font-header;
+    }
+
+    &__icon {
+        height: 1.5rem;
+        cursor: pointer;
+    }
+
+    &__container {
+        @include flexbox(column, unset, unset);
+        border-radius: 3rem;
+        padding: $spacing-lg $spacing-med;
+        height: 100%;
+        background-color: $primary-color-main;
+    }
+
+    &__list {
+        @include flexbox(unset, unset, unset);
+        gap: $spacing-sm;
+        height: 100%;
+        list-style-type: none;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+}

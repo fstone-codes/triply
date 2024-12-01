@@ -1,0 +1,112 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "react-big-calendar/lib/sass/styles";
+
+.calendar {
+    width: 100%;
+    height: 100%;
+    background: $primary-color-grey;
+    overflow: scroll;
+}
+
+// customizing react big calendar's styles
+// month views
+.rbc-month-view {
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+// week view
+.rbc-time-view {
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+// agenda view
+.rbc-agenda-view {
+    border: 1px solid #ddd;
+    border-radius: 1.5rem;
+    overflow-y: scroll;
+    overflow-x: unset;
+}
+
+.rbc-agenda-table {
+    width: 100%;
+}
+
+.rbc-agenda-view table.rbc-agenda-table {
+    border: none;
+}
+
+// general
+.rbc-day-slot .rbc-event,
+.rbc-event.rbc-selected,
+.rbc-event,
+.rbc-selected,
+.rbc-event {
+    border: none;
+    background-color: $primary-color-main;
+    color: $primary-color-black;
+}
+
+.rbc-slot {
+    border: none;
+    background-color: $primary-color-main;
+    color: $primary-color-black;
+}
+
+.rbc-event:focus {
+    outline: none;
+    scale: 110%;
+}
+
+.rbc-header {
+    padding: $spacing-xsm 0.25rem;
+}
+
+.rbc-today {
+    background-color: $transparent-color-highlight-50;
+}
+
+.rbc-toolbar-label {
+    order: -1;
+    @include font-header;
+}
+
+.rbc-toolbar {
+    gap: $spacing-xsm;
+}
+
+.rbc-toolbar button {
+    padding: 4px $spacing-xsm;
+    border-radius: 1rem;
+}
+
+.rbc-btn-group {
+    display: flex;
+    gap: $spacing-xsm;
+}
+
+.rbc-btn-group > button:first-child:not(:last-child),
+.rbc-btn-group > button:not(:first-child):not(:last-child),
+.rbc-btn-group > button:last-child:not(:first-child) {
+    border-radius: 1rem;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+    box-shadow: none;
+    border: none;
+    color: $primary-color-black;
+}
+
+.rbc-toolbar button {
+    border: none;
+    color: $transparent-color-black-50;
+    cursor: pointer;
+}
+
+// remove inconsistent greyed out day cells
+.rbc-off-range-bg {
+    background-color: transparent !important;
+}

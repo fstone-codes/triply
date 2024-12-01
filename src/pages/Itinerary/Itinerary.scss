@@ -1,0 +1,18 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.itinerary {
+    padding: 0 $spacing-sm $spacing-xxlg;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-grey;
+    overflow: scroll;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+}

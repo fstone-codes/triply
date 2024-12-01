@@ -1,0 +1,77 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.itinerary-add-edit {
+    padding: 0 $spacing-sm $spacing-sm;
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color-black;
+    overflow: scroll;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+}
+
+.itinerary-form {
+    @include flexbox(column, unset, unset);
+    gap: $spacing-sm;
+    padding: $spacing-lg $spacing-med;
+    height: 100%;
+    overflow: scroll;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__title {
+        @include font-header($primary-color-grey);
+    }
+
+    &__container {
+        @include flexbox(unset, space-between, center);
+        border-radius: 3.125rem;
+        padding: $spacing-xsm $spacing-sm $spacing-xsm 0;
+    }
+
+    &__label {
+        @include font-label($primary-color-grey);
+    }
+
+    &__input {
+        &--checkbox {
+            appearance: none;
+            border: 1px solid $primary-color-main;
+            border-radius: 50%;
+            width: 1rem;
+            height: 1rem;
+            background-color: $primary-color-grey;
+            cursor: pointer;
+
+            &:checked {
+                background-image: url("../../assets/icons/checkmark.svg");
+                background-size: 65%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: $primary-color-black;
+            }
+        }
+    }
+
+    &__button-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+}

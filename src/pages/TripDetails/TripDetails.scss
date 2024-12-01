@@ -1,0 +1,42 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.trip-details {
+    padding: 0 $spacing-sm $spacing-xxlg;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-main;
+    overflow: auto;
+
+    &__container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        padding: $spacing-lg $spacing-med;
+        border-radius: 3rem;
+        height: 100%;
+        background-color: $transparent-color-white-50;
+    }
+
+    &__title-container {
+        @include flexbox(unset, space-between, flex-start);
+    }
+
+    &__title {
+        @include font-header;
+    }
+
+    // &__link {
+    // }
+
+    &__icon {
+        height: 1.5rem;
+        cursor: pointer;
+    }
+
+    &__label {
+        @include font-label;
+    }
+
+    // &__text {
+    // }
+}
