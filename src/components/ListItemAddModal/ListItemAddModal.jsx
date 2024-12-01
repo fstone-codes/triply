@@ -7,6 +7,7 @@ function ListItemAddModal({
     isOpen,
     setIsOpen,
     newListItem,
+    handleModalClose,
     handleSubmit,
     handleInputChange,
     convertStatusToNumber,
@@ -19,13 +20,17 @@ function ListItemAddModal({
             appElement={document.getElementById("root")}
             // The 2 lines below enable esc to close the modal
             shouldCloseOnEsc={true}
-            onRequestClose={() => setIsOpen(false)}
+            onRequestClose={() => {
+                setIsOpen(false);
+                handleModalClose(false);
+            }}
             style={{
                 overlay: {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     background: "rgba(19, 24, 44, 0.7)",
+                    outline: "none",
                 },
             }}
         >
@@ -36,6 +41,8 @@ function ListItemAddModal({
                         handleInputChange={handleInputChange}
                         listItem={newListItem}
                         convertStatusToNumber={convertStatusToNumber}
+                        useEditModal={false}
+                        onClick={() => {}}
                     />
                     <div className="list-add__button-container">
                         <Button
@@ -48,7 +55,10 @@ function ListItemAddModal({
                             classType="secondary"
                             type="button"
                             text="Cancel"
-                            onClick={() => setIsOpen(false)}
+                            onClick={() => {
+                                setIsOpen(false);
+                                handleModalClose(false);
+                            }}
                             reverseSecondary="true"
                         />
                     </div>

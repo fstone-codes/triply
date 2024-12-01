@@ -1,7 +1,7 @@
 import "./Home.scss";
+import { useNavigate } from "react-router-dom";
 import logoText from "../../assets/logos/triply-logo-text-light.svg";
 import Button from "../../components/Button/Button";
-import { useNavigate } from "react-router-dom";
 
 function Home() {
     const navigate = useNavigate();
@@ -29,6 +29,7 @@ function Home() {
                     />
                 </div>
             </div>
+            {/* animation elements below */}
             <span></span>
             <span></span>
             <span></span>

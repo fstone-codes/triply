@@ -1,8 +1,6 @@
 import "./Login.scss";
-import { baseUrl } from "../../utils/utils";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import Button from "../../components/Button/Button";
 import FormInput from "../../components/FormInput/FormInput";
 
@@ -25,10 +23,9 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        navigate(`/dashboard`);
+        navigate("/dashboard");
     };
 
-    // validation
     const validateForm = () => {
         if (!formData.email || !formData.password) {
             console.error("Missing required fields");
@@ -37,6 +34,7 @@ function Login() {
 
         return true;
     };
+
     return (
         <main className="login">
             <form className="login__form" onSubmit={handleSubmit}>

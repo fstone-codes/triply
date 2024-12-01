@@ -1,4 +1,3 @@
-import "./TripAdd.scss";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { baseUrl } from "../../utils/utils";
@@ -17,7 +16,6 @@ function TripSetup() {
         end_date: "",
     });
 
-    // axios requests
     const addTrip = async () => {
         try {
             const { data } = await axios.post(`${baseUrl}/api/trips`, formData);
@@ -28,7 +26,6 @@ function TripSetup() {
         }
     };
 
-    // handle events
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -38,7 +35,7 @@ function TripSetup() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
 
@@ -46,10 +43,9 @@ function TripSetup() {
             return;
         }
 
-        addTrip();
+        await addTrip();
     };
 
-    // validation
     const validateForm = () => {
         if (
             !formData.user_id ||

@@ -2,26 +2,25 @@ import "./ListDetails.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { baseUrl } from "../../utils/utils";
+import axios from "axios";
+import editIcon from "../../assets/icons/edit.svg";
 import CategoryList from "../../components/CategoryList/CategoryList";
 import ListEditModal from "../../components/ListEditModal/ListEditModal";
 import ListItemAddModal from "../../components/ListItemAddModal/ListItemAddModal";
 import NavBar from "../../components/NavBar/NavBar";
-import axios from "axios";
-import editIcon from "../../assets/icons/edit.svg";
 
 function ListDetails() {
     const [list, setList] = useState(null);
     const [listItems, setListItems] = useState(null);
-    const [categoryList, setCategoryList] = useState([]);
+    const [categoryList, setCategoryList] = useState(null);
     const [selectedItemId, setSelectedItemId] = useState(null);
-    const { tripId, listId } = useParams();
-
     const [isOpen, setIsOpen] = useState(false);
     const [useEditModal, setUseEditModal] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isAddOpen, setIsAddOpen] = useState(false);
+    const { tripId, listId } = useParams();
 
-    const [formData, setFormData] = useState({
+    const [listData, setListData] = useState({
         trip_id: tripId,
         list_name: "",
     });
@@ -40,7 +39,8 @@ function ListDetails() {
 
             setList(data);
 
-            setFormData({
+            setListData({
+                id: data.id,
                 trip_id: data.trip_id,
                 list_name: data.list_name,
             });
@@ -51,7 +51,7 @@ function ListDetails() {
 
     const editList = async () => {
         try {
-            await axios.put(`${baseUrl}/api/lists/${listId}`, formData);
+            await axios.put(`${baseUrl}/api/lists/${listId}`, listData);
 
             getList();
         } catch (error) {
@@ -65,30 +65,12 @@ function ListDetails() {
 
             setListItems(data);
 
-            const filterOnlyCategories = (arrOfObjects) => {
-                return arrOfObjects.map((object) => ({
-                    id: object.id,
-                    category: object.category,
-                }));
-            };
-
-            const newArray = filterOnlyCategories(data);
-
-            const removeDuplicateCategories = (arrOfObjects) => {
-                const storeUniqueCategories = [];
-
-                return arrOfObjects.filter((object) => {
-                    if (storeUniqueCategories.includes(object.category)) {
-                        return false;
-                    }
-
-                    storeUniqueCategories.push(object.category);
-
-                    return true;
-                });
-            };
-
-            const uniqueCategories = removeDuplicateCategories(newArray);
+            const uniqueCategories = data
+                .filter(
+                    (obj, index, self) =>
+                        index === self.findIndex((x) => x.category === obj.category)
+                )
+                .map((obj) => ({ id: obj.id, category: obj.category }));
 
             setCategoryList(uniqueCategories);
         } catch (error) {
@@ -99,9 +81,9 @@ function ListDetails() {
     const addListItem = async () => {
         try {
             await axios.post(`${baseUrl}/api/lists/${listId}/items`, newListItem);
+
             getListItems();
 
-            // Reset the newListItem state after successful addition
             setNewListItem({
                 list_id: listId,
                 item: "",
@@ -118,6 +100,7 @@ function ListDetails() {
         try {
             if (itemBody) {
                 const { created_at, updated_at, ...itemToUpdate } = itemBody;
+
                 await axios.put(`${baseUrl}/api/lists/${listId}/items/${id}`, itemToUpdate);
 
                 getListItems();
@@ -148,24 +131,46 @@ function ListDetails() {
         setUseEditModal(true);
     };
 
+    const handleModalClose = () => {
+        setIsOpen(false);
+        setUseEditModal(false);
+        setSelectedItemId(null);
+        setNewListItem({
+            list_id: listId,
+            item: "",
+            description: "",
+            status: 1,
+            category: "",
+        });
+    };
+
     const handleEditModalClick = (id) => {
         setSelectedItemId(id);
     };
 
     const handleAddModalClick = () => {
+        setUseEditModal(false);
+        setSelectedItemId(null);
         setIsAddOpen(true);
+        setNewListItem({
+            list_id: listId,
+            item: "",
+            description: "",
+            status: 1,
+            category: "",
+        });
     };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
         if (name === "list_name") {
-            setFormData({
-                ...formData,
+            setListData({
+                ...listData,
                 [name]: value,
             });
-        } else if (useEditModal) {
-            // Handle edit modal input changes
+        } else if (isOpen && useEditModal && selectedItemId) {
+            // handle edit modal input changes
             setListItems((prevItems) =>
                 prevItems.map((item) =>
                     item.id === selectedItemId
@@ -176,8 +181,8 @@ function ListDetails() {
                         : item
                 )
             );
-        } else {
-            // Handle add modal input changes
+        } else if (isAddOpen) {
+            // handle add modal input changes
             setNewListItem({
                 ...newListItem,
                 [name]: name === "status" ? convertStatusToNumber(value) : value,
@@ -185,7 +190,6 @@ function ListDetails() {
         }
     };
 
-    // Add this helper function
     const convertStatusToNumber = (status) => {
         switch (status) {
             case "Not Started":
@@ -195,11 +199,11 @@ function ListDetails() {
             case "Complete":
                 return 3;
             default:
-                return parseInt(status) || 1; // fallback to number if already a number string
+                return parseInt(status) || 1;
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
 
@@ -208,35 +212,39 @@ function ListDetails() {
         }
 
         if (useEditModal) {
-            editList();
-            editListItem();
+            await editList();
+
+            if (selectedItemId) {
+                await editListItem();
+            }
+
             setIsOpen(false);
         } else {
-            addListItem();
+            await addListItem();
             setIsAddOpen(false);
         }
     };
 
-    // validation
     const validateForm = () => {
         if (useEditModal) {
-            if (!formData.trip_id || !formData.list_name) {
+            if (!listData.trip_id || !listData.list_name) {
                 console.error("Missing required fields");
                 return false;
             }
 
-            const selectedItem = listItems.find((item) => item.id === selectedItemId);
-            if (
-                !selectedItem.list_id ||
-                !selectedItem.item ||
-                !selectedItem.category ||
-                selectedItem.status === undefined
-            ) {
-                console.error("Missing required fields");
-                return false;
+            if (selectedItemId) {
+                const selectedItem = listItems.find((item) => item.id === selectedItemId);
+                if (
+                    !selectedItem.list_id ||
+                    !selectedItem.item ||
+                    !selectedItem.category ||
+                    selectedItem.status === undefined
+                ) {
+                    console.error("Missing required fields");
+                    return false;
+                }
             }
         } else {
-            // Validate add modal form
             if (
                 !newListItem.list_id ||
                 !newListItem.item ||
@@ -251,8 +259,7 @@ function ListDetails() {
         return true;
     };
 
-    // guarding
-    if (!listItems) {
+    if (!listItems || !list || !categoryList) {
         return (
             <div className="loader loader--grey">
                 <div className="loader__default">
@@ -302,6 +309,7 @@ function ListDetails() {
                     isOpen={isAddOpen}
                     setIsOpen={setIsAddOpen}
                     newListItem={newListItem}
+                    handleModalClose={handleModalClose}
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
                     convertStatusToNumber={convertStatusToNumber}
@@ -310,10 +318,11 @@ function ListDetails() {
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     useEditModal={useEditModal}
-                    formData={formData}
-                    handleClick={handleEditModalClick}
+                    listData={listData}
                     listItems={listItems}
                     categoryList={categoryList}
+                    handleClick={handleEditModalClick}
+                    handleModalClose={handleModalClose}
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
                     convertStatusToNumber={convertStatusToNumber}

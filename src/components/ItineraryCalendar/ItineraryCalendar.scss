@@ -10,7 +10,6 @@
 }
 
 // customizing react big calendar's styles
-
 // month views
 .rbc-month-view {
     border-radius: 1.5rem;
@@ -105,4 +104,9 @@
     border: none;
     color: $transparent-color-black-50;
     cursor: pointer;
+}
+
+// remove inconsistent greyed out day cells
+.rbc-off-range-bg {
+    background-color: transparent !important;
 }

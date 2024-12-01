@@ -10,28 +10,20 @@ import List from "./pages/List/List";
 import ListAdd from "./pages/ListAdd/ListAdd";
 import ListDetails from "./pages/ListDetails/ListDetails";
 import Login from "./pages/Login/Login";
-import NavBar from "./components/NavBar/NavBar";
 import Register from "./pages/Register/Register";
-import Trip from "./pages/Trip/Trip";
 import TripAdd from "./pages/TripAdd/TripAdd";
 import TripDetails from "./pages/TripDetails/TripDetails";
 import TripEdit from "./pages/TripEdit/TripEdit";
 
 function App() {
-    const isListDetailsPage = window.location.pathname.match(/\/trip\/[^/]+\/list\/[^/]+$/);
-    const isTripAddPage = window.location.pathname.match(/\/trip\/add$/);
-    const isTripEditPage = window.location.pathname.match(/\/trip\/[^/]+\/edit$/);
-
     return (
         <BrowserRouter>
             <Header />
-            {/* {!isTripAddPage && !isTripEditPage && !isListDetailsPage && <NavBar />} */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/trip" element={<Trip />} />
                 <Route path="/trip/add" element={<TripAdd />} />
                 <Route path="/trip/:tripId" element={<TripDetails />} />
                 <Route path="/trip/:tripId/edit" element={<TripEdit />} />

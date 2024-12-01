@@ -79,7 +79,7 @@
         display: none;
         margin-left: $spacing-med;
         font-style: italic;
-        font-weight: 300;
+        font-weight: $font-weight-thin;
 
         &--expanded {
             display: unset;

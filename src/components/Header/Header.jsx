@@ -1,7 +1,7 @@
 import "./Header.scss";
 import { Link, useLocation, useMatch } from "react-router-dom";
 import { useState, useEffect } from "react";
-import avatar from "../../assets/images/avatar.svg";
+import avatar from "../../assets/icons/avatar.svg";
 import logoFull from "../../assets/logos/triply-logo-full-light.svg";
 import logoIcon from "../../assets/logos/triply-logo-icon-light.svg";
 

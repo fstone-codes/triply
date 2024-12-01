@@ -1,4 +1,3 @@
-import "./TripEdit.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../../utils/utils";
@@ -18,7 +17,6 @@ function TripEdit() {
         end_date: "",
     });
 
-    // axios requests
     const getTrip = async () => {
         try {
             const { data } = await axios.get(`${baseUrl}/api/trips/${tripId}`);
@@ -51,7 +49,6 @@ function TripEdit() {
         getTrip();
     }, [tripId]);
 
-    // handle events
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -61,7 +58,7 @@ function TripEdit() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
 
@@ -69,14 +66,13 @@ function TripEdit() {
             return;
         }
 
-        editTrip();
+        await editTrip();
 
         if (tripId) {
             navigate(`/trip/${tripId}/itinerary`);
         }
     };
 
-    // validation
     const validateForm = () => {
         if (
             !formData.user_id ||

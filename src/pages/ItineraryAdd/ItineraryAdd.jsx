@@ -1,4 +1,3 @@
-import "./ItineraryAdd.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { baseUrl } from "../../utils/utils";
@@ -19,7 +18,6 @@ function ItineraryAdd() {
         all_day: false,
     });
 
-    // axios requests
     const addItinerary = async () => {
         try {
             await axios.post(`${baseUrl}/api/itineraries`, formData);
@@ -35,9 +33,11 @@ function ItineraryAdd() {
 
         if (name === "all_day") {
             const isAllDay = checked;
+
             const startOfDay = dayjs(formData.start || dayjs())
                 .startOf("day")
                 .format("YYYY-MM-DDTHH:mm");
+
             const endOfDay = dayjs(formData.start || dayjs())
                 .endOf("day")
                 .add(1, "minute")
@@ -71,8 +71,6 @@ function ItineraryAdd() {
         e.preventDefault();
         setFormSubmitted(true);
 
-        console.log(formData);
-
         if (!validateForm()) {
             return;
         }
@@ -82,7 +80,6 @@ function ItineraryAdd() {
         }
     };
 
-    // validation
     const validateForm = () => {
         if (
             !formData.trip_id ||

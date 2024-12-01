@@ -4,9 +4,9 @@ import { baseUrl } from "../../utils/utils";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
 import plusIcon from "../../assets/icons/plus.svg";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -68,13 +68,13 @@ function Dashboard() {
 
         const countdownInMonths = tripStartLocal.diff(today, "month");
         const countdownInDays = tripStartLocal.diff(today, "day");
-        const countdownInHours = tripStartLocal.diff(today, "hour") % 24;
-        const countdownInMinutes = tripStartLocal.diff(today, "minute") % 60;
+        const countdownInHours = tripStartLocal.diff(today, "hour");
+        const countdownInMinutes = tripStartLocal.diff(today, "minute");
 
         if (countdownInMonths >= 1) return `${countdownInMonths} months`;
-        if (countdownInDays > 1) return `${countdownInDays} days`;
-        if (countdownInDays <= 1) return `${countdownInHours} hours`;
-        if (countdownInHours <= 1) return `${countdownInMinutes} mins`;
+        if (countdownInMonths < 1) return `${countdownInDays} days`;
+        if (countdownInDays < 1) return `${countdownInHours} hours`;
+        if (countdownInHours < 1) return `${countdownInMinutes} mins`;
     }
 
     return (

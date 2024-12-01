@@ -71,13 +71,13 @@ function ListItem({
                     />
                 </div>
             </div>
-            <div
+            <p
                 className={`list-item__description ${
                     isExpanded ? "list-item__description--expanded" : ""
                 }`}
             >
                 {description}
-            </div>
+            </p>
         </li>
     );
 }

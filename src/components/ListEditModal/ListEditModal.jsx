@@ -8,10 +8,11 @@ function ListEditModal({
     isOpen,
     setIsOpen,
     useEditModal,
-    formData,
+    listData,
     handleClick,
     listItems,
     categoryList,
+    handleModalClose,
     handleSubmit,
     handleInputChange,
     convertStatusToNumber,
@@ -24,13 +25,17 @@ function ListEditModal({
             appElement={document.getElementById("root")}
             // The 2 lines below enable esc to close the modal
             shouldCloseOnEsc={true}
-            onRequestClose={() => setIsOpen(false)}
+            onRequestClose={() => {
+                setIsOpen(false);
+                handleModalClose(false);
+            }}
             style={{
                 overlay: {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     background: "rgba(19, 24, 44, 0.7)",
+                    outline: "none",
                 },
             }}
         >
@@ -42,7 +47,7 @@ function ListEditModal({
                         label="List Name"
                         type="text"
                         name="list_name"
-                        value={formData.list_name}
+                        value={listData.list_name}
                         placeholder="Type the list name"
                         handleInputChange={handleInputChange}
                         reverse="true"
@@ -75,7 +80,10 @@ function ListEditModal({
                             classType="secondary"
                             type="button"
                             text="Cancel"
-                            onClick={() => setIsOpen(false)}
+                            onClick={() => {
+                                setIsOpen(false);
+                                handleModalClose(false);
+                            }}
                             reverseSecondary="true"
                         />
                     </div>

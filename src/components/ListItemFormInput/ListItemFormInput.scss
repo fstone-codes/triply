@@ -64,8 +64,13 @@
             resize: none;
         }
 
-        // &--select {
-        // }
+        &--select {
+            appearance: none;
+            background-image: url(/src/assets/icons/down-chevron.svg);
+            background-repeat: no-repeat;
+            background-position: right $spacing-sm center;
+            background-size: 1rem;
+        }
 
         &:focus {
             box-shadow: 0 0 5px $transparent-color-white-50, 0 0 10px $transparent-color-white-50;

@@ -17,7 +17,6 @@ function Register() {
         confirm_password: "",
     });
 
-    // axios requests
     const addUser = async () => {
         try {
             await axios.add(`${baseUrl}/api/users`, formData);
@@ -38,10 +37,9 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        navigate(`/`);
+        navigate("/");
     };
 
-    // validation
     const validateForm = () => {
         if (
             !formData.first_name ||
@@ -57,6 +55,7 @@ function Register() {
 
         return true;
     };
+
     return (
         <main className="register">
             <form className="register__form" onSubmit={handleSubmit}>

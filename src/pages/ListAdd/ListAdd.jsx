@@ -1,4 +1,3 @@
-import "./ListAdd.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { baseUrl } from "../../utils/utils";
@@ -14,12 +13,9 @@ function ListAdd() {
         list_name: "",
     });
 
-    // axios requests
     const addList = async () => {
         try {
             const { data } = await axios.post(`${baseUrl}/api/lists`, formData);
-
-            console.log(data);
 
             navigate(`/trip/${tripId}/list/${data.id}`);
         } catch (error) {
@@ -36,7 +32,7 @@ function ListAdd() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setFormSubmitted(true);
 
@@ -46,10 +42,9 @@ function ListAdd() {
             return;
         }
 
-        addList();
+        await addList();
     };
 
-    // validation
     const validateForm = () => {
         if (!formData.trip_id || !formData.list_name) {
             console.error("Missing required fields");

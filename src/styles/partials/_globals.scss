@@ -1,6 +1,7 @@
 @use "./mixins" as *;
 @use "./variables" as *;
 
+// TYPOGRAPHY
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,600;1,800&display=swap");
 
 // RESETS
@@ -43,12 +44,18 @@ body {
     color: $transparent-color-black-50;
 }
 
+.ReactModal__Content {
+    &:focus-visible {
+        outline: none;
+    }
+}
+
 #root {
     @include flexbox(column, unset, unset);
     height: 100vh;
 }
 
-// loader style
+// LOADER
 .loader {
     @include flexbox(unset, center, center);
     height: 100vh;

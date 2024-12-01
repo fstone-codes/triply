@@ -1,6 +1,40 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.home {
+    position: relative;
+    @include flexbox(column, center, flex-end);
+    padding: $spacing-sm;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-main;
+    overflow: hidden;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__container {
+        z-index: 1;
+    }
+
+    &__logo-text {
+        width: 12.5rem;
+        margin-bottom: $spacing-sm;
+    }
+
+    &__button-container {
+        @include flexbox(unset, unset, unset);
+        gap: $spacing-sm;
+        width: 100%;
+    }
+}
+
+// background animation below
 html.home,
 body.home {
     margin: 0;
@@ -40,38 +74,5 @@ $amount: 20;
 @keyframes move {
     100% {
         transform: translate3d(0, 0, 1px) rotate(360deg);
-    }
-}
-
-.home {
-    position: relative;
-    @include flexbox(column, center, flex-end);
-    padding: $spacing-sm;
-    width: 100vw;
-    height: 100vh;
-    background: $primary-color-main;
-    overflow: hidden;
-
-    @include tablet {
-        padding: 0 $spacing-lg;
-    }
-
-    @include desktop {
-        padding: $spacing-lg $spacing-xxlg;
-    }
-
-    &__container {
-        z-index: 1;
-    }
-
-    &__logo-text {
-        width: 12.5rem;
-        margin-bottom: $spacing-sm;
-    }
-
-    &__button-container {
-        @include flexbox(unset, unset, unset);
-        gap: $spacing-sm;
-        width: 100%;
     }
 }
