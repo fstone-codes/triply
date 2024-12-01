@@ -653,19 +653,15 @@ Response:
         -   Rename classes/components/etc. for consistency
         -   Organize backend
         -   Add useful comments to front + backend
-    -   [ ] Update frontend `README` file with actual data diagram and endpoints
-    -   [ ] Write a `README` file with setup instructions and functionality overview
-    -   [ ] Jon's comments
-            // rename README to proposal
-            // create README that shows instructions "npm install", "npm run dev"
-            // put env. variables in comments of submissions
+    -   [x] Write a `README` file with setup instructions and functionality overview
 -   **Sprint-2: Tasks + Reminders**
-    -   [ ] Add form for editing itineraries
-    -   [ ] Perform comprehensive endpoint testing
-    -   [ ] Add delete functionality
-    -   [ ] Add error message to forms
-    -   [ ] Enhance UI consistency with basic Sass styling
+    -   Add form for editing itineraries
+    -   Perform comprehensive endpoint testing
+    -   Add delete functionality
+    -   Add error message to forms
+    -   Enhance UI consistency with basic Sass styling
         -   Create responsive design on all pages
+    -   Update frontend `README` file with actual data diagram and endpoints
 
 ---
 
