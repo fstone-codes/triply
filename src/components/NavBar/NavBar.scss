@@ -1,0 +1,72 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.nav {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    @include flexbox(row, space-evenly, center);
+    border-radius: 4rem;
+    padding: $spacing-sm $spacing-med;
+    width: calc(100vw - 2rem);
+    background-color: $transparent-color-black-10;
+
+    &__button {
+        @include flexbox(unset, center, center);
+        border: none;
+        border-radius: 50%;
+        width: 2.75rem;
+        height: 2.75rem;
+        background-color: $primary-color-highlight;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary-color-black;
+
+            & .nav__icon--highlight {
+                filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                    contrast(92%);
+            }
+        }
+    }
+
+    &__link {
+        @include flexbox(unset, center, center);
+        border-radius: 50%;
+        width: 2.75rem;
+        height: 2.75rem;
+        background-color: $transparent-color-white-50;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &--highlight {
+            background-color: $primary-color-highlight;
+        }
+
+        &:hover {
+            background-color: $primary-color-highlight;
+            transform: scale(105%);
+
+            & .nav__link--highlight {
+                background-color: $primary-color-black;
+            }
+
+            & .nav__icon--highlight {
+                filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
+                    contrast(92%);
+            }
+        }
+
+        &--highlight:hover {
+            background-color: $primary-color-black;
+        }
+    }
+
+    &__icon {
+        width: 1.5rem;
+
+        &--small {
+            width: 1.25rem;
+        }
+    }
+}

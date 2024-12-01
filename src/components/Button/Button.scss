@@ -1,0 +1,36 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.button {
+    @include flexbox(unset, center, center);
+    border: none;
+    border-radius: 1rem;
+    padding: $spacing-xsm $spacing-sm;
+    width: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(103%);
+    }
+
+    &--primary {
+        background-color: $primary-color-black;
+        @include font-label($primary-color-grey, $font-weight-regular);
+    }
+
+    &--secondary {
+        background: none;
+        @include font-label($primary-color-black, $font-weight-regular);
+    }
+
+    &--reverse-primary {
+        background-color: $primary-color-main;
+        @include font-label($primary-color-black, $font-weight-regular);
+    }
+
+    &--reverse-secondary {
+        @include font-label($primary-color-grey, $font-weight-regular);
+    }
+}

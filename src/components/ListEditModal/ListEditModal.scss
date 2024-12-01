@@ -1,0 +1,44 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-edit {
+    padding: $spacing-sm;
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary-color-black;
+    overflow: scroll;
+
+    &__container {
+        height: 100%;
+        padding: $spacing-lg 0;
+        overflow: scroll;
+    }
+
+    &__form {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        padding: 0 $spacing-med;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    &__title {
+        @include font-header($primary-color-grey);
+    }
+
+    &__list-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+    }
+
+    &__label {
+        margin-bottom: -$spacing-xsm;
+        @include font-label($primary-color-grey);
+    }
+
+    &__button-container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        margin-top: $spacing-xsm;
+    }
+}

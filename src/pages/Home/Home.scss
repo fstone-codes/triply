@@ -1,0 +1,78 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.home {
+    position: relative;
+    @include flexbox(column, center, flex-end);
+    padding: $spacing-sm;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-color-main;
+    overflow: hidden;
+
+    @include tablet {
+        padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+        padding: $spacing-lg $spacing-xxlg;
+    }
+
+    &__container {
+        z-index: 1;
+    }
+
+    &__logo-text {
+        width: 12.5rem;
+        margin-bottom: $spacing-sm;
+    }
+
+    &__button-container {
+        @include flexbox(unset, unset, unset);
+        gap: $spacing-sm;
+        width: 100%;
+    }
+}
+
+// background animation below
+html.home,
+body.home {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+$particleSize: 5vmin;
+$animationDuration: 6s;
+$amount: 20;
+.home span {
+    width: $particleSize;
+    height: $particleSize;
+    border-radius: $particleSize;
+    backface-visibility: hidden;
+    position: absolute;
+    animation-name: move;
+    animation-duration: $animationDuration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    $colors: (#eafc5f80, $transparent-color-white-25, $primary-color-grey);
+    @for $i from 1 through $amount {
+        &:nth-child(#{$i}) {
+            color: nth($colors, random(length($colors)));
+            top: random(90) * 1%;
+            left: random(90) * 1%;
+            animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+            animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+            transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+            $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+            $x: if(random() > 0.5, -1, 1);
+            box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+        }
+    }
+}
+
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}

@@ -1,0 +1,88 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-item {
+    position: relative;
+    @include flexbox(column, unset, unset);
+    gap: $spacing-xsm;
+    border-radius: 3.125rem;
+    padding: $spacing-xsm $spacing-sm;
+    background-color: $transparent-color-white-50;
+
+    &--expanded {
+        border-radius: $spacing-sm;
+    }
+
+    &__container {
+        @include flexbox(unset, unset, center);
+        gap: $spacing-xsm;
+    }
+
+    &__checkbox {
+        appearance: none;
+        border: 1px solid $primary-color-main;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        background-color: $primary-color-grey;
+        cursor: pointer;
+
+        &:indeterminate {
+            background-image: url("../../assets/icons/hyphen.svg");
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: $transparent-color-black-25;
+        }
+
+        &:checked {
+            background-image: url("../../assets/icons/checkmark.svg");
+            background-size: 70%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: $transparent-color-black-10;
+
+            & ~ .list-item__item-container .list-item__item {
+                color: $transparent-color-black-25;
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &:has(.list-item__checkbox:checked) {
+        background-color: $transparent-color-white-25;
+
+        .list-item__icon {
+            opacity: 30%;
+        }
+    }
+
+    &__item-container {
+        @include flexbox(unset, space-between, center);
+        width: 100%;
+    }
+
+    &__item {
+        @include font-body;
+    }
+
+    &__icon {
+        width: 1rem;
+        cursor: pointer;
+
+        &--expanded {
+            rotate: 180deg;
+        }
+    }
+
+    &__description {
+        display: none;
+        margin-left: $spacing-med;
+        font-style: italic;
+        font-weight: $font-weight-thin;
+
+        &--expanded {
+            display: unset;
+        }
+    }
+}

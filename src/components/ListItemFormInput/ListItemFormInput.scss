@@ -1,0 +1,79 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.item-form-input {
+    @include flexbox(column, unset, unset);
+    gap: $spacing-sm;
+
+    &--show {
+        border-radius: 3rem;
+        background-color: $primary-color-main;
+        padding: $spacing-lg $spacing-med;
+    }
+
+    &__container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-xsm;
+    }
+
+    &__label {
+        @include font-label($primary-color-grey);
+    }
+
+    &__label-extra {
+        display: none;
+
+        &--show {
+            display: unset;
+            @include font-label($primary-color-black);
+        }
+    }
+
+    &__fields {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+    }
+
+    &__fields-extra {
+        display: none;
+
+        &--show {
+            display: unset;
+            @include flexbox(column, unset, unset);
+            gap: $spacing-sm;
+            background-color: $primary-color-main;
+        }
+    }
+
+    &__input {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+        border: none;
+        border-radius: 3.125rem;
+        padding: $spacing-xsm $spacing-sm;
+        background-color: $transparent-color-white-50;
+        font-family: "Poppins", Arial, sans-serif;
+        @include font-body;
+        outline: none;
+
+        // &--text {
+        // }
+
+        &--textarea {
+            border-radius: 3.125rem;
+            resize: none;
+        }
+
+        &--select {
+            appearance: none;
+            background-image: url(/src/assets/icons/down-chevron.svg);
+            background-repeat: no-repeat;
+            background-position: right $spacing-sm center;
+            background-size: 1rem;
+        }
+
+        &:focus {
+            box-shadow: 0 0 5px $transparent-color-white-50, 0 0 10px $transparent-color-white-50;
+        }
+    }
+}
