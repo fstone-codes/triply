@@ -31,7 +31,9 @@ function Dashboard() {
 
             setClosestTrip(allTrips[0]);
 
-            setRemainingTrips(allTrips.filter((trip) => trip.id !== closestTrip.id));
+            setRemainingTrips(
+                allTrips.filter((trip) => trip.id !== closestTrip.id)
+            );
         } catch (error) {
             console.error("Error fetching trips:", error);
         }
@@ -81,26 +83,44 @@ function Dashboard() {
         <main className="dashboard">
             <h1 className="dashboard__title">Hi Sabrina!</h1>
             <div className="dashboard__circle"></div>
-            <Link className="dashboard__link dashboard__countdown" to={`/trip/${closestTrip.id}`}>
-                <h3 className="dashboard__countdown-title">{closestTrip.trip_name}</h3>
+            <Link
+                className="dashboard__link dashboard__countdown"
+                to={`/trip/${closestTrip.id}`}
+            >
+                <h3 className="dashboard__countdown-title">
+                    {closestTrip.trip_name}
+                </h3>
                 <h2 className="dashboard__countdown-text">
-                    {countdown(closestTrip.start_date)} left
+                    {countdown(closestTrip.start_date)} away
                 </h2>
             </Link>
             <section className="dashboard__trips-container">
-                <Link className="dashboard__link dashboard__add" to={`/trip/add`}>
-                    <img className="dashboard__icon" src={plusIcon} alt="plus icon" />
+                <Link
+                    className="dashboard__link dashboard__add"
+                    to={`/trip/add`}
+                >
+                    <img
+                        className="dashboard__icon"
+                        src={plusIcon}
+                        alt="plus icon"
+                    />
                 </Link>
                 <h2 className="dashboard__trips-title">Upcoming Trips</h2>
                 <ul className="dashboard__trips-list">
                     {remainingTrips.map((trip) => (
-                        <Link className="dashboard__link" key={trip.id} to={`/trip/${trip.id}`}>
+                        <Link
+                            className="dashboard__link"
+                            key={trip.id}
+                            to={`/trip/${trip.id}`}
+                        >
                             <li className="dashboard__trips-item">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                <h4 className="dashboard__trips-name">{trip.trip_name}</h4>
+                                <h4 className="dashboard__trips-name">
+                                    {trip.trip_name}
+                                </h4>
                                 <p className="dashboard__trips-text">
                                     {countdown(trip.start_date)}
                                 </p>

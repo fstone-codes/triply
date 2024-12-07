@@ -69,7 +69,7 @@ function TripEdit() {
         await editTrip();
 
         if (tripId) {
-            navigate(`/trip/${tripId}/itinerary`);
+            navigate(`/trip/${tripId}`);
         }
     };
 

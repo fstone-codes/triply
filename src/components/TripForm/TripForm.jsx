@@ -3,7 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
 
-function TripForm({ handleSubmit, title, formData, handleInputChange, today, tripId }) {
+function TripForm({
+    handleSubmit,
+    title,
+    formData,
+    handleInputChange,
+    today,
+    tripId,
+}) {
     const location = useLocation();
 
     return (
@@ -51,26 +58,44 @@ function TripForm({ handleSubmit, title, formData, handleInputChange, today, tri
                     reverse="true"
                 />
                 <div className="trip-form__button-container">
-                    <Button classType="primary" type="submit" text="Submit" reversePrimary="true" />
                     {location.pathname === "/trip/add" && (
-                        <Link className="trip-form__link" to="/dashboard">
+                        <>
                             <Button
-                                classType="secondary"
-                                type="button"
-                                text="Cancel"
-                                reverseSecondary="true"
+                                classType="primary"
+                                type="submit"
+                                text="Submit"
+                                reversePrimary="true"
                             />
-                        </Link>
+                            <Link className="trip-form__link" to="/dashboard">
+                                <Button
+                                    classType="secondary"
+                                    type="button"
+                                    text="Cancel"
+                                    reverseSecondary="true"
+                                />
+                            </Link>
+                        </>
                     )}
                     {location.pathname !== "/trip/add" && (
-                        <Link className="trip-form__link" to={`/trip/${tripId}`}>
+                        <>
                             <Button
-                                classType="secondary"
-                                type="button"
-                                text="Cancel"
-                                reverseSecondary="true"
+                                classType="primary"
+                                type="submit"
+                                text="Save"
+                                reversePrimary="true"
                             />
-                        </Link>
+                            <Link
+                                className="trip-form__link"
+                                to={`/trip/${tripId}`}
+                            >
+                                <Button
+                                    classType="secondary"
+                                    type="button"
+                                    text="Cancel"
+                                    reverseSecondary="true"
+                                />
+                            </Link>
+                        </>
                     )}
                 </div>
             </form>
