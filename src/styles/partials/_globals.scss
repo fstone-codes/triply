@@ -1,5 +1,5 @@
-@use "./mixins" as *;
 @use "./variables" as *;
+@use "./mixins" as *;
 
 // TYPOGRAPHY
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,600;1,800&display=swap");
@@ -35,6 +35,7 @@ ul {
 
 // GLOBAL GENERAL
 body {
+    background-color: var(--bodyColor);
     font-family: "Poppins", Arial, sans-serif;
     @include font-body;
 }
@@ -42,6 +43,10 @@ body {
 ::placeholder,
 ::-webkit-datetime-edit {
     color: $transparent-color-black-50;
+}
+
+:root {
+    --bodyColor: #cfcaec;
 }
 
 .ReactModal__Content {

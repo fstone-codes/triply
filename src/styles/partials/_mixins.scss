@@ -22,7 +22,10 @@
 }
 
 // FONT STYLES
-@mixin font-header($color: $primary-color-black, $font-weight: $font-weight-bold) {
+@mixin font-header(
+    $color: $primary-color-black,
+    $font-weight: $font-weight-bold
+) {
     color: $color;
     font-size: $font-size-xlarge;
     font-weight: $font-weight;
@@ -34,7 +37,10 @@
     }
 }
 
-@mixin font-subheader($color: $primary-color-black, $font-weight: $font-weight-bold) {
+@mixin font-subheader(
+    $color: $primary-color-black,
+    $font-weight: $font-weight-bold
+) {
     color: $color;
     font-size: $font-size-large;
     font-weight: $font-weight;
@@ -46,7 +52,10 @@
     }
 }
 
-@mixin font-body($color: $primary-color-black, $font-weight: $font-weight-regular) {
+@mixin font-body(
+    $color: $primary-color-black,
+    $font-weight: $font-weight-regular
+) {
     color: $color;
     font-size: $font-size-body;
     font-weight: $font-weight;
@@ -58,9 +67,12 @@
     }
 }
 
-@mixin font-label($color: $primary-color-black, $font-weight: $font-weight-demi) {
+@mixin font-label(
+    $color: $primary-color-black,
+    $font-weight: $font-weight-demi
+) {
     color: $color;
-    font-size: $font-size-body;
+    font-size: $font-size-small;
     font-weight: $font-weight;
     line-height: 1.25rem;
 

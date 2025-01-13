@@ -17,20 +17,20 @@
 
     &--primary {
         background-color: $primary-color-black;
-        @include font-label($primary-color-grey, $font-weight-regular);
+        @include font-body($primary-color-grey);
     }
 
     &--secondary {
         background: none;
-        @include font-label($primary-color-black, $font-weight-regular);
+        @include font-body;
     }
 
     &--reverse-primary {
         background-color: $primary-color-main;
-        @include font-label($primary-color-black, $font-weight-regular);
+        @include font-body;
     }
 
     &--reverse-secondary {
-        @include font-label($primary-color-grey, $font-weight-regular);
+        @include font-body($primary-color-grey);
     }
 }

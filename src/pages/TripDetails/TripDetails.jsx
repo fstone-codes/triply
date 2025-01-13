@@ -6,6 +6,7 @@ import axios from "axios";
 import editIcon from "../../assets/icons/edit.svg";
 import dayjs from "dayjs";
 import NavBar from "../../components/NavBar/NavBar";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function TripDetails() {
     const [trip, setTrip] = useState(null);
@@ -20,6 +21,8 @@ function TripDetails() {
             console.error("Error fetching trip:", error);
         }
     };
+
+    setBodyColor("#cfcaec");
 
     useEffect(() => {
         getTrip();
@@ -51,9 +54,18 @@ function TripDetails() {
             <main className="trip-details">
                 <section className="trip-details__container">
                     <div className="trip-details__title-container">
-                        <h1 className="trip-details__title">{trip.trip_name}</h1>
-                        <Link className="trip-details__link" to={`/trip/${tripId}/edit`}>
-                            <img className="trip-details__icon" src={editIcon} alt="edit icon" />
+                        <h1 className="trip-details__title">
+                            {trip.trip_name}
+                        </h1>
+                        <Link
+                            className="trip-details__link"
+                            to={`/trip/${tripId}/edit`}
+                        >
+                            <img
+                                className="trip-details__icon"
+                                src={editIcon}
+                                alt="edit icon"
+                            />
                         </Link>
                     </div>
                     <div className="trip-details__content-container">

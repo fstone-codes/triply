@@ -3,6 +3,7 @@ import { useState } from "react";
 import { baseUrl } from "../../utils/utils";
 import axios from "axios";
 import ListForm from "../../components/ListForm/ListForm";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function ListAdd() {
     const navigate = useNavigate();
@@ -12,6 +13,8 @@ function ListAdd() {
         trip_id: tripId,
         list_name: "",
     });
+
+    setBodyColor("#212121");
 
     const addList = async () => {
         try {

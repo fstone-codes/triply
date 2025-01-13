@@ -4,10 +4,13 @@ import { Link, useParams } from "react-router-dom";
 import { baseUrl } from "../../utils/utils";
 import axios from "axios";
 import NavBar from "../../components/NavBar/NavBar";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function List() {
     const [lists, setLists] = useState(null);
     const { tripId } = useParams();
+
+    setBodyColor("#cfcaec");
 
     const getLists = async () => {
         try {

@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import Button from "../../components/Button/Button";
 import FormInput from "../../components/FormInput/FormInput";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function Register() {
     const navigate = useNavigate();
@@ -16,6 +17,8 @@ function Register() {
         password: "",
         confirm_password: "",
     });
+
+    setBodyColor("#cfcaec");
 
     const addUser = async () => {
         try {
@@ -117,7 +120,11 @@ function Register() {
                 <div className="register__button-container">
                     <Button classType="primary" type="submit" text="Submit" />
                     <Link className="login__link" to="/">
-                        <Button classType="secondary" type="button" text="Cancel" />
+                        <Button
+                            classType="secondary"
+                            type="button"
+                            text="Cancel"
+                        />
                     </Link>
                 </div>
             </form>

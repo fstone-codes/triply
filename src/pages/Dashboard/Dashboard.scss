@@ -38,8 +38,8 @@
             background-color: $primary-color-black;
 
             & .dashboard__icon {
-                filter: invert(100%) sepia(2%) saturate(4051%) hue-rotate(203deg) brightness(116%)
-                    contrast(92%);
+                filter: invert(100%) sepia(2%) saturate(4051%)
+                    hue-rotate(203deg) brightness(116%) contrast(92%);
             }
         }
     }
@@ -157,7 +157,7 @@
     }
 
     &__trips-name {
-        @include font-label;
+        @include font-body($primary-color-black, $font-weight-demi);
         text-align: center;
     }
 

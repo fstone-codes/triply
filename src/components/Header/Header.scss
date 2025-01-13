@@ -6,18 +6,6 @@
     padding: $spacing-sm;
     width: 100vw;
 
-    &--purple {
-        background-color: $primary-color-main;
-    }
-
-    &--grey {
-        background-color: $primary-color-grey;
-    }
-
-    &--black {
-        background-color: $primary-color-black;
-    }
-
     @include tablet {
         @include flexbox(unset, space-between, center);
         padding: $spacing-sm $spacing-lg;

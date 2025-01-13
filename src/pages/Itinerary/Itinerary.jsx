@@ -6,11 +6,14 @@ import axios from "axios";
 import dayjs from "dayjs";
 import ItineraryCalendar from "../../components/ItineraryCalendar/ItineraryCalendar.jsx";
 import NavBar from "../../components/NavBar/NavBar.jsx";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function Itinerary() {
     const [currentTrip, setCurrentTrip] = useState(null);
     const [itineraries, setItineraries] = useState(null);
     const { tripId } = useParams();
+
+    setBodyColor("#f5f5f5");
 
     const getSingleTrip = async () => {
         try {
@@ -39,7 +42,9 @@ function Itinerary() {
                 allDay: event.all_day,
             }));
 
-            const filteredData = parsedEvents.filter((itinerary) => itinerary.trip_id == tripId);
+            const filteredData = parsedEvents.filter(
+                (itinerary) => itinerary.trip_id == tripId
+            );
 
             setItineraries(filteredData);
         } catch (error) {
@@ -79,7 +84,10 @@ function Itinerary() {
     return (
         <>
             <main className="itinerary">
-                <ItineraryCalendar itineraries={itineraries} defaultDate={currentTrip.start_date} />
+                <ItineraryCalendar
+                    itineraries={itineraries}
+                    defaultDate={currentTrip.start_date}
+                />
             </main>
             <NavBar />
         </>

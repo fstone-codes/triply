@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
 import FormInput from "../../components/FormInput/FormInput";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function Login() {
     const navigate = useNavigate();
@@ -10,6 +11,8 @@ function Login() {
         email: "",
         password: "",
     });
+
+    setBodyColor("#cfcaec");
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -60,7 +63,11 @@ function Login() {
                 <div className="login__button-container">
                     <Button classType="primary" type="submit" text="Submit" />
                     <Link className="login__link" to="/">
-                        <Button classType="secondary" type="button" text="Cancel" />
+                        <Button
+                            classType="secondary"
+                            type="button"
+                            text="Cancel"
+                        />
                     </Link>
                 </div>
             </form>

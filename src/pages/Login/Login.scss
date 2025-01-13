@@ -6,8 +6,11 @@
     padding: 0 $spacing-sm 4.25rem;
     width: 100vw;
     height: 100vh;
-    background: $primary-color-main;
     overflow: auto;
+
+    @include tablet {
+        @include flexbox(unset, center, center);
+    }
 
     &__form {
         @include flexbox(column, unset, unset);
@@ -17,11 +20,12 @@
         background-color: $transparent-color-white-50;
 
         @include tablet {
-            padding: 0 $spacing-lg;
+            padding: calc(2 * $spacing-med) $spacing-lg $spacing-med;
+            width: 40rem;
         }
 
         @include desktop {
-            padding: $spacing-lg $spacing-xxlg;
+            padding: calc(2 * $spacing-med) $spacing-lg $spacing-med;
         }
     }
 

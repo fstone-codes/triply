@@ -23,53 +23,32 @@ function Header() {
         <>
             {route === "/" && <></>}
             {(route === "/register" || route === "/login") && (
-                <header className="header header--purple">
-                    <img className="header__logo-full" src={logoFull} alt="triply logo" />
+                <header className="header">
+                    <img
+                        className="header__logo-full"
+                        src={logoFull}
+                        alt="triply logo"
+                    />
                 </header>
             )}
-            {(route === "/dashboard" || isTripPage || isTripListPage) && route !== "/trip/add" && (
-                <header className="header header--purple">
+            {route !== "/" && route !== "/register" && route !== "/login" && (
+                <header className="header">
                     <Link className="header__logo-container" to="/dashboard">
-                        <img className="header__logo-icon" src={logoIcon} alt="triply logo icon" />
+                        <img
+                            className="header__logo-icon"
+                            src={logoIcon}
+                            alt="triply logo icon"
+                        />
                     </Link>
                     <div className="header__avatar-container">
-                        <img className="header__avatar" src={avatar} alt="avatar" />
+                        <img
+                            className="header__avatar"
+                            src={avatar}
+                            alt="avatar"
+                        />
                     </div>
                 </header>
             )}
-            {(route === "/trip/add" || isTripEditPage || isItineraryAddPage || isListAddPage) && (
-                <header className="header header--black">
-                    <Link className="header__logo-container" to="/dashboard">
-                        <img className="header__logo-icon" src={logoIcon} alt="triply logo icon" />
-                    </Link>
-                    <div className="header__avatar-container">
-                        <img className="header__avatar" src={avatar} alt="avatar" />
-                    </div>
-                </header>
-            )}
-            {route !== "/" &&
-                route !== "/register" &&
-                route !== "/login" &&
-                route !== "/dashboard" &&
-                route !== "/trip/add" &&
-                !isTripPage &&
-                !isTripEditPage &&
-                !isTripListPage &&
-                !isItineraryAddPage &&
-                !isListAddPage && (
-                    <header className="header header--grey">
-                        <Link className="header__logo-container" to="/dashboard">
-                            <img
-                                className="header__logo-icon"
-                                src={logoIcon}
-                                alt="triply logo icon"
-                            />
-                        </Link>
-                        <div className="header__avatar-container">
-                            <img className="header__avatar" src={avatar} alt="avatar" />
-                        </div>
-                    </header>
-                )}
         </>
     );
 }

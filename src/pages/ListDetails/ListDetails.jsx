@@ -8,6 +8,7 @@ import CategoryList from "../../components/CategoryList/CategoryList";
 import ListEditModal from "../../components/ListEditModal/ListEditModal";
 import ListItemAddModal from "../../components/ListItemAddModal/ListItemAddModal";
 import NavBar from "../../components/NavBar/NavBar";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function ListDetails() {
     const [list, setList] = useState(null);
@@ -19,6 +20,8 @@ function ListDetails() {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isAddOpen, setIsAddOpen] = useState(false);
     const { tripId, listId } = useParams();
+
+    setBodyColor("#f5f5f5");
 
     const [listData, setListData] = useState({
         trip_id: tripId,
@@ -61,14 +64,17 @@ function ListDetails() {
 
     const getListItems = async () => {
         try {
-            const { data } = await axios.get(`${baseUrl}/api/lists/${listId}/items/`);
+            const { data } = await axios.get(
+                `${baseUrl}/api/lists/${listId}/items/`
+            );
 
             setListItems(data);
 
             const uniqueCategories = data
                 .filter(
                     (obj, index, self) =>
-                        index === self.findIndex((x) => x.category === obj.category)
+                        index ===
+                        self.findIndex((x) => x.category === obj.category)
                 )
                 .map((obj) => ({ id: obj.id, category: obj.category }));
 
@@ -80,7 +86,10 @@ function ListDetails() {
 
     const addListItem = async () => {
         try {
-            await axios.post(`${baseUrl}/api/lists/${listId}/items`, newListItem);
+            await axios.post(
+                `${baseUrl}/api/lists/${listId}/items`,
+                newListItem
+            );
 
             getListItems();
 
@@ -101,13 +110,19 @@ function ListDetails() {
             if (itemBody) {
                 const { created_at, updated_at, ...itemToUpdate } = itemBody;
 
-                await axios.put(`${baseUrl}/api/lists/${listId}/items/${id}`, itemToUpdate);
+                await axios.put(
+                    `${baseUrl}/api/lists/${listId}/items/${id}`,
+                    itemToUpdate
+                );
 
                 getListItems();
             } else {
-                const selectedItem = listItems.find((item) => item.id === selectedItemId);
+                const selectedItem = listItems.find(
+                    (item) => item.id === selectedItemId
+                );
 
-                const { created_at, updated_at, ...itemToUpdate } = selectedItem;
+                const { created_at, updated_at, ...itemToUpdate } =
+                    selectedItem;
 
                 await axios.put(
                     `${baseUrl}/api/lists/${listId}/items/${selectedItemId}`,
@@ -176,7 +191,10 @@ function ListDetails() {
                     item.id === selectedItemId
                         ? {
                               ...item,
-                              [name]: name === "status" ? convertStatusToNumber(value) : value,
+                              [name]:
+                                  name === "status"
+                                      ? convertStatusToNumber(value)
+                                      : value,
                           }
                         : item
                 )
@@ -185,7 +203,8 @@ function ListDetails() {
             // handle add modal input changes
             setNewListItem({
                 ...newListItem,
-                [name]: name === "status" ? convertStatusToNumber(value) : value,
+                [name]:
+                    name === "status" ? convertStatusToNumber(value) : value,
             });
         }
     };
@@ -233,7 +252,9 @@ function ListDetails() {
             }
 
             if (selectedItemId) {
-                const selectedItem = listItems.find((item) => item.id === selectedItemId);
+                const selectedItem = listItems.find(
+                    (item) => item.id === selectedItemId
+                );
                 if (
                     !selectedItem.list_id ||
                     !selectedItem.item ||

@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import plusIcon from "../../assets/icons/plus.svg";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -14,6 +15,8 @@ dayjs.extend(timezone);
 function Dashboard() {
     const [remainingTrips, setRemainingTrips] = useState(null);
     const [closestTrip, setClosestTrip] = useState(null);
+
+    setBodyColor("#cfcaec");
 
     const getTrips = async () => {
         try {

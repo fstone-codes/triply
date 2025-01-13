@@ -4,6 +4,7 @@ import { baseUrl } from "../../utils/utils";
 import axios from "axios";
 import dayjs from "dayjs";
 import TripForm from "../../components/TripForm/TripForm";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function TripEdit() {
     const { tripId } = useParams();
@@ -16,6 +17,8 @@ function TripEdit() {
         start_date: "",
         end_date: "",
     });
+
+    setBodyColor("#212121");
 
     const getTrip = async () => {
         try {

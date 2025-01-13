@@ -4,6 +4,7 @@ import { baseUrl } from "../../utils/utils";
 import axios from "axios";
 import dayjs from "dayjs";
 import ItineraryForm from "../../components/ItineraryForm/ItineraryForm";
+import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function ItineraryAdd() {
     const navigate = useNavigate();
@@ -17,6 +18,8 @@ function ItineraryAdd() {
         end: "",
         all_day: false,
     });
+
+    setBodyColor("#212121");
 
     const addItinerary = async () => {
         try {
