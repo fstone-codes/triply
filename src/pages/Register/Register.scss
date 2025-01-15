@@ -2,27 +2,36 @@
 @use "../../styles/partials/variables" as *;
 
 .register {
-    @include flexbox(column, center, unset);
+    @include flexbox(column, center, center);
     padding: $spacing-sm;
     width: 100vw;
     height: 100vh;
     overflow: auto;
+
+    @include tablet {
+        padding: 0 $spacing-xlg $spacing-lg;
+    }
+
+    @include desktop {
+        padding: 0 $spacing-xxlg $spacing-xlg;
+    }
 
     &__form {
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
         padding: $spacing-lg $spacing-med $spacing-sm;
         border-radius: 3rem;
-        height: 100%;
+        width: 100%;
         background-color: $transparent-color-white-50;
         overflow: scroll;
 
         @include tablet {
-            padding: 0 $spacing-lg;
+            padding: calc(2 * $spacing-med) $spacing-lg $spacing-med;
+            max-width: 66.5rem;
         }
 
         @include desktop {
-            padding: $spacing-lg $spacing-xxlg;
+            padding: calc(2 * $spacing-lg) $spacing-xlg $spacing-lg;
         }
     }
 
@@ -30,10 +39,24 @@
         @include font-header;
     }
 
+    &__container {
+        @include flexbox(column, unset, unset);
+        gap: $spacing-sm;
+
+        @include tablet {
+            @include flexbox(row, unset, unset);
+            gap: $spacing-xlg;
+        }
+    }
+
     &__button-container {
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
         margin-top: $spacing-xsm;
+
+        @include tablet {
+            flex-direction: row-reverse;
+        }
     }
 
     &__link {

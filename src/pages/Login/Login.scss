@@ -2,15 +2,11 @@
 @use "../../styles/partials/variables" as *;
 
 .login {
-    @include flexbox(column, center, unset);
+    @include flexbox(unset, center, center);
     padding: 0 $spacing-sm 4.25rem;
     width: 100vw;
     height: 100vh;
     overflow: auto;
-
-    @include tablet {
-        @include flexbox(unset, center, center);
-    }
 
     &__form {
         @include flexbox(column, unset, unset);
@@ -18,13 +14,10 @@
         padding: $spacing-lg $spacing-med $spacing-sm;
         border-radius: 3rem;
         background-color: $transparent-color-white-50;
+        flex: 1 0 calc(20rem - (2 * $spacing-sm));
+        max-width: 25rem;
 
         @include tablet {
-            padding: calc(2 * $spacing-med) $spacing-lg $spacing-med;
-            width: 40rem;
-        }
-
-        @include desktop {
             padding: calc(2 * $spacing-med) $spacing-lg $spacing-med;
         }
     }
@@ -37,6 +30,10 @@
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
         margin-top: $spacing-xsm;
+
+        @include tablet {
+            flex-direction: row-reverse;
+        }
     }
 
     &__link {

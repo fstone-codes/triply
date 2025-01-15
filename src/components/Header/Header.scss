@@ -8,11 +8,11 @@
 
     @include tablet {
         @include flexbox(unset, space-between, center);
-        padding: $spacing-sm $spacing-lg;
+        padding: $spacing-lg $spacing-xlg;
     }
 
     @include desktop {
-        padding: $spacing-sm $spacing-xxlg;
+        padding: $spacing-xlg $spacing-xxlg;
     }
 
     &__logo-container {
@@ -25,6 +25,14 @@
 
     &__logo-full {
         width: 7.625rem;
+
+        @include tablet {
+            width: 10rem;
+        }
+
+        @include desktop {
+            width: 12rem;
+        }
     }
 
     &__logo-icon {

@@ -63,60 +63,66 @@ function Register() {
         <main className="register">
             <form className="register__form" onSubmit={handleSubmit}>
                 <h1 className="register__title">Sign Up</h1>
-                <FormInput
-                    id="first_name"
-                    label="First Name"
-                    type="text"
-                    name="first_name"
-                    value={formData.first_name}
-                    placeholder="Type your first name"
-                    handleInputChange={handleInputChange}
-                />
-                <FormInput
-                    id="last_name"
-                    label="Last Name"
-                    type="text"
-                    name="last_name"
-                    value={formData.last_name}
-                    placeholder="Type your last name"
-                    handleInputChange={handleInputChange}
-                />
-                <FormInput
-                    id="username"
-                    label="Username"
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    placeholder="Type a unique username"
-                    handleInputChange={handleInputChange}
-                />
-                <FormInput
-                    id="email"
-                    label="Email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    placeholder="Type your email"
-                    handleInputChange={handleInputChange}
-                />
-                <FormInput
-                    id="password"
-                    label="Password"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    placeholder="Type your password"
-                    handleInputChange={handleInputChange}
-                />
-                <FormInput
-                    id="confirm-password"
-                    label="Confirm Password"
-                    type="password"
-                    name="confirm-password"
-                    value={formData.confirm_password}
-                    placeholder="Type your password"
-                    handleInputChange={handleInputChange}
-                />
+                <div className="register__container">
+                    <FormInput
+                        id="first_name"
+                        label="First Name"
+                        type="text"
+                        name="first_name"
+                        value={formData.first_name}
+                        placeholder="Type your first name"
+                        handleInputChange={handleInputChange}
+                    />
+                    <FormInput
+                        id="last_name"
+                        label="Last Name"
+                        type="text"
+                        name="last_name"
+                        value={formData.last_name}
+                        placeholder="Type your last name"
+                        handleInputChange={handleInputChange}
+                    />
+                </div>
+                <div className="register__container">
+                    <FormInput
+                        id="username"
+                        label="Username"
+                        type="text"
+                        name="username"
+                        value={formData.username}
+                        placeholder="Type a unique username"
+                        handleInputChange={handleInputChange}
+                    />
+                    <FormInput
+                        id="email"
+                        label="Email"
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        placeholder="Type your email"
+                        handleInputChange={handleInputChange}
+                    />
+                </div>
+                <div className="register__container">
+                    <FormInput
+                        id="password"
+                        label="Password"
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        placeholder="Type your password"
+                        handleInputChange={handleInputChange}
+                    />
+                    <FormInput
+                        id="confirm-password"
+                        label="Confirm Password"
+                        type="password"
+                        name="confirm-password"
+                        value={formData.confirm_password}
+                        placeholder="Type your password"
+                        handleInputChange={handleInputChange}
+                    />
+                </div>
                 <div className="register__button-container">
                     <Button classType="primary" type="submit" text="Submit" />
                     <Link className="login__link" to="/">
