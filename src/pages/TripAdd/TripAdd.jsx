@@ -23,6 +23,7 @@ function TripSetup() {
         try {
             const { data } = await axios.post(`${baseUrl}/api/trips`, formData);
 
+            setFormSubmitted(false);
             navigate(`/trip/${data.id}/itinerary`);
         } catch (error) {
             console.error("Error creating trip:", error);

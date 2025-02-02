@@ -1,26 +1,65 @@
 import "./Dashboard.scss";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../../utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
 import plusIcon from "../../assets/icons/plus.svg";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import setBodyColor from "../../utils/setBackgroundColor.js";
+import { useCookies } from "react-cookie";
+import { jwtDecode } from "jwt-decode";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
 function Dashboard() {
+    const navigate = useNavigate();
+    const [cookies, setCookie] = useCookies(["access_token"]);
     const [remainingTrips, setRemainingTrips] = useState(null);
     const [closestTrip, setClosestTrip] = useState(null);
 
     setBodyColor("#cfcaec");
 
+    if (!cookies.access_token) {
+        navigate("/login");
+    }
+
     const getTrips = async () => {
         try {
-            const { data } = await axios.get(`${baseUrl}/api/trips?userId=1`);
+            const { exp } = jwtDecode(cookies.access_token);
+            const currentTime = Date.now() / 1000;
+
+            if (exp < currentTime) {
+                const refresh = await axios.post(
+                    `${baseUrl}/api/users/refresh`,
+                    {
+                        token: cookies.access_token,
+                    }
+                );
+
+                if (refresh.data.refresh_token) {
+                    setCookie("access_token", refresh.data.refresh_token, {
+                        path: "/",
+                        secure: true,
+                        httpOnly: true,
+                    });
+                } else {
+                    console.error("Invalid session, please login again");
+
+                    setCookie("access_token", "", {
+                        path: "/",
+                        secure: true,
+                        httpOnly: true,
+                    });
+                    navigate("/login");
+                }
+            }
+
+            const { data } = await axios.get(`${baseUrl}/api/trips`, {
+                headers: { Authorization: `Bearer ${cookies.access_token}` },
+            });
 
             const allTrips = data
                 .filter((trip) => dayjs.utc(trip.start_date).local() > dayjs())

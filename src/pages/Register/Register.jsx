@@ -9,6 +9,7 @@ import setBodyColor from "../../utils/setBackgroundColor.js";
 
 function Register() {
     const navigate = useNavigate();
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -22,7 +23,10 @@ function Register() {
 
     const addUser = async () => {
         try {
-            await axios.add(`${baseUrl}/api/users`, formData);
+            await axios.post(`${baseUrl}/api/users`, formData);
+
+            setFormSubmitted(false);
+            navigate("/login");
         } catch (error) {
             console.error("Error creating user:", error);
         }
@@ -39,8 +43,13 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setFormSubmitted(true);
 
-        navigate("/");
+        if (!validateForm) {
+            return;
+        }
+
+        await addUser();
     };
 
     const validateForm = () => {
@@ -114,10 +123,10 @@ function Register() {
                         handleInputChange={handleInputChange}
                     />
                     <FormInput
-                        id="confirm-password"
+                        id="confirm_password"
                         label="Confirm Password"
                         type="password"
-                        name="confirm-password"
+                        name="confirm_password"
                         value={formData.confirm_password}
                         placeholder="Type your password"
                         handleInputChange={handleInputChange}
