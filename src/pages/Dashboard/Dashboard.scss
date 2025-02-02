@@ -8,7 +8,15 @@
     width: 100vw;
     height: 100vh;
     background: $primary-color-main;
-    overflow: auto;
+    overflow: hidden;
+
+    @include tablet {
+        padding: $spacing-xlg;
+    }
+
+    @include desktop {
+        padding: $spacing-xxlg;
+    }
 
     &__title {
         @include font-header;
@@ -16,12 +24,37 @@
 
     &__circle {
         position: absolute;
-        top: 3.5rem;
-        right: 13rem;
         border-radius: 50%;
-        width: 8.25rem;
         aspect-ratio: 1 / 1;
         background-color: $transparent-color-white-25;
+
+        &--a {
+            top: 3.5rem;
+            right: 13rem;
+            width: 8.25rem;
+
+            @include tablet {
+                top: 7rem;
+                left: 1%;
+                right: unset;
+            }
+        }
+
+        &--b {
+            display: none;
+
+            @include tablet {
+                display: unset;
+                top: 16rem;
+                left: 8%;
+            }
+        }
+    }
+
+    &__container {
+        @include tablet {
+            @include flexbox(unset, space-between, center);
+        }
     }
 
     &__add {
@@ -40,6 +73,20 @@
             & .dashboard__icon {
                 filter: invert(100%) sepia(2%) saturate(4051%)
                     hue-rotate(203deg) brightness(116%) contrast(92%);
+            }
+        }
+
+        &--float {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--title {
+            display: none;
+
+            @include tablet {
+                @include flexbox(column, center, center);
             }
         }
     }
@@ -65,6 +112,12 @@
         &:hover {
             transform: scale(103%);
         }
+
+        @include tablet {
+            top: 12.5rem;
+            left: 5vw;
+            right: unset;
+        }
     }
 
     &__countdown-text {
@@ -78,15 +131,26 @@
     }
 
     &__trips-container {
+        position: relative;
         @include flexbox(column, unset, unset);
         gap: $spacing-sm;
         border-radius: 3rem;
         width: 100%;
         max-height: 60%;
+
+        @include tablet {
+            width: 60%;
+            max-width: 32rem;
+            margin-left: auto;
+        }
     }
 
     &__trips-title {
         @include font-subheader;
+
+        @include tablet {
+            min-height: 2.5rem;
+        }
     }
 
     &__trips-list {

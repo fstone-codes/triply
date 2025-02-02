@@ -3,16 +3,16 @@
 
 .header {
     @include flexbox(unset, space-between, flex-start);
-    padding: $spacing-sm;
+    padding: $spacing-sm $spacing-sm 0;
     width: 100vw;
 
     @include tablet {
         @include flexbox(unset, space-between, center);
-        padding: $spacing-lg $spacing-xlg;
+        padding: $spacing-lg $spacing-xlg 0;
     }
 
     @include desktop {
-        padding: $spacing-xlg $spacing-xxlg;
+        padding: $spacing-xlg $spacing-xxlg 0;
     }
 
     &__logo-container {

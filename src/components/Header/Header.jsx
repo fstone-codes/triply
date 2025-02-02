@@ -1,5 +1,5 @@
 import "./Header.scss";
-import { Link, useLocation, useMatch } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import avatar from "../../assets/icons/avatar.svg";
 import logoFull from "../../assets/logos/triply-logo-full-light.svg";
@@ -12,12 +12,6 @@ function Header() {
     useEffect(() => {
         setRoute(location.pathname);
     }, [location]);
-
-    const isTripPage = useMatch("/trip/:tripId");
-    const isTripEditPage = useMatch("/trip/:tripId/edit");
-    const isTripListPage = useMatch("/trip/:tripId/list");
-    const isItineraryAddPage = useMatch("/trip/:tripId/itinerary/add");
-    const isListAddPage = useMatch("/trip/:tripId/list/add");
 
     return (
         <>

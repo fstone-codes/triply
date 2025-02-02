@@ -3,7 +3,7 @@
 
 .login {
     @include flexbox(unset, center, center);
-    padding: 0 $spacing-sm 4.25rem;
+    padding: $spacing-sm $spacing-sm 4.25rem;
     width: 100vw;
     height: 100vh;
     overflow: auto;

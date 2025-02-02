@@ -9,11 +9,11 @@
     overflow: auto;
 
     @include tablet {
-        padding: 0 $spacing-xlg $spacing-lg;
+        padding: $spacing-lg $spacing-xlg;
     }
 
     @include desktop {
-        padding: 0 $spacing-xxlg $spacing-xlg;
+        padding: $spacing-xlg $spacing-xxlg;
     }
 
     &__form {

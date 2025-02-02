@@ -4,6 +4,8 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import FormInput from "../../components/FormInput/FormInput";
 import setBodyColor from "../../utils/setBackgroundColor.js";
+import { baseUrl } from "../../utils/utils.js";
+import axios from "axios";
 
 function Login() {
     const navigate = useNavigate();
@@ -13,6 +15,19 @@ function Login() {
     });
 
     setBodyColor("#cfcaec");
+
+    const validateUser = async (loginInfo) => {
+        try {
+            const { data } = await axios.post(
+                `${baseUrl}/users/login`,
+                loginInfo
+            );
+
+            console.log(data);
+        } catch (error) {
+            console.error("Error fetching user:", error);
+        }
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;

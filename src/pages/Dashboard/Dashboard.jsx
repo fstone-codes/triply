@@ -76,16 +76,30 @@ function Dashboard() {
         const countdownInHours = tripStartLocal.diff(today, "hour");
         const countdownInMinutes = tripStartLocal.diff(today, "minute");
 
-        if (countdownInMonths >= 1) return `${countdownInMonths} months`;
-        if (countdownInMonths < 1) return `${countdownInDays} days`;
-        if (countdownInDays < 1) return `${countdownInHours} hours`;
-        if (countdownInHours < 1) return `${countdownInMinutes} mins`;
+        return countdownInMonths > 1
+            ? `${countdownInMonths} months`
+            : countdownInMonths === 1
+            ? `${countdownInMonths} month`
+            : countdownInMonths < 1 && countdownInDays !== 1
+            ? `${countdownInDays} days`
+            : countdownInMonths < 1 && countdownInDays === 1
+            ? `${countdownInDays} day`
+            : countdownInDays < 1 && countdownInHours !== 1
+            ? `${countdownInHours} hours`
+            : countdownInDays < 1 && countdownInHours === 1
+            ? `${countdownInHours} hour`
+            : countdownInHours < 1 && countdownInMinutes !== 1
+            ? `${countdownInMinutes} mins`
+            : countdownInHours < 1 && countdownInMinutes === 1
+            ? `${countdownInMinutes} min`
+            : "Today!";
     }
 
     return (
         <main className="dashboard">
             <h1 className="dashboard__title">Hi Sabrina!</h1>
-            <div className="dashboard__circle"></div>
+            <div className="dashboard__circle dashboard__circle--a"></div>
+            <div className="dashboard__circle dashboard__circle--b"></div>
             <Link
                 className="dashboard__link dashboard__countdown"
                 to={`/trip/${closestTrip.id}`}
@@ -99,7 +113,7 @@ function Dashboard() {
             </Link>
             <section className="dashboard__trips-container">
                 <Link
-                    className="dashboard__link dashboard__add"
+                    className="dashboard__link dashboard__add dashboard__add--float"
                     to={`/trip/add`}
                 >
                     <img
@@ -108,7 +122,19 @@ function Dashboard() {
                         alt="plus icon"
                     />
                 </Link>
-                <h2 className="dashboard__trips-title">Upcoming Trips</h2>
+                <div className="dashboard__container">
+                    <h2 className="dashboard__trips-title">Upcoming Trips</h2>
+                    <Link
+                        className="dashboard__link dashboard__add dashboard__add--title"
+                        to={`/trip/add`}
+                    >
+                        <img
+                            className="dashboard__icon"
+                            src={plusIcon}
+                            alt="plus icon"
+                        />
+                    </Link>
+                </div>
                 <ul className="dashboard__trips-list">
                     {remainingTrips.map((trip) => (
                         <Link
